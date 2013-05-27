@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Utbildningsmaterial" OnQuickLaunch="TRUE" TemplateType="12007" Url="Utbildningsmaterial" Description="Samling av informationsmaterial och arbetscase för personalmöten."></ListInstance>
+</Elements>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{61dffd4a-af46-4b3d-93dc-89e618adf58d}"
+       Name="tillsynRepresentant"
+       DisplayName="Representant från försäljningsstället"
+       Type="Text"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

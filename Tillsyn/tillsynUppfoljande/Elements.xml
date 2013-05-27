@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{8f36d72b-6b0c-40c0-b3f7-ffe97069cf34}"
+       Name="tillsynUppfoljande"
+       DisplayName="Besöket är ett uppföljande tillsynsbesök"
+       Type="Choice"
+       Required="FALSE"
+       Group="Tillsyn">
+    <CHOICES>
+      <CHOICE>Nej</CHOICE>
+      <CHOICE>Ja, se tidigare protokoll med händelsenummer</CHOICE>
+    </CHOICES>
+  </Field>
+</Elements>

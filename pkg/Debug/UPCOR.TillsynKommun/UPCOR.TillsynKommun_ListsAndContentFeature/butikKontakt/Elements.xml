@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{574795f5-e29a-45b3-a51b-0d2cb0352f63}"
+       Name="butikKontakt"
+       DisplayName="KontaktPerson"
+       Type="LookupMulti"
+       List="Lists/Kontakter"
+       ShowField="Title"
+       Required="FALSE"
+       Group="Custom Site Columns">
+  </Field>
+</Elements>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{a937d7c5-7a79-418d-a752-59ad96a49065}"
+       Name="tillsynPersonalUtbildningHur"
+       DisplayName="Om ja, ange hur:"
+       Type="Text"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

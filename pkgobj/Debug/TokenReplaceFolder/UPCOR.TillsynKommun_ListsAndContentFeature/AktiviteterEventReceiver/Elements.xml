@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Receivers ListTemplateId="12005">
+      <Receiver>
+        <Name>AktiviteterEventReceiverItemAdded</Name>
+        <Type>ItemAdded</Type>
+        <Assembly>UPCOR.TillsynKommun, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f66bbd75f013e009</Assembly>
+        <Class>UPCOR.TillsynKommun.Aktiviteter.AktiviteterEventReceiver.AktiviteterEventReceiver</Class>
+        <SequenceNumber>10000</SequenceNumber>
+      </Receiver>
+  </Receivers>
+</Elements>

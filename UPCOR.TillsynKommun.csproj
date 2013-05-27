@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{901F1372-5A3F-40CF-8E80-BE089ABA3476}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UPCOR.TillsynKommun</RootNamespace>
+    <AssemblyName>UPCOR.TillsynKommun</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>jtkey2010.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aktiviteter\AktiviteterEventReceiver\AktiviteterEventReceiver.cs" />
+    <Compile Include="Features\ListsAndContentFeature\ListsAndContentFeature.EventReceiver.cs">
+      <DependentUpon>ListsAndContentFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Kundkort\KundkortEventReceiver\KundkortEventReceiver.cs" />
+    <Compile Include="Municipal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Filer Webbplatstillgangar\Elements.xml" />
+    <Content Include="Filer Webbplatstillgangar\heart.gif" />
+    <Content Include="Filer Webbplatstillgangar\profil_ettan_vinter_557x100.jpg" />
+    <Content Include="Filer Blanketter\Elements.xml" />
+    <Content Include="Genvagar\Elements.xml" />
+    <Content Include="Kund\butikAdress\Elements.xml" />
+    <Content Include="Kund\butikAgare\Elements.xml" />
+    <Content Include="Kund\butikKontakt\Elements.xml" />
+    <Content Include="Kund\butikKundnummer\Elements.xml" />
+    <Content Include="Dokumentbibliotek\Utbildningsmaterial\EditDlg.htm" />
+    <Content Include="Dokumentbibliotek\Utbildningsmaterial\Elements.xml" />
+    <Content Include="Dokumentbibliotek\Utbildningsmaterial\FileDlg.htm" />
+    <Content Include="Dokumentbibliotek\Utbildningsmaterial\Repair.aspx" />
+    <Content Include="Dokumentbibliotek\Utbildningsmaterial\Schema.xml" />
+    <Content Include="Dokumentbibliotek\Utbildningsmaterial\Upload.aspx" />
+    <Content Include="Dokumentbibliotek\Utbildningsmaterial\UtbildningsmaterialInstance\Elements.xml" />
+    <Content Include="Nyheter\Elements.xml" />
+    <Content Include="Tillsyn\tillsynAktivInformationNar\Elements.xml" />
+    <Content Include="Tillsyn\tillsynAktivInformation\Elements.xml" />
+    <Content Include="Tillsyn\tillsynAnmalt\Elements.xml" />
+    <Content Include="Tillsyn\tillsynFotodok\Elements.xml" />
+    <Content Include="Tillsyn\tillsynNaringAnmalt\Elements.xml" />
+    <Content Include="Tillsyn\tillsynNaringIngett\Elements.xml" />
+    <Content Include="Tillsyn\tillsynNaringPlanVarforInte\Elements.xml" />
+    <Content Include="Tillsyn\tillsynNaringPlan\Elements.xml" />
+    <Content Include="Tillsyn\tillsynPersonalUtbildningHur\Elements.xml" />
+    <Content Include="Tillsyn\tillsynPersonalUtbildning\Elements.xml" />
+    <Content Include="Tillsyn\tillsynUppfoljande\Elements.xml" />
+    <Content Include="Webbplatssidor\Elements.xml" />
+    <Content Include="Webbplatstillgangar\Elements.xml" />
+    <None Include="Agare\AgareInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{46af20b9-97c6-41b1-9940-2edfbe290dfa}</SharePointProjectItemId>
+    </None>
+    <None Include="Agare\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{dda21510-d5e1-4462-b212-c6985fb69085}</SharePointProjectItemId>
+    </None>
+    <None Include="Aktiviteter\AktiviteterEventReceiver\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a8313fcc-2553-4038-83b2-976a07c35d92}</SharePointProjectItemId>
+    </None>
+    <None Include="Aktiviteter\AktiviteterInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6d6cc417-ccdb-43e5-9600-284f5aaa70a5}</SharePointProjectItemId>
+    </None>
+    <None Include="Aktiviteter\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{25287f1f-3720-4c8f-a797-97a7137894b8}</SharePointProjectItemId>
+    </None>
+    <Content Include="Dokumentbibliotek\Blanketter\BlanketterInstance\Elements.xml" />
+    <Content Include="Dokumentbibliotek\Blanketter\EditDlg.htm" />
+    <Content Include="Dokumentbibliotek\Blanketter\Elements.xml" />
+    <Content Include="Dokumentbibliotek\Blanketter\FileDlg.htm" />
+    <Content Include="Dokumentbibliotek\Blanketter\Repair.aspx" />
+    <Content Include="Dokumentbibliotek\Blanketter\Schema.xml" />
+    <Content Include="Dokumentbibliotek\Blanketter\Upload.aspx" />
+    <Content Include="Filer Blanketter\06a_Anmalan_om_forsaljning_tobak.pdf" />
+    <Content Include="Filer Blanketter\06b_Anmalan_om_forsaljning_folkol.pdf" />
+    <None Include="Filer Webbplatstillgangar\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{358aca19-e2ce-40e7-b6bf-b7e6f6d784a0}</SharePointProjectItemId>
+    </None>
+    <None Include="Filer Blanketter\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3dfea0aa-caba-4d4e-a9f4-a6261503ebdc}</SharePointProjectItemId>
+    </None>
+    <Content Include="Filer Utbildningsmaterial\03a_Forsaljningsregler.pdf" />
+    <Content Include="Filer Utbildningsmaterial\03b_Tobaksmarknadsforing.pdf" />
+    <Content Include="Filer Utbildningsmaterial\03c_tobaksmarkning.pdf" />
+    <Content Include="Filer Utbildningsmaterial\05a_Case1_Ung_tjej.pdf" />
+    <Content Include="Filer Utbildningsmaterial\05b_Case2_Mamma_handlar_med_sin_son.pdf" />
+    <Content Include="Filer Utbildningsmaterial\05c_Case3_ung_kille_kommer_in_och_handlar_till_sin_farfar.pdf" />
+    <Content Include="Filer Utbildningsmaterial\05d_Case4_Full_granne.pdf" />
+    <Content Include="Filer Utbildningsmaterial\08a_lagstod_for_tillsyn_av_tobak_och_folkolsforsaljning.pdf" />
+    <None Include="Genvagar\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{05f18d23-65da-4521-91ec-be9e33ba268b}</SharePointProjectItemId>
+    </None>
+    <None Include="Kund\butikAdress\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8f37015c-02e3-4223-adb6-31c17cc1403a}</SharePointProjectItemId>
+    </None>
+    <None Include="Kund\butikAgare\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{72e7458b-be0a-4fb0-8bf1-9bfafbb3a2f8}</SharePointProjectItemId>
+    </None>
+    <None Include="Kund\butikKontakt\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2e2cc6db-325e-472d-84a5-a9e5b79592e6}</SharePointProjectItemId>
+    </None>
+    <None Include="Kund\butikKundnummer\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{23bbaa4f-39b6-41b3-9272-0a7502b7bd00}</SharePointProjectItemId>
+    </None>
+    <None Include="Dokumentbibliotek\Blanketter\BlanketterInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{049d28b7-eee6-471d-8bc4-504e6689e8da}</SharePointProjectItemId>
+    </None>
+    <None Include="Dokumentbibliotek\Blanketter\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fe5512e3-4b6f-4d19-8a5c-0da9fa5fe331}</SharePointProjectItemId>
+    </None>
+    <None Include="Filer Utbildningsmaterial\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a79b0758-8542-4d8a-b374-38692ac5e0ed}</SharePointProjectItemId>
+    </None>
+    <None Include="CustomerCT\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{93ec1c5b-3f4e-468b-aa26-6afe3e04f51c}</SharePointProjectItemId>
+    </None>
+    <None Include="Nyheter\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{834855e2-954f-4da9-bf67-9e5c260511b3}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynAktivInformationNar\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8fb383d6-e1b4-43ff-ace2-bf48860f8bdc}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynAktivInformation\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d9917096-79fe-4e69-babb-b1dccb15463e}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynAnmalt\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{bdee1fef-ae93-450c-8ff0-1a29f32bc494}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynButik\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fa2b2e72-7bac-46bf-b9de-7917107f2b76}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynDatum\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9dae42d4-85ee-4aa9-a13b-31202d11c5fc}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\ListsAndContentFeature\ListsAndContentFeature.feature">
+      <FeatureId>{86d12aed-fe02-4033-bc24-1ea82eba823f}</FeatureId>
+    </None>
+    <None Include="Adresser\AdresserInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{388439ae-5233-4b70-829e-713674e4b539}</SharePointProjectItemId>
+    </None>
+    <None Include="Adresser\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{5276086f-862b-4251-914d-b585dcb29e89}</SharePointProjectItemId>
+    </None>
+    <None Include="InspectionCT\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9ce23172-4eea-42f9-ae7b-e40b917b22c1}</SharePointProjectItemId>
+    </None>
+    <None Include="Kontakter\KontakterInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2553cbce-bdde-4e02-9278-7d26bd83ad85}</SharePointProjectItemId>
+    </None>
+    <None Include="Kundkort\KundkortEventReceiver\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{36b9c530-3ca1-4f4c-87d9-2bdb492916d2}</SharePointProjectItemId>
+    </None>
+    <None Include="Kundkort\KundkortInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{49a29348-344b-4517-94de-0ac9043dc497}</SharePointProjectItemId>
+    </None>
+    <None Include="Kundkort\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1acb54c5-3bfe-4c94-bcdd-6502410d1abf}</SharePointProjectItemId>
+    </None>
+    <None Include="jtkey2010.pfx" />
+    <None Include="Kontakter\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b869e78f-950c-47d1-a963-d3ac7a4d026f}</SharePointProjectItemId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>{c4b14574-498c-41cc-866e-e97025dd6240}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="TillsynKommunSD\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{74728717-0b61-4cd9-baef-740ea5e073c0}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynFotodok\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ebd13fee-6cc1-44b1-991f-faaf0ea5d549}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynNaringAnmalt\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7e9acb99-67ea-421f-88a3-c96fd53b0610}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynNaringIngett\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8147507b-e753-408f-bb05-f1ed0ddbd044}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynNaringPlanVarforInte\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{60660ff6-6242-4229-9f5d-03604a8063e9}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynNaringPlan\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0811048b-b60e-49aa-80c7-949479bbbab3}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynPersonalUtbildningHur\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c2bac6af-4773-4272-87d2-627e3ba34c79}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynPersonalUtbildning\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c957e391-ed05-41ef-82b6-e5ba34740883}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynRepresentant\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4472a186-5f77-455b-9470-c573d31de94f}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynKontrollanter\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{32bd976d-2f14-4e6b-bb4c-e90cb352881f}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynUppfoljande\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7f3daf34-1cd2-41d7-90fe-59bbfc521932}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynVerksamheter\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f13913f3-30c3-4376-ac07-0f6051025a5c}</SharePointProjectItemId>
+    </None>
+    <None Include="Dokumentbibliotek\Utbildningsmaterial\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{15a34572-c39e-4801-a80c-85fb6396f411}</SharePointProjectItemId>
+    </None>
+    <None Include="Dokumentbibliotek\Utbildningsmaterial\UtbildningsmaterialInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{bd6462b1-8c5a-453b-9f0f-af696cbcbf60}</SharePointProjectItemId>
+    </None>
+    <None Include="Webbplatssidor\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2441f526-b48a-4d42-b059-e91e47e30d01}</SharePointProjectItemId>
+    </None>
+    <None Include="Webbplatstillgangar\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{effc3348-c896-4fab-b9be-68acc67832fc}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Agare\AgareInstance\Elements.xml" />
+    <Content Include="Agare\Elements.xml" />
+    <Content Include="Agare\Schema.xml" />
+    <Content Include="Aktiviteter\AktiviteterEventReceiver\Elements.xml" />
+    <Content Include="Aktiviteter\AktiviteterInstance\Elements.xml" />
+    <Content Include="Aktiviteter\Elements.xml" />
+    <Content Include="Aktiviteter\Schema.xml" />
+    <Content Include="Filer Utbildningsmaterial\Elements.xml" />
+    <Content Include="CustomerCT\Elements.xml" />
+    <Content Include="Tillsyn\tillsynButik\Elements.xml" />
+    <Content Include="Tillsyn\tillsynDatum\Elements.xml" />
+    <Content Include="Features\ListsAndContentFeature\ListsAndContentFeature.Template.xml">
+      <DependentUpon>ListsAndContentFeature.feature</DependentUpon>
+    </Content>
+    <Content Include="Adresser\Elements.xml" />
+    <Content Include="Adresser\AdresserInstance\Elements.xml" />
+    <Content Include="Adresser\Schema.xml" />
+    <Content Include="InspectionCT\Elements.xml" />
+    <Content Include="Kontakter\KontakterInstance\Elements.xml" />
+    <Content Include="Kundkort\Elements.xml" />
+    <Content Include="Kundkort\KundkortEventReceiver\Elements.xml" />
+    <Content Include="Kundkort\KundkortInstance\Elements.xml" />
+    <Content Include="Kundkort\Schema.xml" />
+    <Content Include="Kontakter\Elements.xml" />
+    <Content Include="Kontakter\Schema.xml" />
+    <Content Include="TillsynKommunSD\default.aspx" />
+    <Content Include="TillsynKommunSD\onet.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TillsynKommunSD\webtemp_TillsynKommunSD.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Tillsyn\tillsynRepresentant\Elements.xml" />
+    <Content Include="Tillsyn\tillsynKontrollanter\Elements.xml" />
+    <Content Include="Tillsyn\tillsynVerksamheter\Elements.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0'">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

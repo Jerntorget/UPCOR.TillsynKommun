@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{aed4c283-bcaa-4a41-9151-bad39d5d0c07}"
+       Name="tillsynNaringPlanVarforInte"
+       DisplayName="Om nej, ange varför:"
+       Type="Text"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

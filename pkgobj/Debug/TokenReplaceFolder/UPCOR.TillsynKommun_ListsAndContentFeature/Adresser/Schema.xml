@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="Försaljningsställen Adresser" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/Försaljningsställen Adresser" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/">
+  <MetaData>
+    <ContentTypes>
+      
+      
+    <ContentType ID="0x0100fad05e43398749f88fb3ec0e34dc7d68" Name="ListFieldsContentType"><FieldRefs><FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" /><FieldRef ID="{fc2e188e-ba91-48c9-9dd3-16431afddd50}" Name="WorkAddress" /><FieldRef ID="{9a631556-3dac-49db-8d2f-fb033b0fdc24}" Name="WorkZip" /><FieldRef ID="{6ca7bd7f-b490-402e-af1b-2813cf087b1e}" Name="WorkCity" /><FieldRef ID="{fd630629-c165-4513-b43c-fdb16b86a14d}" Name="WorkPhone" /><FieldRef ID="{9d1cacc8-f452-4bc1-a751-050595ad96e1}" Name="WorkFax" /><FieldRef ID="{fce16b4c-fe53-4793-aaab-b4892e736d15}" Name="EMail" /></FieldRefs></ContentType><ContentTypeRef ID="0x01">
+        <Folder TargetName="Item" />
+      </ContentTypeRef><ContentTypeRef ID="0x0120" /></ContentTypes>
+    <Fields>
+      
+    <Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" DisplayName="Namn" Required="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Title" MaxLength="255" /><Field ID="{fc2e188e-ba91-48c9-9dd3-16431afddd50}" Name="WorkAddress" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="WorkAddress" Group="$Resources:core,Person_Event_Columns;" DisplayName="$Resources:core,Address;" Type="Note" NumLines="2" Sortable="FALSE" /><Field ID="{9a631556-3dac-49db-8d2f-fb033b0fdc24}" Name="WorkZip" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="WorkZip" Group="$Resources:core,Person_Event_Columns;" DisplayName="$Resources:core,ZIP_Postal_Code;" Type="Text" IMEMode="inactive" /><Field ID="{6ca7bd7f-b490-402e-af1b-2813cf087b1e}" Name="WorkCity" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="WorkCity" Group="$Resources:core,Person_Event_Columns;" DisplayName="$Resources:core,City;" Type="Text" /><Field ID="{fd630629-c165-4513-b43c-fdb16b86a14d}" Name="WorkPhone" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="WorkPhone" Group="$Resources:core,Person_Event_Columns;" DisplayName="$Resources:core,Business_Phone;" Type="Text" IMEMode="inactive" /><Field ID="{9d1cacc8-f452-4bc1-a751-050595ad96e1}" Name="WorkFax" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="WorkFax" Group="$Resources:core,Person_Event_Columns;" DisplayName="$Resources:core,Fax_Number;" Type="Text" IMEMode="inactive" /><Field ID="{fce16b4c-fe53-4793-aaab-b4892e736d15}" Name="EMail" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="EMail" Group="$Resources:core,Person_Event_Columns;" DisplayName="$Resources:core,E-Mail;" ReadOnly="FALSE" Type="Text" FromBaseType="TRUE" AllowDeletion="TRUE" /></Fields>
+    <Views>
+      
+      
+    <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitleNoMenu"></FieldRef></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="Modified" Ascending="FALSE"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View><View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/15/images/generic.png?rev=23" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <JSLink>clienttemplates.js</JSLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitle"></FieldRef><FieldRef Name="WorkAddress" /><FieldRef Name="WorkZip" /><FieldRef Name="WorkCity" /><FieldRef Name="WorkPhone" /><FieldRef Name="WorkFax" /><FieldRef Name="EMail" /></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="ID"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View><View BaseViewID="2" Name="791afc53-16b3-49e6-8f3b-629bb4c3ca5c" DisplayName="Tilläggsvy" Type="HTML" WebPartZoneID="Main" SetupPath="pages\viewpage.aspx" Url="Tilläggsvy.aspx"><RowLimit>3</RowLimit><ViewFields><FieldRef Name="LinkTitle" /><FieldRef Name="Title" /><FieldRef Name="WorkAddress" /><FieldRef Name="WorkZip" /><FieldRef Name="WorkCity" /><FieldRef Name="EMail" /><FieldRef Name="Modified" /></ViewFields><Query /><Toolbar Type="Standard" /><XslLink Default="TRUE">main.xsl</XslLink><JSLink>clienttemplates.js</JSLink></View></Views>
+    <Forms>
+      <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+    </Forms>
+  </MetaData>
+</List>

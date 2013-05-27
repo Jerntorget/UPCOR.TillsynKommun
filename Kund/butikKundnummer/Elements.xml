@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{353eabaa-f0d3-40cc-acc3-4c6b23d3a64f}"
+       Name="butikKundnummer"
+       DisplayName="Kundnummer"
+       Type="Text"
+       Required="FALSE"
+       ShowField="Title"
+       ShowInNewForm="FALSE"
+       ShowInEditForm="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

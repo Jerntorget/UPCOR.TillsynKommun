@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{f5b9b329-0c98-46e3-b3ed-659e65982f49}"
+       Name="tillsynNaringIngett"
+       DisplayName="Egenkontrollprogram har ingetts av näringsidkaren"
+       Description="Har näringsidkaren ingett egenkontrollprogram till kommunen?"
+       Type="Boolean"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

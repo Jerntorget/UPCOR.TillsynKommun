@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{edcc2df5-8e7c-434f-b57d-ca55fbaab582}"
+       Name="tillsynVerksamheter"
+       DisplayName="Verksamhet"
+       Description="Ange typ av verksamhet"
+       Type="MultiChoice"
+       Required="FALSE"
+       Group="Tillsyn">
+    <CHOICES>
+      <CHOICE>Tobak</CHOICE>
+      <CHOICE>Alkohol</CHOICE>
+    </CHOICES>
+  </Field>
+</Elements>

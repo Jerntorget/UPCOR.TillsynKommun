@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="Filer Utbildningsmaterial" Type="ElementManifest" />
+    <ProjectItemFile Source="03a_Forsaljningsregler.pdf" Target="Filer Utbildningsmaterial" Type="ElementFile" />
+    <ProjectItemFile Source="03b_Tobaksmarknadsforing.pdf" Target="Filer Utbildningsmaterial" Type="ElementFile" />
+    <ProjectItemFile Source="03c_tobaksmarkning.pdf" Target="Filer Utbildningsmaterial" Type="ElementFile" />
+    <ProjectItemFile Source="05a_Case1_Ung_tjej.pdf" Target="Filer Utbildningsmaterial" Type="ElementFile" />
+    <ProjectItemFile Source="05b_Case2_Mamma_handlar_med_sin_son.pdf" Target="Filer Utbildningsmaterial" Type="ElementFile" />
+    <ProjectItemFile Source="05c_Case3_ung_kille_kommer_in_och_handlar_till_sin_farfar.pdf" Target="Filer Utbildningsmaterial" Type="ElementFile" />
+    <ProjectItemFile Source="05d_Case4_Full_granne.pdf" Target="Filer Utbildningsmaterial" Type="ElementFile" />
+    <ProjectItemFile Source="08a_lagstod_for_tillsyn_av_tobak_och_folkolsforsaljning.pdf" Target="Filer Utbildningsmaterial" Type="ElementFile" />
+  </Files>
+</ProjectItem>

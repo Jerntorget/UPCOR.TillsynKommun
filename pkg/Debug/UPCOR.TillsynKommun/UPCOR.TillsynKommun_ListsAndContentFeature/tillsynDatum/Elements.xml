@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{3c068951-6963-44af-b230-30f9936d9e92}"
+       Name="tillsynDatum"
+       DisplayName="Datum"
+       Type="DateTime"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

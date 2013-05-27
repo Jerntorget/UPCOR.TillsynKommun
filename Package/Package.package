@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="c4b14574-498c-41cc-866e-e97025dd6240" solutionId="c4b14574-498c-41cc-866e-e97025dd6240" resetWebServer="false" sharePointProductVersion="15.0" name="UPCOR.TillsynKommun" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="86d12aed-fe02-4033-bc24-1ea82eba823f" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="74728717-0b61-4cd9-baef-740ea5e073c0" />
+  </projectItems>
+</package>

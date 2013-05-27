@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{7abbb518-3744-4f86-ae27-19d49fd91b00}"
+       Name="tillsynFotodok"
+       DisplayName="Fotodokumentation sker under tillsynsbesöket"
+       Type="Choice"
+       Required="FALSE"
+       Group="Tillsyn">
+    <CHOICES>
+      <CHOICE>Ja, se händelsenummer</CHOICE>
+      <CHOICE>Nej</CHOICE>
+    </CHOICES>
+  </Field>
+</Elements>

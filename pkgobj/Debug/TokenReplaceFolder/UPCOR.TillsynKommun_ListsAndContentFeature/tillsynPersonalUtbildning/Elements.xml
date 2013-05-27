@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{f37bb5f4-b3a9-49e3-bf36-593856740869}"
+       Name="tillsynPersonalUtbildning"
+       DisplayName="Frågor till kassapersonal"
+       Description="Har du fått information och utbildning av den försäljningsansvarige om arbetssätt och rutiner för att upprätthålla 18 års åldersgränsen?"
+       Type="Boolean"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>
