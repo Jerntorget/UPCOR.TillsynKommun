@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{f8c7b8c9-e5f8-4eb0-a11b-512405afc264}"
+       Name="tillsynVarningstextBeskrivning"
+       DisplayName="Om felaktig, beskriv hur"
+       Type="Text"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

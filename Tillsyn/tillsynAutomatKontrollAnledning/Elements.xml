@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{a3f6d69e-c500-4c6d-a106-6cb422fc7c76}"
+       Name="tillsynAutomatKontrollAnledning"
+       DisplayName="Om nej, ange på vilket sätt kontrollen inte är godtagbar"
+       Type="Text"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

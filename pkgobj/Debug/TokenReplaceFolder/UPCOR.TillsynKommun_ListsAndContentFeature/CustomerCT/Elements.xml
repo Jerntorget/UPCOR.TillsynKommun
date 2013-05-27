@@ -6,7 +6,7 @@
       <FieldRef ID="{353eabaa-f0d3-40cc-acc3-4c6b23d3a64f}" DisplayName="Kundnummer" Required="FALSE" ShowInNewForm="FALSE" ShowInEditForm="FALSE" Name="butikKundnummer" />
       <FieldRef ID="{b5c833ef-df4e-44f3-9ed5-316ed61a59c9}" DisplayName="Adress" Required="FALSE" Name="butikAdress" />
       <FieldRef ID="{50076a6a-424f-4b32-9992-9ce9ab02b1c8}" DisplayName="Ägare" Required="FALSE" Name="butikAgare" />
-      <FieldRef ID="{574795f5-e29a-45b3-a51b-0d2cb0352f63}" DisplayName="KontaktPerson" Required="FALSE" Name="butikKontakt" />
+      <FieldRef ID="{574795f5-e29a-45b3-a51b-0d2cb0352f63}" DisplayName="Kontaktperson" Required="FALSE" Name="butikKontakt" />
     </FieldRefs>
   </ContentType>
 </Elements>

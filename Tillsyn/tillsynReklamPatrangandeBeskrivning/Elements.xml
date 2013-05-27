@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{223ba463-7887-4432-908c-cbdf20d9debb}"
+       Name="tillsynReklamPatrangandeBeskrivning"
+       DisplayName="Om ja, beskriv på vilket sätt"
+       Description="Beskriv på vilket sätt som de av tillsynshandläggaren uppfattas såsom påträngande, uppsökande eller uppmanar till bruk av tobak"
+       Type="Text"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

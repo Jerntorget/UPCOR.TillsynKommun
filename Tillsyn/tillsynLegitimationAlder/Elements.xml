@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{3e33f7b0-d935-4cbd-8746-b8343d8697e9}"
+       Name="tillsynLegitimationAlder"
+       DisplayName="Om ja, under vilken ålder"
+       Description="Om man bedömer att åldern på den som vill köpa är under ___ år så kontrolleras legitimation"
+       Type="Integer"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

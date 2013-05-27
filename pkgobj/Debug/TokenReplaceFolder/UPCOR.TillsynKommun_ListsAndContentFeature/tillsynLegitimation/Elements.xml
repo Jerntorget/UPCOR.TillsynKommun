@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{846c5a5c-e20b-46d9-9b0c-ddea27d5e22b}"
+       Name="tillsynLegitimation"
+       DisplayName="Legitimation kontrolleras"
+       Type="Boolean"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

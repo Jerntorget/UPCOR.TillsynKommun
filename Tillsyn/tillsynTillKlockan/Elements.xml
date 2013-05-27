@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{61f6a570-7afb-4bc8-8d78-a5f82d16c4d8}"
+       Name="tillsynTillKlockan"
+       DisplayName="Till Klockan"
+       Type="DateTime"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

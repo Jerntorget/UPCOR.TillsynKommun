@@ -15,7 +15,7 @@ namespace UPCOR.TillsynKommun.Kundkort.KundkortEventReceiver
         private EventLog _log = null;
         private const string _source = "UPCOR.KundkortEventReceiver";
         private string _ver = "v0.006 ";
-        private string _dbg = "";
+        private string Global.Debug = "";
 
         public EventLog Log {
             get {
@@ -30,7 +30,7 @@ namespace UPCOR.TillsynKommun.Kundkort.KundkortEventReceiver
         }
 
         private void WriteLog(string msg, EventLogEntryType t, int id) {
-            Log.WriteEntry(DateTime.Now.ToString() + " " + _dbg + " " + _ver + msg, t, id);
+            Log.WriteEntry(DateTime.Now.ToString() + " " + Global.Debug + " " + _ver + msg, t, id);
         }
 
         /// <summary>

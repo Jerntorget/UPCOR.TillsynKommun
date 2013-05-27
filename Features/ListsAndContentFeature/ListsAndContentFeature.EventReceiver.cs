@@ -25,9 +25,9 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
     {
         private EventLog _log = null;
         private const string _source = "UPCOR.KundkortEventReceiver";
-        private string _dbg;
+        private string Global.Debug;
         private string _wikiFullContent;
-        private string _ver = "LACER v0.004 ";
+        private string _ver = "LACER v0.005 ";
 
         public EventLog Log {
             get {
@@ -42,7 +42,7 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
         }
 
         private void WriteLog(string msg, EventLogEntryType t, int id) {
-            Log.WriteEntry(DateTime.Now.ToString() + " " + _dbg + " " + _ver + msg, t, id);
+            Log.WriteEntry(DateTime.Now.ToString() + " " + Global.Debug + " " + _ver + msg, t, id);
         }
 
         private Dictionary<string, Municipal> municipals = new Dictionary<string, Municipal>();
@@ -51,7 +51,7 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             try {
-                _dbg = "start";
+                Global.Debug = "start";
                 Assembly assembly = Assembly.GetExecutingAssembly();
                 _ver += AssemblyName.GetAssemblyName(assembly.Location).Version.ToString() + " - ";
 
@@ -65,7 +65,7 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
                     web.Properties.Add("activatedOnce", "true");
                     web.Properties.Update();
 
-                    _dbg = "set activatedOnce flag";
+                    Global.Debug = "set activatedOnce flag";
 
                     if (municipals.Count > 0) {
                         WriteLog("Kommuner existerar redan", EventLogEntryType.Information, 1000);
@@ -75,25 +75,25 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
                         municipals.Add("borlänge", new Municipal { AreaCode = "0243", Name = "Borlänge", RegionLetter = "W" });
                     }
 
-                    _dbg = "added municipals";
+                    Global.Debug = "added municipals";
 
                     SPList listAgare = web.Lists.TryGetList("Ägare");
-                    _dbg = "Ägare";
+                    Global.Debug = "Ägare";
                     SPList listKontakter = web.Lists.TryGetList("Kontakter");
-                    _dbg = "Kontakter";
+                    Global.Debug = "Kontakter";
                     SPList listAdresser = web.Lists.TryGetList("Adresser");
-                    _dbg = "Adresser";
+                    Global.Debug = "Adresser";
                     SPList listKundkort = web.Lists.TryGetList("Kundkort");
-                    _dbg = "Kundkort";
+                    Global.Debug = "Kundkort";
                     SPList listSidor = web.Lists.TryGetList("Webbplatssidor");
-                    _dbg = "Webbplatssidor";
+                    Global.Debug = "Webbplatssidor";
                     SPList listAktiviteter = web.Lists.TryGetList("Aktiviteter");
-                    _dbg = "Aktiviteter";
+                    Global.Debug = "Aktiviteter";
                     SPList listNyheter = web.Lists.TryGetList("Senaste nytt");
-                    _dbg = "Senaste nytt";
+                    Global.Debug = "Senaste nytt";
                     //SPList listBlanketter = web.Lists.TryGetList("Blanketter");
                     SPList listGenvagar = web.Lists.TryGetList("Genvägar");
-                    _dbg = "Genvägar";
+                    Global.Debug = "Genvägar";
                     //SPList listGruppkopplingar = web.Lists.TryGetList("Gruppkopplingar"); ??
                     
 
@@ -103,7 +103,7 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
 
                         //* Define page payout
                         _wikiFullContent = FormatBasicWikiLayout();
-                        _dbg = "Skapa startsida";
+                        Global.Debug = "Skapa startsida";
                         SPFile startsida = listSidor.RootFolder.Files.Add(compoundUrl, SPTemplateFileType.WikiPage);
 
                         // Header
@@ -132,7 +132,7 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
 
                         startsida.Item[SPBuiltInFieldId.WikiField] = _wikiFullContent;
                         startsida.Item.UpdateOverwriteVersion();
-                        _dbg = "Startsida skapad";
+                        Global.Debug = "Startsida skapad";
                         #endregion
 
                         #region lägg till försäljningsställe
@@ -140,7 +140,7 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
 
                         //* Define page payout
                         _wikiFullContent = FormatSimpleWikiLayout();
-                        _dbg = "Skapa nybutiksida";
+                        Global.Debug = "Skapa nybutiksida";
                         SPFile nybutiksida = listSidor.RootFolder.Files.Add(compoundUrl2, SPTemplateFileType.WikiPage);
 
                         // Header
@@ -155,7 +155,7 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
 <h2>STEG&#160;4 - Lägg till försäljningsstället</h2>
 [[WP4]]");
 
-                        _dbg = "wpAgare";
+                        Global.Debug = "wpAgare";
                         XsltListViewWebPart wpAgare = new XsltListViewWebPart();
                         wpAgare.ChromeType = PartChromeType.None;
                         wpAgare.ListName = listAgare.ID.ToString("B").ToUpper();
@@ -164,7 +164,7 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
                         Guid wpAgareGuid = AddWebPartControlToPage(nybutiksida, wpAgare);
                         AddWebPartMarkUpToPage(wpAgareGuid, "[[WP1]]");
 
-                        _dbg = "wpAdresser";
+                        Global.Debug = "wpAdresser";
                         XsltListViewWebPart wpAdresser = new XsltListViewWebPart();
                         wpAdresser.ChromeType = PartChromeType.None;
                         wpAdresser.ListName = listAdresser.ID.ToString("B").ToUpper();
@@ -173,7 +173,7 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
                         Guid wpAdresserGuid = AddWebPartControlToPage(nybutiksida, wpAdresser);
                         AddWebPartMarkUpToPage(wpAdresserGuid, "[[WP2]]");
 
-                        _dbg = "wpKontakter";
+                        Global.Debug = "wpKontakter";
                         XsltListViewWebPart wpKontakter = new XsltListViewWebPart();
                         wpKontakter.ChromeType = PartChromeType.None;
                         wpKontakter.ListName = listKontakter.ID.ToString("B").ToUpper();
@@ -182,7 +182,7 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
                         Guid wpKontakterGuid = AddWebPartControlToPage(nybutiksida, wpKontakter);
                         AddWebPartMarkUpToPage(wpKontakterGuid, "[[WP3]]");
 
-                        _dbg = "wpKundkort";
+                        Global.Debug = "wpKundkort";
                         XsltListViewWebPart wpKundkort = new XsltListViewWebPart();
                         wpKundkort.ChromeType = PartChromeType.None;
                         wpKundkort.ListName = listKundkort.ID.ToString("B").ToUpper();
@@ -193,28 +193,48 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
 
                         nybutiksida.Item[SPBuiltInFieldId.WikiField] = _wikiFullContent;
                         nybutiksida.Item.UpdateOverwriteVersion();
-                        _dbg = "Nybutiksida skapad";
+                        Global.Debug = "Nybutiksida skapad";
 
                         #endregion
 
+                        #region Mitt försäljningsställe
+                        string compoundUrl3 = string.Format("{0}/{1}", listSidor.RootFolder.ServerRelativeUrl, "Mitt försäljningsställe.aspx");//* Define page payout
+                        _wikiFullContent = FormatSimpleWikiLayout();
+                        Global.Debug = "Skapa minbutiksida";
+                        SPFile minbutiksida = listSidor.RootFolder.Files.Add(compoundUrl3, SPTemplateFileType.WikiPage);
+
+                        Global.Debug = "wpMinButik";
+                        MinButikWP wpMinButik = new MinButikWP();
+                        wpMinButik.ChromeType = PartChromeType.None;
+                        wpMinButik.Adresser = "Adresser";
+                        wpMinButik.Agare = "Ägare";
+                        wpMinButik.Kontakter = "Kontakter";
+                        wpMinButik.Kundkort = "Kundkort";
+                        Guid wpMinButikGuid = AddWebPartControlToPage(minbutiksida, wpMinButik);
+                        AddWebPartMarkUpToPage(wpMinButikGuid, "[[COL1]]");
+
+                        minbutiksida.Item[SPBuiltInFieldId.WikiField] = _wikiFullContent;
+                        minbutiksida.Item.UpdateOverwriteVersion();
+                        Global.Debug = "Nybutiksida skapad";
+                        #endregion
                     }
 
-                    _dbg = "ägare";
+                    Global.Debug = "ägare";
                     SPListItem item = listAgare.AddItem();
                     item["Title"] = "TESTÄGARE AB";
                     item.Update();
 
-                    _dbg = "kontakt";
+                    Global.Debug = "kontakt";
                     item = listKontakter.AddItem();
                     item["Title"] = "Test Testsson";
                     item.Update();
 
-                    _dbg = "adress";
+                    Global.Debug = "adress";
                     item = listAdresser.AddItem();
                     item["Title"] = "Testgatan 13b";
                     item.Update();
 
-                    _dbg = "nyhet";
+                    Global.Debug = "nyhet";
                     item = listNyheter.AddItem();
                     item["Title"] = "Vår online plattform för tillsyn av tobak och folköl håller på att starta upp här";
                     item["Body"] = @"Hej!
@@ -224,7 +244,7 @@ Nu har första stegen till en online plattform för tillsyn av tobak och folköl ta
 " + web.Title + " kommun";
                     item.Update();
 
-                    _dbg = "länkar";
+                    Global.Debug = "länkar";
                     item = listGenvagar.AddItem();
                     item["Title"] = "Blanketter";
                     item["URL"] = web.ServerRelativeUrl + "/Blanketter, Blanketter";
@@ -242,13 +262,13 @@ Nu har första stegen till en online plattform för tillsyn av tobak och folköl ta
                         web.Properties.Add("municipalRegionLetter", m.RegionLetter);
                     }
                     catch { }
-                    _dbg = "properties";
+                    Global.Debug = "properties";
                     web.Properties.Update();
                 }
                 WriteLog("Feature Activated", EventLogEntryType.Information, 1001);
             }
             catch (Exception ex) {
-                WriteLog("Message:\r\n" + ex.Message + "\r\n\r\nStacktrace:\r\n" + ex.StackTrace + "\r\n\r\nDebug:\r\n" + _ver + _dbg, EventLogEntryType.Error, 2001);
+                WriteLog("Message:\r\n" + ex.Message + "\r\n\r\nStacktrace:\r\n" + ex.StackTrace + "\r\n\r\nDebug:\r\n" + _ver + Global.Debug, EventLogEntryType.Error, 2001);
             }
         } // feature activated
 
@@ -262,7 +282,7 @@ Nu har första stegen till en online plattform för tillsyn av tobak och folköl ta
                 limitedWebPartManager.AddWebPart(wp, "wpz", 0);
             }
             catch (Exception ex) {
-                WriteLog("limitedWebPartManager.AddWebPart\r\n\r\nMessage:\r\n" + ex.Message + "\r\n\r\nStacktrace:\r\n" + ex.StackTrace + "\r\n\r\nDebug:\r\n" + _ver + _dbg, EventLogEntryType.Error, 2005);
+                WriteLog("limitedWebPartManager.AddWebPart\r\n\r\nMessage:\r\n" + ex.Message + "\r\n\r\nStacktrace:\r\n" + ex.StackTrace + "\r\n\r\nDebug:\r\n" + _ver + Global.Debug, EventLogEntryType.Error, 2005);
             }
  
             return storageKeyGuid;

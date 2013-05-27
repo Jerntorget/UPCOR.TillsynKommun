@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Solution xmlns="http://schemas.microsoft.com/sharepoint/" SolutionId="c4b14574-498c-41cc-866e-e97025dd6240" SharePointProductVersion="15.0">
   <Assemblies>
-    <Assembly Location="UPCOR.TillsynKommun.dll" DeploymentTarget="GlobalAssemblyCache" />
+    <Assembly Location="UPCOR.TillsynKommun.dll" DeploymentTarget="GlobalAssemblyCache">
+      <SafeControls>
+        <SafeControl Assembly="UPCOR.TillsynKommun, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f66bbd75f013e009" Namespace="UPCOR.TillsynKommun" TypeName="*" />
+      </SafeControls>
+    </Assembly>
   </Assemblies>
   <TemplateFiles>
     <TemplateFile Location="SiteTemplates\TillsynKommunSD\default.aspx" />
@@ -10,5 +14,6 @@
   </TemplateFiles>
   <FeatureManifests>
     <FeatureManifest Location="UPCOR.TillsynKommun_ListsAndContentFeature\Feature.xml" />
+    <FeatureManifest Location="UPCOR.TillsynKommun_WebPartsFeature\Feature.xml" />
   </FeatureManifests>
 </Solution>

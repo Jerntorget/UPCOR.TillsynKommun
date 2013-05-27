@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{63302a78-de16-4856-92d5-bae528c86a39}"
+       Name="tillsynAutomat"
+       DisplayName="Finns tobaksautomat"
+       Type="Boolean"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

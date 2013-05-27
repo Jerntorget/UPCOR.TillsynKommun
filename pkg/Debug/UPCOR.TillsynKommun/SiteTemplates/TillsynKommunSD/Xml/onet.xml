@@ -10,10 +10,8 @@
     </NavBar>
     <NavBar Name="Tillsynsverktyg" Url="">
       <NavBarLink Name="Aktiviteter" Url="Lists/Aktiviteter" />
-      <NavBarLink Name="Adresser" Url="Lists/Adresser" />
-      <NavBarLink Name="Försäljningsställen" Url="Lists/Kundkort" />
-      <NavBarLink Name="Kontakter" Url="Lists/Kontakter" />
-      <NavBarLink Name="Ägare" Url="Lists/Agare" />
+      <NavBarLink Name="Lägg till försäljningsställe" Url="SitePages/Lägg%20till%20försäljningsställe.aspx" />
+      <NavBarLink Name="Mitt försäljningsställe" Url="SitePages/Mitt%20försäljningsställe.aspx" />
     </NavBar>
   </NavBars>
   <DocumentTemplates>
@@ -223,6 +221,8 @@
             <Property Key="DeclarativeWorkflows" Value="ReviewApproval,Godkännande - SharePoint 2010,{8AD4D8F0-93A7-4941-9657-CF3706F0041D};#ReviewFeedback,Samla in feedback - SharePoint 2010,{3BFB07CB-5C6A-4266-849B-8D671170041D}" />
           </Properties>
         </Feature>
+        <!--UPCOR Webbdelar-->
+        <Feature ID="{8491fc0e-f220-4873-8e0e-3c5f193f04ab}" Name="FeatureDefinition/15/8491fc0e-f220-4873-8e0e-3c5f193f04ab" ></Feature>
       </SiteFeatures>
       <WebFeatures>
         <!--WikiPageHomePage Feature-->

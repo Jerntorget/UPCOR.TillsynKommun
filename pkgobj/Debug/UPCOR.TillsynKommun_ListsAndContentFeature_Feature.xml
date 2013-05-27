@@ -73,5 +73,12 @@
     <ElementManifest Location="tillsynAktivInformationNar\Elements.xml" />
     <ElementManifest Location="tillsynPersonalUtbildning\Elements.xml" />
     <ElementManifest Location="tillsynPersonalUtbildningHur\Elements.xml" />
+    <ElementManifest Location="tillsynLegitimation\Elements.xml" />
+    <ElementManifest Location="tillsynLegitimationAlder\Elements.xml" />
+    <ElementManifest Location="tillsynSkyltat\Elements.xml" />
+    <ElementManifest Location="tillsynAutomat\Elements.xml" />
+    <ElementManifest Location="tillsynAutomatKontroll\Elements.xml" />
+    <ElementManifest Location="tillsynAutomatKontrollAnledning\Elements.xml" />
+    <ElementManifest Location="tillsynTillKlockan\Elements.xml" />
   </ElementManifests>
 </Feature>

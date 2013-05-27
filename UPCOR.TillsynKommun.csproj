@@ -56,11 +56,18 @@
     <Compile Include="Features\ListsAndContentFeature\ListsAndContentFeature.EventReceiver.cs">
       <DependentUpon>ListsAndContentFeature.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\WebPartsFeature\WebPartsFeature.EventReceiver.cs">
+      <DependentUpon>WebPartsFeature.feature</DependentUpon>
+    </Compile>
     <Compile Include="Kundkort\KundkortEventReceiver\KundkortEventReceiver.cs" />
+    <Compile Include="MinButikWP\MinButikWP.cs" />
     <Compile Include="Municipal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Features\WebPartsFeature\WebPartsFeature.Template.xml">
+      <DependentUpon>WebPartsFeature.feature</DependentUpon>
+    </Content>
     <Content Include="Filer Webbplatstillgangar\Elements.xml" />
     <Content Include="Filer Webbplatstillgangar\heart.gif" />
     <Content Include="Filer Webbplatstillgangar\profil_ettan_vinter_557x100.jpg" />
@@ -77,17 +84,25 @@
     <Content Include="Dokumentbibliotek\Utbildningsmaterial\Schema.xml" />
     <Content Include="Dokumentbibliotek\Utbildningsmaterial\Upload.aspx" />
     <Content Include="Dokumentbibliotek\Utbildningsmaterial\UtbildningsmaterialInstance\Elements.xml" />
+    <Content Include="MinButikWP\Elements.xml" />
     <Content Include="Nyheter\Elements.xml" />
     <Content Include="Tillsyn\tillsynAktivInformationNar\Elements.xml" />
     <Content Include="Tillsyn\tillsynAktivInformation\Elements.xml" />
     <Content Include="Tillsyn\tillsynAnmalt\Elements.xml" />
+    <Content Include="Tillsyn\tillsynAutomatKontrollAnledning\Elements.xml" />
+    <Content Include="Tillsyn\tillsynAutomatKontroll\Elements.xml" />
+    <Content Include="Tillsyn\tillsynAutomat\Elements.xml" />
     <Content Include="Tillsyn\tillsynFotodok\Elements.xml" />
+    <Content Include="Tillsyn\tillsynLegitimationAlder\Elements.xml" />
+    <Content Include="Tillsyn\tillsynLegitimation\Elements.xml" />
     <Content Include="Tillsyn\tillsynNaringAnmalt\Elements.xml" />
     <Content Include="Tillsyn\tillsynNaringIngett\Elements.xml" />
     <Content Include="Tillsyn\tillsynNaringPlanVarforInte\Elements.xml" />
     <Content Include="Tillsyn\tillsynNaringPlan\Elements.xml" />
     <Content Include="Tillsyn\tillsynPersonalUtbildningHur\Elements.xml" />
     <Content Include="Tillsyn\tillsynPersonalUtbildning\Elements.xml" />
+    <Content Include="Tillsyn\tillsynSkyltat\Elements.xml" />
+    <Content Include="Tillsyn\tillsynTillKlockan\Elements.xml" />
     <Content Include="Tillsyn\tillsynUppfoljande\Elements.xml" />
     <Content Include="Webbplatssidor\Elements.xml" />
     <Content Include="Webbplatstillgangar\Elements.xml" />
@@ -115,6 +130,9 @@
     <Content Include="Dokumentbibliotek\Blanketter\Upload.aspx" />
     <Content Include="Filer Blanketter\06a_Anmalan_om_forsaljning_tobak.pdf" />
     <Content Include="Filer Blanketter\06b_Anmalan_om_forsaljning_folkol.pdf" />
+    <None Include="Features\WebPartsFeature\WebPartsFeature.feature">
+      <FeatureId>{bf286086-31b2-4922-89e6-b086b07481a4}</FeatureId>
+    </None>
     <None Include="Filer Webbplatstillgangar\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{358aca19-e2ce-40e7-b6bf-b7e6f6d784a0}</SharePointProjectItemId>
     </None>
@@ -156,6 +174,10 @@
     <None Include="CustomerCT\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{93ec1c5b-3f4e-468b-aa26-6afe3e04f51c}</SharePointProjectItemId>
     </None>
+    <None Include="MinButikWP\MinButikWP.webpart" />
+    <None Include="MinButikWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2edbb075-1d3a-4f42-896a-40e021199dd3}</SharePointProjectItemId>
+    </None>
     <None Include="Nyheter\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{834855e2-954f-4da9-bf67-9e5c260511b3}</SharePointProjectItemId>
     </None>
@@ -167,6 +189,15 @@
     </None>
     <None Include="Tillsyn\tillsynAnmalt\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{bdee1fef-ae93-450c-8ff0-1a29f32bc494}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynAutomatKontrollAnledning\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3b45d8b1-794e-4255-bba7-a4b6a9b939ad}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynAutomatKontroll\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{df32306f-efa2-47e7-a412-b01f25044c10}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynAutomat\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{92599a6c-eb4d-41bf-8da1-b695c90e588a}</SharePointProjectItemId>
     </None>
     <None Include="Tillsyn\tillsynButik\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{fa2b2e72-7bac-46bf-b9de-7917107f2b76}</SharePointProjectItemId>
@@ -214,6 +245,12 @@
     <None Include="Tillsyn\tillsynFotodok\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{ebd13fee-6cc1-44b1-991f-faaf0ea5d549}</SharePointProjectItemId>
     </None>
+    <None Include="Tillsyn\tillsynLegitimationAlder\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{072b6345-a6de-4162-87af-3f920fd6a512}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynLegitimation\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{bc6c433a-2c26-4a22-ad88-87d7dcd9342b}</SharePointProjectItemId>
+    </None>
     <None Include="Tillsyn\tillsynNaringAnmalt\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{7e9acb99-67ea-421f-88a3-c96fd53b0610}</SharePointProjectItemId>
     </None>
@@ -237,6 +274,12 @@
     </None>
     <None Include="Tillsyn\tillsynKontrollanter\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{32bd976d-2f14-4e6b-bb4c-e90cb352881f}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynSkyltat\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{04e6835d-fbfe-4fbe-9e5b-ab54651083a5}</SharePointProjectItemId>
+    </None>
+    <None Include="Tillsyn\tillsynTillKlockan\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e87feb99-0179-423a-9de5-6c7b49cfc2a4}</SharePointProjectItemId>
     </None>
     <None Include="Tillsyn\tillsynUppfoljande\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{7f3daf34-1cd2-41d7-90fe-59bbfc521932}</SharePointProjectItemId>

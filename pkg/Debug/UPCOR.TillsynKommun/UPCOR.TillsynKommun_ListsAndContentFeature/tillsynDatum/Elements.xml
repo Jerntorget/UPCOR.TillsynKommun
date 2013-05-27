@@ -4,6 +4,7 @@
        ID="{3c068951-6963-44af-b230-30f9936d9e92}"
        Name="tillsynDatum"
        DisplayName="Datum"
+       Description="Besöket pågick från klockan"
        Type="DateTime"
        Required="FALSE"
        Group="Tillsyn">

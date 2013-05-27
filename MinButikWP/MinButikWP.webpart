@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<webParts>
+  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+    <metaData>
+      <type name="UPCOR.TillsynKommun.MinButikWP, $SharePoint.Project.AssemblyFullName$" />
+      <importErrorMessage>$Resources:core,ImportErrorMessage;</importErrorMessage>
+    </metaData>
+    <data>
+      <properties>
+        <property name="Title" type="string">Mitt försäljningsställe</property>
+        <property name="Description" type="string">Visar information om mitt försäljningsställe</property>
+      </properties>
+    </data>
+  </webPart>
+</webParts>
