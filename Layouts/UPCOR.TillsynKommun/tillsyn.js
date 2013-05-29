@@ -1,0 +1,4 @@
+﻿var oTillsyn = oTillsyn || {};
+
+$(function () {
+});

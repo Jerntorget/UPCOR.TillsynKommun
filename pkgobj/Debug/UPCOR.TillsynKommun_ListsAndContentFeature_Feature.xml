@@ -111,28 +111,9 @@
     <ElementManifest Location="kontaktUppslagsnamn\Elements.xml" />
     <ElementManifest Location="aktivitetNotering\Elements.xml" />
     <ElementManifest Location="GivePermissionCT\Elements.xml" />
-    <ElementManifest Location="Testlist01Instance\Elements.xml" />
-    <ElementManifest Location="Testlist01\Elements.xml" />
-    <ElementFile Location="Testlist01\Schema.xml" />
-    <ElementManifest Location="Test02CT\Elements.xml" />
-    <ElementManifest Location="Test03CT\Elements.xml" />
-    <ElementManifest Location="Test04CT\Elements.xml" />
-    <ElementManifest Location="Testlist02Instance\Elements.xml" />
-    <ElementManifest Location="Testlist02\Elements.xml" />
-    <ElementFile Location="Testlist02\Schema.xml" />
-    <ElementManifest Location="Testlist03Instance\Elements.xml" />
-    <ElementManifest Location="Testlist03\Elements.xml" />
-    <ElementFile Location="Testlist03\Schema.xml" />
-    <ElementManifest Location="Testlist04Instance\Elements.xml" />
-    <ElementManifest Location="Testlist04\Elements.xml" />
-    <ElementFile Location="Testlist04\Schema.xml" />
-    <ElementManifest Location="Test05CT\Elements.xml" />
-    <ElementManifest Location="Test06CT\Elements.xml" />
-    <ElementManifest Location="Testlist05Instance\Elements.xml" />
-    <ElementManifest Location="Testlist05\Elements.xml" />
-    <ElementFile Location="Testlist05\Schema.xml" />
-    <ElementManifest Location="Testlist06Instance\Elements.xml" />
-    <ElementManifest Location="Testlist06\Elements.xml" />
-    <ElementFile Location="Testlist06\Schema.xml" />
+    <ElementManifest Location="Form\Elements.xml" />
+    <ElementFile Location="Form\template.xsn" />
+    <ElementManifest Location="FormPages\Elements.xml" />
+    <ElementManifest Location="PropertyBag\Elements.xml" />
   </ElementManifests>
 </Feature>

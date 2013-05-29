@@ -41,17 +41,24 @@
     <AssemblyOriginatorKeyFile>jtkey2010.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\Temp\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.SharePoint" />
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientField.cs" />
     <Compile Include="Listor\Aktiviteter\AktiviteterEventReceiver\AktiviteterEventReceiver.cs" />
     <Compile Include="Features\ListsAndContentFeature\ListsAndContentFeature.EventReceiver.cs">
       <DependentUpon>ListsAndContentFeature.feature</DependentUpon>
@@ -64,6 +71,7 @@
     <Compile Include="MinButikWP\MinButikWP.cs" />
     <Compile Include="Municipal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TillsynWP\TillsynWP.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\WebPartsFeature\WebPartsFeature.Template.xml">
@@ -74,6 +82,8 @@
     <Content Include="Filer\Webbplatstillgangar\profil_ettan_vinter_557x100.jpg" />
     <Content Include="Filer\Blanketter\Elements.xml" />
     <Content Include="Innehallstyper\GivePermissionCT\Elements.xml" />
+    <Content Include="Layouts\UPCOR.TillsynKommun\tillsyn.css" />
+    <Content Include="Layouts\UPCOR.TillsynKommun\tillsyn.js" />
     <Content Include="Listor\Forsaljningstillstand\Elements.xml" />
     <Content Include="Listor\Forsaljningstillstand\ForsaljningstillstandInstance\Elements.xml" />
     <Content Include="Listor\Forsaljningstillstand\Schema.xml" />
@@ -138,8 +148,12 @@
     <Content Include="Falt\Tillsyn\tillsynVarningstext\Elements.xml" />
     <Content Include="Listor\Webbplatssidor\Elements.xml" />
     <Content Include="Listor\Webbplatstillgangar\Elements.xml" />
+    <Content Include="TillsynWP\Elements.xml" />
     <None Include="Innehallstyper\GivePermissionCT\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{710b9ef0-1c50-4e67-9f86-278c62f1a953}</SharePointProjectItemId>
+    </None>
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{488c0f90-3cba-4a4e-9977-9500a7a46fba}</SharePointProjectItemId>
     </None>
     <None Include="Listor\Agare\AgareInstance\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{46af20b9-97c6-41b1-9940-2edfbe290dfa}</SharePointProjectItemId>
@@ -421,6 +435,10 @@
     <None Include="Listor\Webbplatstillgangar\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{effc3348-c896-4fab-b9be-68acc67832fc}</SharePointProjectItemId>
     </None>
+    <None Include="TillsynWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4c955cd5-3b52-4fd3-a8a2-ed3d97b9c907}</SharePointProjectItemId>
+    </None>
+    <None Include="TillsynWP\TillsynWP.webpart" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
