@@ -2,12 +2,12 @@
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
   <Field
        ID="{a209aa87-f7e4-46cf-8865-37ea0002294b}"
-       Name="tillsynButik"
+       Name="aktivitetButik"
        DisplayName="Försäljningsställe"
        Type="Lookup"
        Required="TRUE"
        List="Lists/Kundkort"
        ShowField="Title"
-       Group="Tillsyn">
+       Group="Aktivitet">
   </Field>
 </Elements>

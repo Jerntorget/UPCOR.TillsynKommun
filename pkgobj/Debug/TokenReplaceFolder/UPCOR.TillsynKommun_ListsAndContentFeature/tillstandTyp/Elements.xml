@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{6984573c-d39b-4126-95a2-85a28e0b82bc}"
+       Name="tillstandTyp"
+       DisplayName="Typ av tillstånd"
+       Type="MultiChoice"
+       Required="FALSE"
+       Group="Tillstånd">
+    <CHOICES>
+      <CHOICE>Tobak</CHOICE>
+      <CHOICE>Alkohol</CHOICE>
+    </CHOICES>
+  </Field>
+</Elements>

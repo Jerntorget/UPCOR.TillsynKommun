@@ -23,28 +23,8 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
     [Guid("93372ea4-2351-4f6b-bdc6-dca9fef21f72")]
     public class ListsAndContentFeatureEventReceiver : SPFeatureReceiver
     {
-        private EventLog _log = null;
-        private const string _source = "UPCOR.KundkortEventReceiver";
-        private string Global.Debug;
         private string _wikiFullContent;
-        private string _ver = "LACER v0.005 ";
-
-        public EventLog Log {
-            get {
-                if (_log == null) {
-                    if (!EventLog.SourceExists(_source))
-                        EventLog.CreateEventSource(_source, "Application");
-                    _log = new EventLog();
-                    _log.Source = _source;
-                }
-                return _log;
-            }
-        }
-
-        private void WriteLog(string msg, EventLogEntryType t, int id) {
-            Log.WriteEntry(DateTime.Now.ToString() + " " + Global.Debug + " " + _ver + msg, t, id);
-        }
-
+        
         private Dictionary<string, Municipal> municipals = new Dictionary<string, Municipal>();
         // Uncomment the method below to handle the event raised after a feature has been activated.
 
@@ -52,13 +32,10 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
         {
             try {
                 Global.Debug = "start";
-                Assembly assembly = Assembly.GetExecutingAssembly();
-                _ver += AssemblyName.GetAssemblyName(assembly.Location).Version.ToString() + " - ";
-
                 SPWeb web = properties.Feature.Parent as SPWeb;
                 if (web != null) {
                     if (web.Properties.ContainsKey("activatedOnce")) {
-                        WriteLog("Redan aktiverad", EventLogEntryType.Information, 1000);
+                        Global.WriteLog("Redan aktiverad", EventLogEntryType.Information, 1000);
                         return;
                     }
 
@@ -68,7 +45,7 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
                     Global.Debug = "set activatedOnce flag";
 
                     if (municipals.Count > 0) {
-                        WriteLog("Kommuner existerar redan", EventLogEntryType.Information, 1000);
+                        Global.WriteLog("Kommuner existerar redan", EventLogEntryType.Information, 1000);
                     }
                     else {
                         municipals.Add("uppsala", new Municipal { AreaCode = "018", Name = "Uppsala", RegionLetter = "C" });
@@ -107,7 +84,8 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
                         SPFile startsida = listSidor.RootFolder.Files.Add(compoundUrl, SPTemplateFileType.WikiPage);
 
                         // Header
-                        _wikiFullContent = _wikiFullContent.Replace("[[HEADER]]", "<img alt=\"vinter\" src=\"" + web.ServerRelativeUrl + "/SiteAssets/profil_ettan_vinter_557x100.jpg\" style=\"margin: 5px;\"/><img alt=\"hj&auml;rta\" src=\"" + web.ServerRelativeUrl + "/SiteAssets/heart.gif\" style=\"margin: 5px;\"/>");
+                        string relativeUrl = web.ServerRelativeUrl == "/" ? "" : web.ServerRelativeUrl;
+                        _wikiFullContent = _wikiFullContent.Replace("[[HEADER]]", "<img alt=\"vinter\" src=\"" + relativeUrl + "/SiteAssets/profil_ettan_vinter_557x100.jpg\" style=\"margin: 5px;\"/><img alt=\"hj&auml;rta\" src=\"" + relativeUrl + "/SiteAssets/heart.gif\" style=\"margin: 5px;\"/>");
 
                         #region Nyheter
                         ListViewWebPart wpAnnouncements = new ListViewWebPart();
@@ -128,7 +106,7 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
                         AddWebPartMarkUpToPage(wpLinksGuid, "[[COL2]]");
                         #endregion
 
-                        WriteLog("_wikiFullContent: " + _wikiFullContent, EventLogEntryType.Information, 1008);
+                        Global.WriteLog("_wikiFullContent: " + _wikiFullContent, EventLogEntryType.Information, 1008);
 
                         startsida.Item[SPBuiltInFieldId.WikiField] = _wikiFullContent;
                         startsida.Item.UpdateOverwriteVersion();
@@ -224,10 +202,23 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
                     item["Title"] = "TESTÄGARE AB";
                     item.Update();
 
-                    Global.Debug = "kontakt";
-                    item = listKontakter.AddItem();
-                    item["Title"] = "Test Testsson";
-                    item.Update();
+                    try {
+                        Global.Debug = "kontakt";
+                        item = listKontakter.AddItem();
+                        item["Title"] = "Testsson";
+                        item["FirstName"] = "Test";
+                        item["Email"] = "test.testsson@test.se";
+                        item.Update();
+
+                        item = listKontakter.AddItem();
+                        item["Title"] = "Jansson";
+                        item["FirstName"] = "Peter";
+                        item["Email"] = "peter.jansson@test.se";
+                        item.Update();
+                    }
+                    catch (Exception ex) {
+                        Global.WriteLog("Message:\r\n" + ex.Message + "\r\n\r\nStacktrace:\r\n" + ex.StackTrace, EventLogEntryType.Error, 2001);
+                    }
 
                     Global.Debug = "adress";
                     item = listAdresser.AddItem();
@@ -265,10 +256,10 @@ Nu har första stegen till en online plattform för tillsyn av tobak och folköl ta
                     Global.Debug = "properties";
                     web.Properties.Update();
                 }
-                WriteLog("Feature Activated", EventLogEntryType.Information, 1001);
+                Global.WriteLog("Feature Activated", EventLogEntryType.Information, 1001);
             }
             catch (Exception ex) {
-                WriteLog("Message:\r\n" + ex.Message + "\r\n\r\nStacktrace:\r\n" + ex.StackTrace + "\r\n\r\nDebug:\r\n" + _ver + Global.Debug, EventLogEntryType.Error, 2001);
+                Global.WriteLog("Message:\r\n" + ex.Message + "\r\n\r\nStacktrace:\r\n" + ex.StackTrace, EventLogEntryType.Error, 2001);
             }
         } // feature activated
 
@@ -282,7 +273,7 @@ Nu har första stegen till en online plattform för tillsyn av tobak och folköl ta
                 limitedWebPartManager.AddWebPart(wp, "wpz", 0);
             }
             catch (Exception ex) {
-                WriteLog("limitedWebPartManager.AddWebPart\r\n\r\nMessage:\r\n" + ex.Message + "\r\n\r\nStacktrace:\r\n" + ex.StackTrace + "\r\n\r\nDebug:\r\n" + _ver + Global.Debug, EventLogEntryType.Error, 2005);
+                Global.WriteLog("limitedWebPartManager.AddWebPart\r\n\r\nMessage:\r\n" + ex.Message + "\r\n\r\nStacktrace:\r\n" + ex.StackTrace, EventLogEntryType.Error, 2005);
             }
  
             return storageKeyGuid;

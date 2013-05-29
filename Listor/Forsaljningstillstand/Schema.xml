@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="Försäljningstillstånd" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/Försäljningstillstånd" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/" EnableContentTypes="TRUE">
+  <MetaData>
+    <ContentTypes>
+      
+      
+    <ContentType ID="0x0100F32753A79A994E98AB8D3438DFAEC37F" Name="Försäljningstillstånd" Group="Anpassade innehållstyper" Description="" Inherits="FALSE" Version="0">
+      <FieldRefs>
+        <FieldRef ID="{ecfdfad0-efdf-4483-9def-20cac971b676}" DisplayName="Försäljningsställe" Required="FALSE" Name="tillstandButik" />
+        <FieldRef ID="{fe2125f2-1adb-48a5-b6fd-648b33bebea9}" DisplayName="Gäller från" Required="FALSE" Name="tillstandFran" Format="DateOnly" />
+        <FieldRef ID="{6244d347-b3fa-447c-9e4e-071d9f35024d}" DisplayName="Gäller Till" Required="FALSE" Name="tillstandTill" Format="DateOnly" />
+        <FieldRef ID="{6984573c-d39b-4126-95a2-85a28e0b82bc}" DisplayName="Typ av tillstånd" Required="FALSE" Name="tillstandTyp" /></FieldRefs></ContentType></ContentTypes>
+    <Fields>
+      
+    <Field ID="{ecfdfad0-efdf-4483-9def-20cac971b676}" Name="tillstandButik" DisplayName="Försäljningsställe" Type="Lookup" List="Lists/Kundkort" ShowField="Title" Required="FALSE" Group="Tillstånd"></Field><Field ID="{fe2125f2-1adb-48a5-b6fd-648b33bebea9}" Name="tillstandFran" DisplayName="Gäller från" Type="DateTime" Format="DateOnly" Required="FALSE" Group="Tillstånd"></Field><Field ID="{6244d347-b3fa-447c-9e4e-071d9f35024d}" Name="tillstandTill" DisplayName="Gäller Till" Type="DateTime" Format="DateOnly" Required="FALSE" Group="Tillstånd"></Field><Field ID="{6984573c-d39b-4126-95a2-85a28e0b82bc}" Name="tillstandTyp" DisplayName="Typ av tillstånd" Type="MultiChoice" Required="FALSE" Group="Tillstånd"><CHOICES><CHOICE>Tobak</CHOICE><CHOICE>Alkohol</CHOICE></CHOICES></Field></Fields>
+    <Views>
+      
+      
+    <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitleNoMenu"></FieldRef></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="Modified" Ascending="FALSE"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View><View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/15/images/generic.png?rev=23" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <JSLink>clienttemplates.js</JSLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitle"></FieldRef><FieldRef Name="tillstandButik" /><FieldRef Name="tillstandFran" /><FieldRef Name="tillstandTill" /><FieldRef Name="tillstandTyp" /></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="ID"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View></Views>
+    <Forms>
+      <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+    </Forms>
+  </MetaData>
+</List>

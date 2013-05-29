@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{50076a6a-424f-4b32-9992-9ce9ab02b1c8}"
+       Name="butikAgare"
+       DisplayName="Ägare"
+       Type="Lookup"
+       List="Lists/Agare"
+       ShowField="Title"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

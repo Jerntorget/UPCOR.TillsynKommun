@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x0100DF2DAA5C9ADD44068F7FE38BBEE02541" Name="Ge försäljningstillstånd" Group="Anpassade innehållstyper" Description="" Inherits="FALSE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{6984573c-d39b-4126-95a2-85a28e0b82bc}" DisplayName="Typ av tillstånd" Required="FALSE" Name="tillstandTyp" />
+      <FieldRef ID="{fe2125f2-1adb-48a5-b6fd-648b33bebea9}" DisplayName="Gäller från" Required="FALSE" Name="tillstandFran" Format="DateOnly" />
+      <FieldRef ID="{6244d347-b3fa-447c-9e4e-071d9f35024d}" DisplayName="Gäller Till" Required="FALSE" Name="tillstandTill" Format="DateOnly" />
+      <FieldRef ID="{a209aa87-f7e4-46cf-8865-37ea0002294b}" DisplayName="Försäljningsställe" Required="TRUE" Name="aktivitetButik" />
+      <FieldRef ID="{3c068951-6963-44af-b230-30f9936d9e92}" DisplayName="Datum" Required="FALSE" Name="aktivitetDatum" />
+      <FieldRef ID="{cf88287e-e45d-4cb4-badb-dcd9ac7023a9}" DisplayName="Notering" Required="FALSE" Name="aktivitetNotering" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

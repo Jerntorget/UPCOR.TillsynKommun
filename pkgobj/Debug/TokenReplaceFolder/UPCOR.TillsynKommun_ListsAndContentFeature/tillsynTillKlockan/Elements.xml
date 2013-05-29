@@ -3,8 +3,10 @@
   <Field
        ID="{61f6a570-7afb-4bc8-8d78-a5f82d16c4d8}"
        Name="tillsynTillKlockan"
-       DisplayName="Till Klockan"
+       DisplayName="Sluttid besök"
+       Description="Tillsynsbesöket pågick till klockan"
        Type="DateTime"
+       Format="TimeOnly"
        Required="FALSE"
        Group="Tillsyn">
   </Field>

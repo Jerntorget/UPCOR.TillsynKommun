@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x01008FD9DA6CDC4041D48B5D0DD07FEE1A55" Name="Test05CT" Group="Custom Content Types" Description="My Content Type" Inherits="TRUE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{0b674e28-5b11-49fe-a60b-74fb97ffd2eb}" DisplayName="Om ja, har automaten godtagbar kontroll" Required="FALSE" Description="Finns det en godtabar kontroll över åldern på den som handlar i automaten?" Name="tillsynAutomatKontroll" />
+      <FieldRef ID="{a3f6d69e-c500-4c6d-a106-6cb422fc7c76}" DisplayName="Om nej, ange på vilket sätt kontrollen inte är godtagbar" Required="FALSE" Name="tillsynAutomatKontrollAnledning" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

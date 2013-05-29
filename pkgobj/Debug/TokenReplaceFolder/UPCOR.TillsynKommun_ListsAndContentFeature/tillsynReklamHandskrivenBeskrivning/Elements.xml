@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{1b77698a-c7e2-4400-9ce9-943f5fdb833e}"
+       Name="tillsynReklamHandskrivenBeskrivning"
+       DisplayName="Om ja, beskriv hur de har uttryckt sig"
+       Description="Lägg märke till och beskriv hur den som skrivit meddelandena uttryckt sig, bedöm sakligheten"
+       Type="Note"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

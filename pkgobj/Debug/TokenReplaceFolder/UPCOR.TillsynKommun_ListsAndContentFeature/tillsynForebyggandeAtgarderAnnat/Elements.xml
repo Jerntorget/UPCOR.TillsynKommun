@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{648cc82e-0641-43fe-83a8-da7bcddee4b1}"
+       Name="tillsynForebyggandeAtgarderAnnat"
+       DisplayName="Om annat materiel, ange vad"
+       Type="Note"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{15e91bd0-b68d-46db-a55c-d588e6c9dabd}"
+       Name="tillsynForekommerUnder19"
+       DisplayName="Förpackningar med färre än 19 cigaretter"
+       Description="Förekommer försäljning av förpackningar med färre än 19 cigaretter?"
+       Type="Boolean"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

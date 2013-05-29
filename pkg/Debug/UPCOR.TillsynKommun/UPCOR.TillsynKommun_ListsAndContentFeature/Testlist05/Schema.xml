@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="Testlist05" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/Testlist05" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/" EnableContentTypes="TRUE">
+  <MetaData>
+    <ContentTypes>
+      
+      
+    <ContentType ID="0x01008FD9DA6CDC4041D48B5D0DD07FEE1A55" Name="Test05CT" Group="Custom Content Types" Description="My Content Type" Inherits="TRUE" Version="0"><FieldRefs><FieldRef ID="{0b674e28-5b11-49fe-a60b-74fb97ffd2eb}" DisplayName="Om ja, har automaten godtagbar kontroll" Required="FALSE" Description="Finns det en godtabar kontroll över åldern på den som handlar i automaten?" Name="tillsynAutomatKontroll" /><FieldRef ID="{a3f6d69e-c500-4c6d-a106-6cb422fc7c76}" DisplayName="Om nej, ange på vilket sätt kontrollen inte är godtagbar" Required="FALSE" Name="tillsynAutomatKontrollAnledning" /></FieldRefs></ContentType></ContentTypes>
+    <Fields>
+      
+    <Field ID="{0b674e28-5b11-49fe-a60b-74fb97ffd2eb}" Name="tillsynAutomatKontroll" DisplayName="Om ja, har automaten godtagbar kontroll" Description="Finns det en godtabar kontroll över åldern på den som handlar i automaten?" Type="Boolean" Required="FALSE" Group="Tillsyn"></Field><Field ID="{a3f6d69e-c500-4c6d-a106-6cb422fc7c76}" Name="tillsynAutomatKontrollAnledning" DisplayName="Om nej, ange på vilket sätt kontrollen inte är godtagbar" Type="Note" Required="FALSE" Group="Tillsyn"></Field></Fields>
+    <Views>
+      
+      
+    <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitleNoMenu"></FieldRef></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="Modified" Ascending="FALSE"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View><View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/15/images/generic.png?rev=23" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <JSLink>clienttemplates.js</JSLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitle"></FieldRef><FieldRef Name="tillsynAutomatKontroll" /><FieldRef Name="tillsynAutomatKontrollAnledning" /></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="ID"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View></Views>
+    <Forms>
+      <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+    </Forms>
+  </MetaData>
+</List>

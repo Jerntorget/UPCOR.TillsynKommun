@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{04f504d1-5eaa-4036-b921-55bf39038085}"
+       Name="tillsynReklamHandskriven"
+       DisplayName="Handskrivna kommersiella meddelanden"
+       Description="Är de kommersiella meddelandena handskrivna av butiksägaren själv?"
+       Type="Boolean"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

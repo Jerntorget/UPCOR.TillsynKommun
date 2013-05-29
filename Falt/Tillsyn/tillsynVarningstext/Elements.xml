@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{95227bd2-ee11-4314-bccf-5db428ec18a1}"
+       Name="tillsynVarningstext"
+       DisplayName="Varningstext"
+       Description="Under tillsynsbesöket påträffas tobaksförpackningar (Obs! Även tobak till vattenpipa.)"
+       Type="MultiChoice"
+       Required="FALSE"
+       Group="Tillsyn">
+    <CHOICES>
+      <CHOICE>med utländsk varningstext/innehållsdeklaration</CHOICE>
+      <CHOICE>utan varningstext/innehållsdeklaration</CHOICE>
+      <CHOICE>med felaktig varningstext/innehållsdeklaration</CHOICE>
+    </CHOICES>
+  </Field>
+</Elements>

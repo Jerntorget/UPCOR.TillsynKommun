@@ -4,7 +4,7 @@
        ID="{f1335e91-6795-4e38-854b-30ebeef1d31e}"
        Name="tillsynAktivInformationNar"
        DisplayName="Om ja, ange hur och när senaste tillfället var"
-       Type="Text"
+       Type="Note"
        Required="FALSE"
        Group="Tillsyn">
   </Field>

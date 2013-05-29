@@ -184,7 +184,7 @@
         <!--VideoAndRichMedia Feature-->
         <Feature ID="{6e1e5426-2ebd-4871-8027-c5ca86371ead}" Name="FeatureDefinition/15/6e1e5426-2ebd-4871-8027-c5ca86371ead" SourceVersion="15.0.11.0" />
         <!--IPFSSiteFeatures Feature-->
-        <Feature ID="{c88c4ff1-dbf5-4649-ad9f-c6c426ebcbf5}" Name="FeatureDefinition/15/c88c4ff1-dbf5-4649-ad9f-c6c426ebcbf5" SourceVersion="14.0.0.0" />
+        <!--<Feature ID="{c88c4ff1-dbf5-4649-ad9f-c6c426ebcbf5}" Name="FeatureDefinition/15/c88c4ff1-dbf5-4649-ad9f-c6c426ebcbf5" SourceVersion="14.0.0.0" />-->
         <!--BizAppsFields Feature-->
         <Feature ID="{5a979115-6b71-45a5-9881-cdc872051a69}" Name="FeatureDefinition/15/5a979115-6b71-45a5-9881-cdc872051a69" SourceVersion="14.0.0.0" />
         <!--MobileExcelWebAccess Feature-->
@@ -312,7 +312,7 @@
         <!--XmlFormLibrary Feature-->
         <Feature ID="{00bfea71-1e1d-4562-b56a-f05371bb0115}" Name="FeatureDefinition/15/00bfea71-1e1d-4562-b56a-f05371bb0115" SourceVersion="0.0.0.0" />
         <!--IPFSWebFeatures Feature-->
-        <Feature ID="{a0e5a010-1329-49d4-9e09-f280cdbed37d}" Name="FeatureDefinition/15/a0e5a010-1329-49d4-9e09-f280cdbed37d" SourceVersion="15.0.0.0" />
+        <!--<Feature ID="{a0e5a010-1329-49d4-9e09-f280cdbed37d}" Name="FeatureDefinition/15/a0e5a010-1329-49d4-9e09-f280cdbed37d" SourceVersion="15.0.0.0" />-->
         <!-- Publishing feature -->
         <Feature ID="22A9EF51-737B-4ff2-9346-694633FE4416">
           <Properties xmlns="http://schemas.microsoft.com/sharepoint/">

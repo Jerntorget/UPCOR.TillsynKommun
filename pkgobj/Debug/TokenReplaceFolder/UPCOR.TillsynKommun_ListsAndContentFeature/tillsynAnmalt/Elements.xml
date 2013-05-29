@@ -3,7 +3,7 @@
   <Field
        ID="{005f4b45-1ba4-41f6-beab-c851b27b1cd0}"
        Name="tillsynAnmalt"
-       DisplayName="Tillsynbesöket sker"
+       DisplayName="Tillsynsbesöket sker"
        Type="MultiChoice"
        Required="FALSE"
        Group="Tillsyn">

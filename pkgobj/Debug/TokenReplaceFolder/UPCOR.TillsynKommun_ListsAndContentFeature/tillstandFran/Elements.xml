@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{fe2125f2-1adb-48a5-b6fd-648b33bebea9}"
+       Name="tillstandFran"
+       DisplayName="Gäller från"
+       Type="DateTime"
+       Format="DateOnly"
+       Required="FALSE"
+       Group="Tillstånd">
+  </Field>
+</Elements>

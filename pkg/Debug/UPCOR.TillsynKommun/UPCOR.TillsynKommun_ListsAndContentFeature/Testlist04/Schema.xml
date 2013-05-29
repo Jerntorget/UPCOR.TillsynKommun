@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="Testlist04" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/Testlist04" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/" EnableContentTypes="TRUE">
+  <MetaData>
+    <ContentTypes>
+      
+      
+    <ContentType ID="0x0100B95F4BCD863843069C7EB0AA52C01F99" Name="Test04CT" Group="Custom Content Types" Description="My Content Type" Inherits="TRUE" Version="0"><FieldRefs><FieldRef ID="{76e023f1-3997-429c-bf8a-0abf917e6392}" DisplayName="Förebyggande åtgärder" Required="FALSE" Description="Under tillsynsbesöket överlämnades följande materiel" Name="tillsynForebyggandeAtgarder" /><FieldRef ID="{648cc82e-0641-43fe-83a8-da7bcddee4b1}" DisplayName="Om annat materiel, ange vad" Required="FALSE" Name="tillsynForebyggandeAtgarderAnnat" /><FieldRef ID="{02605bbf-e1b6-47cf-8744-894be64db3ec}" DisplayName="Styckevis försäljning av cigaretter" Required="FALSE" Description="Förekommer styckevis försäljning av cigaretter?" Name="tillsynForekommerStyckevis" /><FieldRef ID="{15e91bd0-b68d-46db-a55c-d588e6c9dabd}" DisplayName="Förpackningar med färre än 19 cigaretter" Required="FALSE" Description="Förekommer försäljning av förpackningar med färre än 19 cigaretter?" Name="tillsynForekommerUnder19" /></FieldRefs></ContentType></ContentTypes>
+    <Fields>
+      
+    <Field ID="{76e023f1-3997-429c-bf8a-0abf917e6392}" Name="tillsynForebyggandeAtgarder" DisplayName="Förebyggande åtgärder" Description="Under tillsynsbesöket överlämnades följande materiel" Type="MultiChoice" Required="FALSE" Group="Tillsyn"><CHOICES><CHOICE>Anmälningsblankett tobaksförsäljning</CHOICE><CHOICE>Egenkontrollprogram</CHOICE><CHOICE>Åldersgränsdekaler</CHOICE><CHOICE>Ålderssticka "Rätt ålder"</CHOICE><CHOICE>Broschyren "Att sälja tobak"</CHOICE><CHOICE>Foldern "Att sälja tobak - Snabbguide och praktiska råd"</CHOICE><CHOICE>Statens folkhälsoinstituts föreskrifter om varningstexter på tobaksvaror samt innehållsdeklaration för och begränsning av halten av vissa beståndsdelar i cigarettrök</CHOICE><CHOICE>Konsumentverkets allmänna råd för marknadsföring av tobaksvaror till konsumenter</CHOICE><CHOICE>Annat materiel</CHOICE></CHOICES></Field><Field ID="{648cc82e-0641-43fe-83a8-da7bcddee4b1}" Name="tillsynForebyggandeAtgarderAnnat" DisplayName="Om annat materiel, ange vad" Type="Note" Required="FALSE" Group="Tillsyn"></Field><Field ID="{02605bbf-e1b6-47cf-8744-894be64db3ec}" Name="tillsynForekommerStyckevis" DisplayName="Styckevis försäljning av cigaretter" Description="Förekommer styckevis försäljning av cigaretter?" Type="Boolean" Required="FALSE" Group="Tillsyn"></Field><Field ID="{15e91bd0-b68d-46db-a55c-d588e6c9dabd}" Name="tillsynForekommerUnder19" DisplayName="Förpackningar med färre än 19 cigaretter" Description="Förekommer försäljning av förpackningar med färre än 19 cigaretter?" Type="Boolean" Required="FALSE" Group="Tillsyn"></Field></Fields>
+    <Views>
+      
+      
+    <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitleNoMenu"></FieldRef></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="Modified" Ascending="FALSE"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View><View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/15/images/generic.png?rev=23" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <JSLink>clienttemplates.js</JSLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitle"></FieldRef><FieldRef Name="tillsynForebyggandeAtgarder" /><FieldRef Name="tillsynForebyggandeAtgarderAnnat" /><FieldRef Name="tillsynForekommerStyckevis" /><FieldRef Name="tillsynForekommerUnder19" /></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="ID"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View></Views>
+    <Forms>
+      <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+    </Forms>
+  </MetaData>
+</List>

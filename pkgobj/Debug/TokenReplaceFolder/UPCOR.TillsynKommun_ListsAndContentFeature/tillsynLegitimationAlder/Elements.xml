@@ -5,7 +5,7 @@
        Name="tillsynLegitimationAlder"
        DisplayName="Om ja, under vilken ålder"
        Description="Om man bedömer att åldern på den som vill köpa är under ___ år så kontrolleras legitimation"
-       Type="Integer"
+       Type="Text"
        Required="FALSE"
        Group="Tillsyn">
   </Field>

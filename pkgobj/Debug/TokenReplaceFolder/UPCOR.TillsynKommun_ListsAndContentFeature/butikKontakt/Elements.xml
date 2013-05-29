@@ -5,9 +5,10 @@
        Name="butikKontakt"
        DisplayName="Kontaktperson"
        Type="LookupMulti"
+       Mult="TRUE"
        List="Lists/Kontakter"
-       ShowField="Title"
+       ShowField="Uppslagsnamn"
        Required="FALSE"
-       Group="Custom Site Columns">
+       Group="Tillsyn">
   </Field>
 </Elements>

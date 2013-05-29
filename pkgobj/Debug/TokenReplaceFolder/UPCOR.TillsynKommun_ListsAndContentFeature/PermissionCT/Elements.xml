@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x0100F32753A79A994E98AB8D3438DFAEC37F" Name="Försäljningstillstånd" Group="Anpassade innehållstyper" Description="" Inherits="FALSE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{ecfdfad0-efdf-4483-9def-20cac971b676}" DisplayName="Försäljningsställe" Required="FALSE" Name="tillstandButik" />
+      <FieldRef ID="{fe2125f2-1adb-48a5-b6fd-648b33bebea9}" DisplayName="Gäller från" Required="FALSE" Name="tillstandFran" Format="DateOnly" />
+      <FieldRef ID="{6244d347-b3fa-447c-9e4e-071d9f35024d}" DisplayName="Gäller Till" Required="FALSE" Name="tillstandTill" Format="DateOnly" />
+      <FieldRef ID="{6984573c-d39b-4126-95a2-85a28e0b82bc}" DisplayName="Typ av tillstånd" Required="FALSE" Name="tillstandTyp" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

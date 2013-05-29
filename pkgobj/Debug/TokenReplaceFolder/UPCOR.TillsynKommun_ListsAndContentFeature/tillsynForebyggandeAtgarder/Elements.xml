@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{76e023f1-3997-429c-bf8a-0abf917e6392}"
+       Name="tillsynForebyggandeAtgarder"
+       DisplayName="Förebyggande åtgärder"
+       Description="Under tillsynsbesöket överlämnades följande materiel"
+       Type="MultiChoice"
+       Required="FALSE"
+       Group="Tillsyn">
+    <CHOICES>
+      <CHOICE>Anmälningsblankett tobaksförsäljning</CHOICE>
+      <CHOICE>Egenkontrollprogram</CHOICE>
+      <CHOICE>Åldersgränsdekaler</CHOICE>
+      <CHOICE>Ålderssticka "Rätt ålder"</CHOICE>
+      <CHOICE>Broschyren "Att sälja tobak"</CHOICE>
+      <CHOICE>Foldern "Att sälja tobak - Snabbguide och praktiska råd"</CHOICE>
+      <CHOICE>Statens folkhälsoinstituts föreskrifter om varningstexter på tobaksvaror samt innehållsdeklaration för och begränsning av halten av vissa beståndsdelar i cigarettrök</CHOICE>
+      <CHOICE>Konsumentverkets allmänna råd för marknadsföring av tobaksvaror till konsumenter</CHOICE>
+      <CHOICE>Annat materiel</CHOICE>
+    </CHOICES>
+  </Field>
+</Elements>

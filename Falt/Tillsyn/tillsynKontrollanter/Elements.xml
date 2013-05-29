@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{346ea71a-2630-47e5-b801-82533524e3bd}"
+       Name="tillsynKontrollanter"
+       DisplayName="Tillsynsperson"
+       Type="UserMulti"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

@@ -13,8 +13,6 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderId="PlaceHolderMain" runat="server">
     <h1>
-        Welcome to the custom site
-        TillsynKommunSD
     </h1>
 </asp:Content>
 

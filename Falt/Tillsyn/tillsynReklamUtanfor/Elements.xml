@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{e69ce67f-6863-4e2c-bde7-24c0cc462c0d}"
+       Name="tillsynReklamUtanfor"
+       DisplayName="Kommersiella meddelanden utanför"
+       Description="Finns det kommersiella meddelanden utanför försäljningsstället eller som är synliga utifrån"
+       Type="Boolean"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

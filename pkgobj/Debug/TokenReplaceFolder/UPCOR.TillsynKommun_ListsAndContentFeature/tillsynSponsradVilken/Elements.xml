@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{05273b2f-b050-4c90-919c-b0b4e9a8bfc2}"
+       Name="tillsynSponsradVilken"
+       DisplayName="Om ja, vilken tillverkare/importör/säljagent/reklambyrå"
+       Description="Ange om möjligt vilken tillverkare/importör/säljagent/reklambyrå och på vilket sätt"
+       Type="Note"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

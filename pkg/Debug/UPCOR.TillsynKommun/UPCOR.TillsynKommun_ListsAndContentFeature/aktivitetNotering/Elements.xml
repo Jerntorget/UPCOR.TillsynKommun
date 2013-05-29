@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{cf88287e-e45d-4cb4-badb-dcd9ac7023a9}"
+       Name="aktivitetNotering"
+       DisplayName="Notering"
+       Type="Note"
+       Required="FALSE"
+       Group="Aktivitet">
+  </Field>
+</Elements>

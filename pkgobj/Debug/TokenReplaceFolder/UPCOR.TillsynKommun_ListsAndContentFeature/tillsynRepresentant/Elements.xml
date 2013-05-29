@@ -4,7 +4,7 @@
        ID="{61dffd4a-af46-4b3d-93dc-89e618adf58d}"
        Name="tillsynRepresentant"
        DisplayName="Representant från försäljningsstället"
-       Type="Text"
+       Type="Note"
        Required="FALSE"
        Group="Tillsyn">
   </Field>

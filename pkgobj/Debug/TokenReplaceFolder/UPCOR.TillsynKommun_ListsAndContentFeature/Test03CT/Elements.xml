@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x0100540F1B5AEDC94317833E115A1362F64B" Name="Test03CT" Group="Custom Content Types" Description="My Content Type" Inherits="FALSE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{0b674e28-5b11-49fe-a60b-74fb97ffd2eb}" DisplayName="Om ja, har automaten godtagbar kontroll" Required="FALSE" Description="Finns det en godtabar kontroll över åldern på den som handlar i automaten?" Name="tillsynAutomatKontroll" />
+      <FieldRef ID="{a3f6d69e-c500-4c6d-a106-6cb422fc7c76}" DisplayName="Om nej, ange på vilket sätt kontrollen inte är godtagbar" Required="FALSE" Name="tillsynAutomatKontrollAnledning" />
+      <FieldRef ID="{07695f00-5580-4983-bc23-98c3816c887e}" DisplayName="Bildskärmar med kommersiella meddelanden" Required="FALSE" Description="Finns bildskärmar med kommersiella meddelanden?" Name="tillsynBildskarmar" />
+      <FieldRef ID="{ecf50165-2bfa-4142-a37a-fbebbf94ca61}" DisplayName="Om ja, beskriv gärna dem" Required="FALSE" Description="Beskriv gärna storlek, placering och budskap samt allmänt intryck. Finns det ljud till bilden som påkallar uppmärksamhet?" Name="tillsynBildskarmarBeskrivning" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

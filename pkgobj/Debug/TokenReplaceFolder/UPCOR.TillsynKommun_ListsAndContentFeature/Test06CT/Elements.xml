@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x01006A01666465E74A05A4C62ADE9A7EE681" Name="Test06CT" Group="Custom Content Types" Description="My Content Type" Inherits="TRUE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{07695f00-5580-4983-bc23-98c3816c887e}" DisplayName="Bildskärmar med kommersiella meddelanden" Required="FALSE" Description="Finns bildskärmar med kommersiella meddelanden?" Name="tillsynBildskarmar" />
+      <FieldRef ID="{ecf50165-2bfa-4142-a37a-fbebbf94ca61}" DisplayName="Om ja, beskriv gärna dem" Required="FALSE" Description="Beskriv gärna storlek, placering och budskap samt allmänt intryck. Finns det ljud till bilden som påkallar uppmärksamhet?" Name="tillsynBildskarmarBeskrivning" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

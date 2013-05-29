@@ -4,13 +4,23 @@
     <ContentTypes>
       
       
-    <ContentType ID="0x0100728DBFA897FC442C8558C9904CCF53B3" Name="Kund" Group="Anpassade innehållstyper" Description="" Inherits="FALSE" Version="0"><FieldRefs><FieldRef ID="{353eabaa-f0d3-40cc-acc3-4c6b23d3a64f}" DisplayName="Kundnummer" Required="FALSE" Name="butikKundnummer" /><FieldRef ID="{b5c833ef-df4e-44f3-9ed5-316ed61a59c9}" DisplayName="Adress" Required="FALSE" Name="butikAdress" /><FieldRef ID="{50076a6a-424f-4b32-9992-9ce9ab02b1c8}" DisplayName="Ägare" Required="FALSE" Name="butikAgare" /><FieldRef ID="{574795f5-e29a-45b3-a51b-0d2cb0352f63}" DisplayName="KontaktPerson" Required="FALSE" Name="butikKontakt" /></FieldRefs></ContentType></ContentTypes>
+    <ContentType ID="0x0100728DBFA897FC442C8558C9904CCF53B3" Name="Kund" Group="Anpassade innehållstyper" Description="" Inherits="FALSE" Version="0">
+      <FieldRefs>
+        
+        
+        
+    
+      <FieldRef ID="{353eabaa-f0d3-40cc-acc3-4c6b23d3a64f}" DisplayName="Kundnummer" Required="FALSE" Name="butikKundnummer" ShowInEditForm="FALSE" ShowInNewForm="FALSE" />
+        <FieldRef ID="{b5c833ef-df4e-44f3-9ed5-316ed61a59c9}" DisplayName="Adress" Required="FALSE" Name="butikAdress" /><FieldRef ID="{50076a6a-424f-4b32-9992-9ce9ab02b1c8}" DisplayName="Ägare" Required="FALSE" Name="butikAgare" /><FieldRef ID="{574795f5-e29a-45b3-a51b-0d2cb0352f63}" DisplayName="Kontaktperson" Required="FALSE" Name="butikKontakt" /></FieldRefs></ContentType></ContentTypes>
     <Fields>
       
-      <Field ID="{353eabaa-f0d3-40cc-acc3-4c6b23d3a64f}" Name="butikKundnummer" DisplayName="Kundnummer" Type="Text" Required="FALSE" ShowField="Title" Group="Tillsyn" ShowInNewForm="FALSE" ShowInEditForm="FALSE"></Field>
+      
+      
+      
+    <Field ID="{353eabaa-f0d3-40cc-acc3-4c6b23d3a64f}" Name="butikKundnummer" DisplayName="Kundnummer" Type="Text" Required="FALSE" ShowField="Title" Group="Tillsyn" ShowInNewForm="FALSE" ShowInEditForm="FALSE"></Field>
       <Field ID="{b5c833ef-df4e-44f3-9ed5-316ed61a59c9}" Name="butikAdress" DisplayName="Adress" Type="Lookup" List="Lists/Adresser" ShowField="Title" Required="FALSE" Group="Tillsyn"></Field>
       <Field ID="{50076a6a-424f-4b32-9992-9ce9ab02b1c8}" Name="butikAgare" DisplayName="Ägare" Type="Lookup" List="Lists/Agare" ShowField="Title" Required="FALSE" Group="Tillsyn"></Field>
-      <Field ID="{574795f5-e29a-45b3-a51b-0d2cb0352f63}" Name="butikKontakt" DisplayName="KontaktPerson" Type="LookupMulti" List="Lists/Kontakter" ShowField="Title" Required="FALSE" Group="Custom Site Columns"></Field>
+      <Field ID="{574795f5-e29a-45b3-a51b-0d2cb0352f63}" Name="butikKontakt" DisplayName="Kontaktperson" Type="LookupMulti" Mult="TRUE" List="Lists/Kontakter" ShowField="Title" Required="FALSE" Group="Tillsyn"></Field>
     </Fields>
     <Views>
       

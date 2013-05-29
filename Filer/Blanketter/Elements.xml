@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Blanketter" Url="Blanketter">
+    <File Path="Filer Blanketter\06b_Anmalan_om_forsaljning_folkol.pdf" Url="06b_Anmalan_om_forsaljning_folkol.pdf" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" />
+    <File Path="Filer Blanketter\06a_Anmalan_om_forsaljning_tobak.pdf" Url="06a_Anmalan_om_forsaljning_tobak.pdf" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" />
+  </Module>
+</Elements>

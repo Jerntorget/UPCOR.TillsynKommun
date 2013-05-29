@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{07695f00-5580-4983-bc23-98c3816c887e}"
+       Name="tillsynBildskarmar"
+       DisplayName="Bildskärmar med kommersiella meddelanden"
+       Description="Finns bildskärmar med kommersiella meddelanden?"
+       Type="Boolean"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

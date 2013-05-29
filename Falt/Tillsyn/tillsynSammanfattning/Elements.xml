@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{1d38c84f-2243-41e4-9e85-6899b3d2fd55}"
+       Name="tillsynSammanfattning"
+       DisplayName="Sammanfattning av besöket"
+       Description="Under tillsynsbesöket uppmärksammades brister gällande"
+       Type="MultiChoice"
+       Required="FALSE"
+       Group="Tillsyn">
+    <CHOICES>
+      <CHOICE>5. Anmälan och egenkontroll 12 c och d §§</CHOICE>
+      <CHOICE>6. Kontroll av åldersgräns, 12 och 12 a §§</CHOICE>
+      <CHOICE>7. Styckeförsäljningsförbudet, 12 b §</CHOICE>
+      <CHOICE>8. Varningstext och innehållsdeklaration, 9 och 11 §§, samt FHIS 2001:2(8) och 2002:4(9)</CHOICE>
+      <CHOICE>9. Marknadsföring, 14 och 14 a §§, KOVFS 2009:7</CHOICE>
+    </CHOICES>
+  </Field>
+</Elements>

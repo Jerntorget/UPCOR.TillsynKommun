@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Utbildningsmaterial" Url="Utbildningsmaterial">
+    <File Path="Filer Utbildningsmaterial\03a_Forsaljningsregler.pdf" Url="03a_Forsaljningsregler.pdf" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" />
+    <File Path="Filer Utbildningsmaterial\03b_Tobaksmarknadsforing.pdf" Url="03b_Tobaksmarknadsforing.pdf" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" />
+    <File Path="Filer Utbildningsmaterial\03c_tobaksmarkning.pdf" Url="03c_tobaksmarkning.pdf" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" />
+    <File Path="Filer Utbildningsmaterial\05a_Case1_Ung_tjej.pdf" Url="05a_Case1_Ung_tjej.pdf" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" />
+    <File Path="Filer Utbildningsmaterial\05b_Case2_Mamma_handlar_med_sin_son.pdf" Url="05b_Case2_Mamma_handlar_med_sin_son.pdf" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" />
+    <File Path="Filer Utbildningsmaterial\05c_Case3_ung_kille_kommer_in_och_handlar_till_sin_farfar.pdf" Url="05c_Case3_ung_kille_kommer_in_och_handlar_till_sin_farfar.pdf" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" />
+    <File Path="Filer Utbildningsmaterial\05d_Case4_Full_granne.pdf" Url="05d_Case4_Full_granne.pdf" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" />
+    <File Path="Filer Utbildningsmaterial\08a_lagstod_for_tillsyn_av_tobak_och_folkolsforsaljning.pdf" Url="08a_lagstod_for_tillsyn_av_tobak_och_folkolsforsaljning.pdf" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" />
+  </Module>
+</Elements>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="Kundkort" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/Kundkort" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/" EnableContentTypes="TRUE">
+  <MetaData>
+    <ContentTypes>
+      
+      
+    <ContentType ID="0x0100728DBFA897FC442C8558C9904CCF53B3" Name="Kund" Group="Anpassade innehållstyper" Description="" Inherits="FALSE" Version="0">
+      <FieldRefs>
+        
+        
+        
+    
+      <FieldRef ID="{353eabaa-f0d3-40cc-acc3-4c6b23d3a64f}" DisplayName="Kundnummer" Required="FALSE" Name="butikKundnummer" ShowInEditForm="FALSE" ShowInNewForm="FALSE" />
+        <FieldRef ID="{b5c833ef-df4e-44f3-9ed5-316ed61a59c9}" DisplayName="Adress" Required="FALSE" Name="butikAdress" /><FieldRef ID="{50076a6a-424f-4b32-9992-9ce9ab02b1c8}" DisplayName="Ägare" Required="FALSE" Name="butikAgare" /><FieldRef ID="{574795f5-e29a-45b3-a51b-0d2cb0352f63}" DisplayName="Kontaktperson" Required="FALSE" Name="butikKontakt" /></FieldRefs></ContentType></ContentTypes>
+    <Fields>
+      
+      
+      
+      
+    <Field ID="{353eabaa-f0d3-40cc-acc3-4c6b23d3a64f}" Name="butikKundnummer" DisplayName="Kundnummer" Type="Text" Required="FALSE" ShowField="Title" Group="Tillsyn" ShowInNewForm="FALSE" ShowInEditForm="FALSE"></Field>
+      <Field ID="{b5c833ef-df4e-44f3-9ed5-316ed61a59c9}" Name="butikAdress" DisplayName="Adress" Type="Lookup" List="Lists/Adresser" ShowField="Title" Required="FALSE" Group="Tillsyn"></Field>
+      <Field ID="{50076a6a-424f-4b32-9992-9ce9ab02b1c8}" Name="butikAgare" DisplayName="Ägare" Type="Lookup" List="Lists/Agare" ShowField="Title" Required="FALSE" Group="Tillsyn"></Field>
+      <Field ID="{574795f5-e29a-45b3-a51b-0d2cb0352f63}" Name="butikKontakt" DisplayName="Kontaktperson" Type="LookupMulti" Mult="TRUE" List="Lists/Kontakter" ShowField="Title" Required="FALSE" Group="Tillsyn"></Field>
+    </Fields>
+    <Views>
+      
+      
+    <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitleNoMenu"></FieldRef></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="Modified" Ascending="FALSE"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View><View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/15/images/generic.png?rev=23" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <JSLink>clienttemplates.js</JSLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitle"></FieldRef><FieldRef Name="butikKundnummer" /><FieldRef Name="butikAdress" /><FieldRef Name="butikAgare" /><FieldRef Name="butikKontakt" /></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="ID"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View><View BaseViewID="2" Name="b3f34e4e-4f09-40aa-b5b0-57bd9099c1d1" DisplayName="Tilläggsvy" Type="HTML" WebPartZoneID="Main" SetupPath="pages\viewpage.aspx" Url="Tilläggsvy.aspx"><RowLimit>3</RowLimit><ViewFields><FieldRef Name="Edit" /><FieldRef Name="butikKundnummer" /><FieldRef Name="butikAdress" /><FieldRef Name="butikAgare" /><FieldRef Name="butikKontakt" /><FieldRef Name="Modified" /></ViewFields><Query /><Toolbar Type="Standard" /><XslLink Default="TRUE">main.xsl</XslLink><JSLink>clienttemplates.js</JSLink></View></Views>
+    <Forms>
+      <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+    </Forms>
+  </MetaData>
+</List>

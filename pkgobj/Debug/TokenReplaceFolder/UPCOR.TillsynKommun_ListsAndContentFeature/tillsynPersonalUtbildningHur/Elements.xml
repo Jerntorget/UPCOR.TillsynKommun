@@ -4,7 +4,7 @@
        ID="{a937d7c5-7a79-418d-a752-59ad96a49065}"
        Name="tillsynPersonalUtbildningHur"
        DisplayName="Om ja, ange hur:"
-       Type="Text"
+       Type="Note"
        Required="FALSE"
        Group="Tillsyn">
   </Field>

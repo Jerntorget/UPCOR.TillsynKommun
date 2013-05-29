@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{ecf50165-2bfa-4142-a37a-fbebbf94ca61}"
+       Name="tillsynBildskarmarBeskrivning"
+       DisplayName="Om ja, beskriv gärna dem"
+       Description="Beskriv gärna storlek, placering och budskap samt allmänt intryck. Finns det ljud till bilden som påkallar uppmärksamhet?"
+       Type="Note"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

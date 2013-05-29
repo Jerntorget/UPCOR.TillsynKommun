@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x0100B95F4BCD863843069C7EB0AA52C01F99" Name="Test04CT" Group="Custom Content Types" Description="My Content Type" Inherits="TRUE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{76e023f1-3997-429c-bf8a-0abf917e6392}" DisplayName="Förebyggande åtgärder" Required="FALSE" Description="Under tillsynsbesöket överlämnades följande materiel" Name="tillsynForebyggandeAtgarder" />
+      <FieldRef ID="{648cc82e-0641-43fe-83a8-da7bcddee4b1}" DisplayName="Om annat materiel, ange vad" Required="FALSE" Name="tillsynForebyggandeAtgarderAnnat" />
+      <FieldRef ID="{02605bbf-e1b6-47cf-8744-894be64db3ec}" DisplayName="Styckevis försäljning av cigaretter" Required="FALSE" Description="Förekommer styckevis försäljning av cigaretter?" Name="tillsynForekommerStyckevis" />
+      <FieldRef ID="{15e91bd0-b68d-46db-a55c-d588e6c9dabd}" DisplayName="Förpackningar med färre än 19 cigaretter" Required="FALSE" Description="Förekommer försäljning av förpackningar med färre än 19 cigaretter?" Name="tillsynForekommerUnder19" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

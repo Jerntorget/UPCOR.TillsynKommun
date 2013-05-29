@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{f3e30dc1-bee7-4f4a-9e29-cd0feea06cec}"
+       Name="tillsynNaringPlan"
+       DisplayName="Plan har utarbetats av näringsidkaren"
+       Description="Om ja, visar egenkontrollsprogrammet att näringsidkaren har utarbetat en plan för att säkerställa att tobakslagens bestämmelser följs i den egna verksamheten?"
+       Type="Boolean"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

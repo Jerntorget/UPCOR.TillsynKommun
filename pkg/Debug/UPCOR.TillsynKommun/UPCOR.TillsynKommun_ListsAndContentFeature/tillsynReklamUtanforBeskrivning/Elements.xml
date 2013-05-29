@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{78d3209c-abe2-4423-8358-693289e9ea47}"
+       Name="tillsynReklamUtanforBeskrivning"
+       DisplayName="Om ja, beskriv dem"
+       Type="Note"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

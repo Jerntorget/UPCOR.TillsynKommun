@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Title="UPCOR - Tillsyn Kommun - Listor och innehåll" Id="be01677e-b67e-4987-b683-dfe2f97a344a" ReceiverAssembly="UPCOR.TillsynKommun, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f66bbd75f013e009" ReceiverClass="UPCOR.TillsynKommun.Features.ListsAndContentFeature.ListsAndContentFeatureEventReceiver" Scope="Web">
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Id="be01677e-b67e-4987-b683-dfe2f97a344a" ReceiverAssembly="UPCOR.TillsynKommun, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f66bbd75f013e009" ReceiverClass="UPCOR.TillsynKommun.Features.ListsAndContentFeature.ListsAndContentFeatureEventReceiver" Scope="Web" Title="UPCOR - Tillsyn Kommun - Listor och innehåll">
   <ElementManifests>
     <ElementManifest Location="AgareInstance\Elements.xml" />
     <ElementManifest Location="Agare\Elements.xml" />
@@ -80,5 +80,59 @@
     <ElementManifest Location="tillsynAutomatKontroll\Elements.xml" />
     <ElementManifest Location="tillsynAutomatKontrollAnledning\Elements.xml" />
     <ElementManifest Location="tillsynTillKlockan\Elements.xml" />
+    <ElementManifest Location="tillsynForekommerStyckevis\Elements.xml" />
+    <ElementManifest Location="tillsynForekommerUnder19\Elements.xml" />
+    <ElementManifest Location="tillsynVarningstext\Elements.xml" />
+    <ElementManifest Location="tillsynVarningstextBeskrivning\Elements.xml" />
+    <ElementManifest Location="tillsynReklamPatrangande\Elements.xml" />
+    <ElementManifest Location="tillsynReklamPatrangandeBeskrivning\Elements.xml" />
+    <ElementManifest Location="tillsynReklamUtanfor\Elements.xml" />
+    <ElementManifest Location="tillsynReklamUtanforBeskrivning\Elements.xml" />
+    <ElementManifest Location="tillsynReklamByra\Elements.xml" />
+    <ElementManifest Location="tillsynReklamByraVilken\Elements.xml" />
+    <ElementManifest Location="tillsynSponsrad\Elements.xml" />
+    <ElementManifest Location="tillsynSponsradVilken\Elements.xml" />
+    <ElementManifest Location="tillsynReklamHandskriven\Elements.xml" />
+    <ElementManifest Location="tillsynReklamHandskrivenBeskrivning\Elements.xml" />
+    <ElementManifest Location="tillsynBildskarmar\Elements.xml" />
+    <ElementManifest Location="tillsynBildskarmarBeskrivning\Elements.xml" />
+    <ElementManifest Location="tillsynForebyggandeAtgarder\Elements.xml" />
+    <ElementManifest Location="tillsynForebyggandeAtgarderAnnat\Elements.xml" />
+    <ElementManifest Location="tillsynLegitimationKassa\Elements.xml" />
+    <ElementManifest Location="tillsynSammanfattning\Elements.xml" />
+    <ElementManifest Location="tillsynHandlaggare\Elements.xml" />
+    <ElementManifest Location="ForsaljningstillstandInstance\Elements.xml" />
+    <ElementManifest Location="Forsaljningstillstand\Elements.xml" />
+    <ElementFile Location="Forsaljningstillstand\Schema.xml" />
+    <ElementManifest Location="PermissionCT\Elements.xml" />
+    <ElementManifest Location="tillstandFran\Elements.xml" />
+    <ElementManifest Location="tillstandTill\Elements.xml" />
+    <ElementManifest Location="tillstandTyp\Elements.xml" />
+    <ElementManifest Location="kontaktUppslagsnamn\Elements.xml" />
+    <ElementManifest Location="aktivitetNotering\Elements.xml" />
+    <ElementManifest Location="GivePermissionCT\Elements.xml" />
+    <ElementManifest Location="Testlist01Instance\Elements.xml" />
+    <ElementManifest Location="Testlist01\Elements.xml" />
+    <ElementFile Location="Testlist01\Schema.xml" />
+    <ElementManifest Location="Test02CT\Elements.xml" />
+    <ElementManifest Location="Test03CT\Elements.xml" />
+    <ElementManifest Location="Test04CT\Elements.xml" />
+    <ElementManifest Location="Testlist02Instance\Elements.xml" />
+    <ElementManifest Location="Testlist02\Elements.xml" />
+    <ElementFile Location="Testlist02\Schema.xml" />
+    <ElementManifest Location="Testlist03Instance\Elements.xml" />
+    <ElementManifest Location="Testlist03\Elements.xml" />
+    <ElementFile Location="Testlist03\Schema.xml" />
+    <ElementManifest Location="Testlist04Instance\Elements.xml" />
+    <ElementManifest Location="Testlist04\Elements.xml" />
+    <ElementFile Location="Testlist04\Schema.xml" />
+    <ElementManifest Location="Test05CT\Elements.xml" />
+    <ElementManifest Location="Test06CT\Elements.xml" />
+    <ElementManifest Location="Testlist05Instance\Elements.xml" />
+    <ElementManifest Location="Testlist05\Elements.xml" />
+    <ElementFile Location="Testlist05\Schema.xml" />
+    <ElementManifest Location="Testlist06Instance\Elements.xml" />
+    <ElementManifest Location="Testlist06\Elements.xml" />
+    <ElementFile Location="Testlist06\Schema.xml" />
   </ElementManifests>
 </Feature>

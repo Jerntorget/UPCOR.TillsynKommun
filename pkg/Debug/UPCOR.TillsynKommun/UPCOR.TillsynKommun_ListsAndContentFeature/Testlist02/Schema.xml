@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="Testlist02" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/Testlist02" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/" EnableContentTypes="TRUE">
+  <MetaData>
+    <ContentTypes>
+      
+      
+    <ContentType ID="0x0100F1E28FB0DF3A41078938D8CA5B8CEBF3" Name="Test02CT" Group="Custom Content Types" Description="My Content Type" Inherits="TRUE" Version="0"><FieldRefs><FieldRef ID="{a095a083-cfd4-4dbd-b163-60794a6dc267}" DisplayName="Aktiv information ges" Required="FALSE" Description="Ges aktiv information och stöd till personalen för att de ska kunna följa tobakslagen och anslutande föreskrifter?" Name="tillsynAktivInformation" /><FieldRef ID="{f1335e91-6795-4e38-854b-30ebeef1d31e}" DisplayName="Om ja, ange hur och när senaste tillfället var" Required="FALSE" Name="tillsynAktivInformationNar" /><FieldRef ID="{005f4b45-1ba4-41f6-beab-c851b27b1cd0}" DisplayName="Tillsynsbesöket sker" Required="FALSE" Name="tillsynAnmalt" /><FieldRef ID="{63302a78-de16-4856-92d5-bae528c86a39}" DisplayName="Finns tobaksautomat" Required="FALSE" Name="tillsynAutomat" /></FieldRefs></ContentType><ContentTypeRef ID="0x01">
+        <Folder TargetName="Item" />
+      </ContentTypeRef><ContentTypeRef ID="0x0120" /></ContentTypes>
+    <Fields>
+      
+    <Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" DisplayName="$Resources:core,Title;" Required="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Title" MaxLength="255" /><Field ID="{a095a083-cfd4-4dbd-b163-60794a6dc267}" Name="tillsynAktivInformation" DisplayName="Aktiv information ges" Description="Ges aktiv information och stöd till personalen för att de ska kunna följa tobakslagen och anslutande föreskrifter?" Type="Boolean" Required="FALSE" Group="Tillsyn"></Field><Field ID="{f1335e91-6795-4e38-854b-30ebeef1d31e}" Name="tillsynAktivInformationNar" DisplayName="Om ja, ange hur och när senaste tillfället var" Type="Note" Required="FALSE" Group="Tillsyn"></Field><Field ID="{005f4b45-1ba4-41f6-beab-c851b27b1cd0}" Name="tillsynAnmalt" DisplayName="Tillsynsbesöket sker" Type="MultiChoice" Required="FALSE" Group="Tillsyn"><CHOICES><CHOICE>Oanmält</CHOICE><CHOICE>Föranmält</CHOICE><CHOICE>utan Polisen</CHOICE><CHOICE>tillsammans med Polisen i ett gemensamt tillsynsbesök</CHOICE><CHOICE>tillsammans med Polisen som handräckningsmyndighet</CHOICE></CHOICES></Field><Field ID="{63302a78-de16-4856-92d5-bae528c86a39}" Name="tillsynAutomat" DisplayName="Finns tobaksautomat" Type="Boolean" Required="FALSE" Group="Tillsyn"></Field></Fields>
+    <Views>
+      
+      
+    <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitleNoMenu"></FieldRef></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="Modified" Ascending="FALSE"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View><View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/15/images/generic.png?rev=23" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <JSLink>clienttemplates.js</JSLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitle"></FieldRef><FieldRef Name="tillsynAktivInformation" /><FieldRef Name="tillsynAktivInformationNar" /><FieldRef Name="tillsynAnmalt" /><FieldRef Name="tillsynAutomat" /></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="ID"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View></Views>
+    <Forms>
+      <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+    </Forms>
+  </MetaData>
+</List>

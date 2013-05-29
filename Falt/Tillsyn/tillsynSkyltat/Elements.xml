@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{6e5947c4-c1e7-48db-9d40-352e70a7efef}"
+       Name="tillsynSkyltat"
+       DisplayName="Tydligt skyltat"
+       Description="Finns en tydlig och klart synbar skylt med information om förbudet mot att sälja eller lämna ut tobaksvaror till den som inte har fyllt 18 år?"
+       Type="MultiChoice"
+       Required="FALSE"
+       Group="Tillsyn">
+    <CHOICES>
+      <CHOICE>Ja,</CHOICE>
+      <CHOICE>vid tobaken</CHOICE>
+      <CHOICE>vid kassan</CHOICE>
+      <CHOICE>vid dörren/entrén</CHOICE>
+      <CHOICE>Nej, skylt saknas</CHOICE>
+    </CHOICES>
+  </Field>
+</Elements>

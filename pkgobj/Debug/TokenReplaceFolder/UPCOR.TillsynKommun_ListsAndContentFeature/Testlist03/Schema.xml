@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="Testlist03" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/Testlist03" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/" EnableContentTypes="TRUE">
+  <MetaData>
+    <ContentTypes>
+      
+      
+    <ContentType ID="0x0100540F1B5AEDC94317833E115A1362F64B" Name="Test03CT" Group="Custom Content Types" Description="My Content Type" Inherits="FALSE" Version="0"><FieldRefs><FieldRef ID="{0b674e28-5b11-49fe-a60b-74fb97ffd2eb}" DisplayName="Om ja, har automaten godtagbar kontroll" Required="FALSE" Description="Finns det en godtabar kontroll över åldern på den som handlar i automaten?" Name="tillsynAutomatKontroll" /><FieldRef ID="{a3f6d69e-c500-4c6d-a106-6cb422fc7c76}" DisplayName="Om nej, ange på vilket sätt kontrollen inte är godtagbar" Required="FALSE" Name="tillsynAutomatKontrollAnledning" /><FieldRef ID="{07695f00-5580-4983-bc23-98c3816c887e}" DisplayName="Bildskärmar med kommersiella meddelanden" Required="FALSE" Description="Finns bildskärmar med kommersiella meddelanden?" Name="tillsynBildskarmar" /><FieldRef ID="{ecf50165-2bfa-4142-a37a-fbebbf94ca61}" DisplayName="Om ja, beskriv gärna dem" Required="FALSE" Description="Beskriv gärna storlek, placering och budskap samt allmänt intryck. Finns det ljud till bilden som påkallar uppmärksamhet?" Name="tillsynBildskarmarBeskrivning" /></FieldRefs></ContentType><ContentTypeRef ID="0x01">
+        <Folder TargetName="Item" />
+      </ContentTypeRef><ContentTypeRef ID="0x0120" /></ContentTypes>
+    <Fields>
+      
+    <Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" DisplayName="$Resources:core,Title;" Required="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Title" MaxLength="255" /><Field ID="{0b674e28-5b11-49fe-a60b-74fb97ffd2eb}" Name="tillsynAutomatKontroll" DisplayName="Om ja, har automaten godtagbar kontroll" Description="Finns det en godtabar kontroll över åldern på den som handlar i automaten?" Type="Boolean" Required="FALSE" Group="Tillsyn"></Field><Field ID="{a3f6d69e-c500-4c6d-a106-6cb422fc7c76}" Name="tillsynAutomatKontrollAnledning" DisplayName="Om nej, ange på vilket sätt kontrollen inte är godtagbar" Type="Note" Required="FALSE" Group="Tillsyn"></Field><Field ID="{07695f00-5580-4983-bc23-98c3816c887e}" Name="tillsynBildskarmar" DisplayName="Bildskärmar med kommersiella meddelanden" Description="Finns bildskärmar med kommersiella meddelanden?" Type="Boolean" Required="FALSE" Group="Tillsyn"></Field><Field ID="{ecf50165-2bfa-4142-a37a-fbebbf94ca61}" Name="tillsynBildskarmarBeskrivning" DisplayName="Om ja, beskriv gärna dem" Description="Beskriv gärna storlek, placering och budskap samt allmänt intryck. Finns det ljud till bilden som påkallar uppmärksamhet?" Type="Note" Required="FALSE" Group="Tillsyn"></Field></Fields>
+    <Views>
+      
+      
+    <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitleNoMenu"></FieldRef></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="Modified" Ascending="FALSE"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View><View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/15/images/generic.png?rev=23" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <JSLink>clienttemplates.js</JSLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitle"></FieldRef><FieldRef Name="tillsynAutomatKontroll" /><FieldRef Name="tillsynAutomatKontrollAnledning" /><FieldRef Name="tillsynBildskarmar" /><FieldRef Name="tillsynBildskarmarBeskrivning" /></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="ID"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View></Views>
+    <Forms>
+      <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+    </Forms>
+  </MetaData>
+</List>

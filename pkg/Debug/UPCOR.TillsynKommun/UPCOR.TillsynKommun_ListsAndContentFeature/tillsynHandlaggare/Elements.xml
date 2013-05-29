@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{44c1ff9d-98d3-42fe-89c0-f53308abbe73}"
+       Name="tillsynHandlaggare"
+       DisplayName="Tillsynshandläggare"
+       Description="Ange de personer som utfört tillsynen eller mottagit kontakten med försäljningsstället"
+       Type="UserMulti"
+       Mult="TRUE"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>
