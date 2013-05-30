@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
   <Module Name="Form" Url="Lists/Aktiviteter/Tillsyn">
-    <File Path="Form\template.xsn" Url="template.xsn" />
+    <File Path="Form\template00.xsn" Url="template00.xsn" />
   </Module>
 </Elements>

@@ -112,6 +112,6 @@
     <ElementManifest Location="aktivitetNotering\Elements.xml" />
     <ElementManifest Location="GivePermissionCT\Elements.xml" />
     <ElementManifest Location="Form\Elements.xml" />
-    <ElementFile Location="Form\template.xsn" />
+    <ElementFile Location="Form\template00.xsn" />
   </ElementManifests>
 </Feature>

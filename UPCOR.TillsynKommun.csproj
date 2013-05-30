@@ -153,7 +153,7 @@
     <None Include="Form\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{2260540e-71a1-4b28-bf59-3f80427d56a2}</SharePointProjectItemId>
     </None>
-    <Content Include="Form\template.xsn" />
+    <Content Include="Form\template00.xsn" />
     <None Include="Innehallstyper\GivePermissionCT\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{710b9ef0-1c50-4e67-9f86-278c62f1a953}</SharePointProjectItemId>
     </None>
