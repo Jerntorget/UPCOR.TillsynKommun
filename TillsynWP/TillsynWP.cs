@@ -10,12 +10,13 @@ using System.Text;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace UPCOR.TillsynKommun.TillsynWP
+namespace UPCOR.TillsynKommun
 {
     [ToolboxItemAttribute(false)]
     public class TillsynWP : WebPart
     {
         Table _tbl;
+        TableCell _td;
 
         protected override void CreateChildControls() {
             //SPContentTypeId id = new SPContentTypeId("0x01005B4D0E77283349FEA58D136970995B96");
@@ -45,28 +46,61 @@ namespace UPCOR.TillsynKommun.TillsynWP
             JTClientField f = new JTClientField();
             f.Id = field.Id;
             TableRow tr = new TableRow();
-            TableCell td = new TableCell();
-            td.Controls.Add(new LiteralControl(field.Title));
-            tr.Controls.Add(td);
-            td = new TableCell();
-            td.Controls.Add(new LiteralControl(field.Description + "<br />"));
+            _td = new TableCell();
+            _td.Controls.Add(new LiteralControl(field.Title));
+            tr.Controls.Add(_td);
+            _td = new TableCell();
+            _td.Controls.Add(new LiteralControl(field.Description + "<br />"));
             switch (field.TypeAsString) {
-                case "Boolean":
-                    CheckBoxList cblBoolean = new CheckBoxList();
-                    cblBoolean.Items.Add("Ja");
-                    cblBoolean.Items.Add("Nej");
-                    td.Controls.Add(cblBoolean);
-                    break;
-                case "Note":
-                    TextBox txtNote = new TextBox();
-                    td.Controls.Add(txtNote);
-                    break;
                 default:
+                    RenderFieldInner(field.TypeAsString, field);
                     break;
             }
-            tr.Controls.Add(td);
+            tr.Controls.Add(_td);
             _tbl.Rows.Add(tr);
             return f;
         }
-    }
+
+        private void RenderFieldInner(string type, SPField field) {
+            switch (type) {
+                //case "Boolean":
+                //    CheckBoxList cblBoolean = new CheckBoxList();
+                //    cblBoolean.Items.Add("Ja");
+                //    cblBoolean.Items.Add("Nej");
+                //    _td.Controls.Add(cblBoolean);
+                //    break;
+                //case "Note":
+                //    TextBox txtNote = new TextBox();
+                //    _td.Controls.Add(txtNote);
+                //    break;
+                //case "MultiChoice":
+                //    SPFieldMultiChoice mcField = field as SPFieldMultiChoice;
+                //    if(mcField != null) {
+                //        CheckBoxList cblMultiChoice = new CheckBoxList();
+                //        foreach (string choice in mcField.Choices) {
+                //            cblMultiChoice.Items.Add(choice);
+                //        }
+                //        _td.Controls.Add(cblMultiChoice);
+                //    }
+                //    break;
+                //case "Lookup":
+                //    SPFieldLookup luField = field as SPFieldLookup;
+                //    if (luField != null) {
+                //        DropDownList ddlLookup = new DropDownList();
+                //        SPList luList = SPContext.Current.Web.Lists[luField.LookupList];
+                //        foreach (SPListItem li in luList.Items) {
+                //            string value = li[luField.LookupField] as string;
+                //            if (value != null) {
+                //                ddlLookup.Items.Add(new ListItem(value, li.ID.ToString()));
+                //            }
+                //        }
+                //    }
+                //    break;
+                default:
+                    _td.Controls.Add(field.FieldRenderingControl);
+
+                    break;
+            } // Switch
+        } // Function
+    } // Class
 }

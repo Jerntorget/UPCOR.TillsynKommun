@@ -113,7 +113,5 @@
     <ElementManifest Location="GivePermissionCT\Elements.xml" />
     <ElementManifest Location="Form\Elements.xml" />
     <ElementFile Location="Form\template.xsn" />
-    <ElementManifest Location="FormPages\Elements.xml" />
-    <ElementManifest Location="PropertyBag\Elements.xml" />
   </ElementManifests>
 </Feature>

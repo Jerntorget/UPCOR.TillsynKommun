@@ -175,7 +175,7 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
 
                         #endregion
 
-                        #region Mitt försäljningsställe
+                        #region mitt försäljningsställe
                         string compoundUrl3 = string.Format("{0}/{1}", listSidor.RootFolder.ServerRelativeUrl, "Mitt försäljningsställe.aspx");//* Define page payout
                         _wikiFullContent = FormatSimpleWikiLayout();
                         Global.Debug = "Skapa minbutiksida";
@@ -194,6 +194,23 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
                         minbutiksida.Item[SPBuiltInFieldId.WikiField] = _wikiFullContent;
                         minbutiksida.Item.UpdateOverwriteVersion();
                         Global.Debug = "Nybutiksida skapad";
+                        #endregion
+
+                        #region skapa tillsynsrapport
+                        string compoundUrl4 = string.Format("{0}/{1}", listSidor.RootFolder.ServerRelativeUrl, "Skapa tillsynsrapport.aspx");//* Define page payout
+                        _wikiFullContent = FormatSimpleWikiLayout();
+                        Global.Debug = "Skapa tillsynsrapport";
+                        SPFile skapatillsynsida = listSidor.RootFolder.Files.Add(compoundUrl4, SPTemplateFileType.WikiPage);
+
+                        Global.Debug = "wpTillsyn";
+                        TillsynWP wpTillsyn = new TillsynWP();
+                        wpTillsyn.ChromeType = PartChromeType.None;
+                        Guid wpTillsynGuid = AddWebPartControlToPage(skapatillsynsida, wpTillsyn);
+                        AddWebPartMarkUpToPage(wpTillsynGuid, "[[COL1]]");
+
+                        skapatillsynsida.Item[SPBuiltInFieldId.WikiField] = _wikiFullContent;
+                        skapatillsynsida.Item.UpdateOverwriteVersion();
+                        Global.Debug = "Skapatillsynsida skapad";
                         #endregion
                     }
 

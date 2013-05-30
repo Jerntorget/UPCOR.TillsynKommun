@@ -4,6 +4,7 @@
     <Assembly Location="UPCOR.TillsynKommun.dll" DeploymentTarget="GlobalAssemblyCache">
       <SafeControls>
         <SafeControl Assembly="UPCOR.TillsynKommun, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f66bbd75f013e009" Namespace="UPCOR.TillsynKommun" TypeName="*" />
+        <SafeControl Assembly="UPCOR.TillsynKommun, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f66bbd75f013e009" Namespace="UPCOR.TillsynKommun" TypeName="*" />
       </SafeControls>
     </Assembly>
   </Assemblies>
@@ -11,6 +12,8 @@
     <TemplateFile Location="SiteTemplates\TillsynKommunSD\default.aspx" />
     <TemplateFile Location="SiteTemplates\TillsynKommunSD\Xml\onet.xml" />
     <TemplateFile Location="1053\xml\webtemp_TillsynKommunSD.xml" />
+    <TemplateFile Location="Layouts\UPCOR.TillsynKommun\tillsyn.css" />
+    <TemplateFile Location="Layouts\UPCOR.TillsynKommun\tillsyn.js" />
   </TemplateFiles>
   <FeatureManifests>
     <FeatureManifest Location="UPCOR.TillsynKommun_ListsAndContentFeature\Feature.xml" />

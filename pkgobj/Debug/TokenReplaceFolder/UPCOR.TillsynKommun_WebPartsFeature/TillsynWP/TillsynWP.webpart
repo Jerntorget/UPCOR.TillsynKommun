@@ -2,7 +2,7 @@
 <webParts>
   <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
     <metaData>
-      <type name="UPCOR.TillsynKommun.TillsynWP.TillsynWP, $SharePoint.Project.AssemblyFullName$" />
+      <type name="UPCOR.TillsynKommun.TillsynWP.TillsynWP, UPCOR.TillsynKommun, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f66bbd75f013e009" />
       <importErrorMessage>$Resources:core,ImportErrorMessage;</importErrorMessage>
     </metaData>
     <data>

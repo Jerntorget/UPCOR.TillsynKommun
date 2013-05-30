@@ -81,6 +81,7 @@
     <Content Include="Filer\Webbplatstillgangar\heart.gif" />
     <Content Include="Filer\Webbplatstillgangar\profil_ettan_vinter_557x100.jpg" />
     <Content Include="Filer\Blanketter\Elements.xml" />
+    <Content Include="Form\Elements.xml" />
     <Content Include="Innehallstyper\GivePermissionCT\Elements.xml" />
     <Content Include="Layouts\UPCOR.TillsynKommun\tillsyn.css" />
     <Content Include="Layouts\UPCOR.TillsynKommun\tillsyn.js" />
@@ -149,6 +150,10 @@
     <Content Include="Listor\Webbplatssidor\Elements.xml" />
     <Content Include="Listor\Webbplatstillgangar\Elements.xml" />
     <Content Include="TillsynWP\Elements.xml" />
+    <None Include="Form\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2260540e-71a1-4b28-bf59-3f80427d56a2}</SharePointProjectItemId>
+    </None>
+    <Content Include="Form\template.xsn" />
     <None Include="Innehallstyper\GivePermissionCT\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{710b9ef0-1c50-4e67-9f86-278c62f1a953}</SharePointProjectItemId>
     </None>
