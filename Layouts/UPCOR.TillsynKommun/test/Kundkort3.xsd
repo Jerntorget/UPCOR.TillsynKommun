@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<xsd:schema targetNamespace="http://schemas.microsoft.com/office/infopath/2009/WSSList/dataFields" elementFormDefault="unqualified" attributeFormDefault="unqualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:dms="http://schemas.microsoft.com/office/2009/documentManagement/types" xmlns:dfs="http://schemas.microsoft.com/office/infopath/2003/dataFormSolution" xmlns:q="http://schemas.microsoft.com/office/infopath/2009/WSSList/queryFields" xmlns:d="http://schemas.microsoft.com/office/infopath/2009/WSSList/dataFields" xmlns:ma="http://schemas.microsoft.com/office/2009/metadata/properties/metaAttributes" xmlns:pc="http://schemas.microsoft.com/office/infopath/2007/PartnerControls">
+	<xsd:import namespace="http://schemas.microsoft.com/office/2009/documentManagement/types" schemaLocation="Kundkort2.xsd"></xsd:import>
+	<xsd:element name="SharePointListItem_RW">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="d:Title" minOccurs="0"></xsd:element>
+				<xsd:element ref="d:ID" minOccurs="0"></xsd:element>
+				<xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"></xsd:any>
+			</xsd:sequence>
+			<xsd:anyAttribute namespace="##other" processContents="lax"></xsd:anyAttribute>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Title" ma:displayName="Rubrik" ma:readOnly="false" ma:allowDeletion="true">
+		<xsd:simpleType>
+			<xsd:restriction base="dms:TextType">
+				<xsd:maxLength value="255"></xsd:maxLength>
+				<xsd:minLength value="1"></xsd:minLength>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ID" type="dms:CounterType" ma:displayName="ID" ma:readOnly="True" nillable="true" ma:allowDeletion="true"></xsd:element>
+</xsd:schema>

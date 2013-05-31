@@ -1,0 +1,175 @@
+<dfs:myFields xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dfs="http://schemas.microsoft.com/office/infopath/2003/dataFormSolution" xmlns:d="http://schemas.microsoft.com/office/infopath/2009/WSSList/dataFields" xmlns:pc="http://schemas.microsoft.com/office/infopath/2007/PartnerControls" xmlns:ma="http://schemas.microsoft.com/office/2009/metadata/properties/metaAttributes" xmlns:q="http://schemas.microsoft.com/office/infopath/2009/WSSList/queryFields" xmlns:dms="http://schemas.microsoft.com/office/2009/documentManagement/types" xmlns:my="http://schemas.microsoft.com/office/infopath/2009/WSSList/cmeDataFields" xmlns:xd="http://schemas.microsoft.com/office/infopath/2003">
+	<dfs:queryFields>
+		<q:SharePointListItem_RW>
+			<q:ID/>
+			<q:Title/>
+			<q:Author/>
+			<q:Editor/>
+			<q:Modified/>
+			<q:Created/>
+			<q:tillsynUppfoljande/>
+			<q:tillsynFotodok/>
+			<q:aktivitetDatum/>
+			<q:aktivitetButik/>
+			<q:tillsynNaringAnmalt/>
+			<q:tillsynNaringIngett/>
+			<q:tillsynNaringPlan/>
+			<q:tillsynAktivInformation/>
+			<q:tillsynPersonalUtbildning/>
+			<q:tillsynLegitimation/>
+			<q:tillsynLegitimationAlder/>
+			<q:tillsynAutomat/>
+			<q:tillsynAutomatKontroll/>
+			<q:tillsynForekommerStyckevis/>
+			<q:tillsynForekommerUnder19/>
+			<q:tillsynReklamPatrangande/>
+			<q:tillsynReklamUtanfor/>
+			<q:tillsynReklamByra/>
+			<q:tillsynSponsrad/>
+			<q:tillsynReklamHandskriven/>
+			<q:tillsynBildskarmar/>
+			<q:tillsynLegitimationKassa/>
+			<q:tillsynTillKlockan/>
+		</q:SharePointListItem_RW>
+	</dfs:queryFields>
+	<dfs:dataFields>
+		<my:SharePointListItem_RW>
+			<my:ID/>
+			<my:Title/>
+			<my:Author>
+				<pc:Person>
+					<pc:DisplayName/>
+					<pc:AccountId/>
+					<pc:AccountType/>
+				</pc:Person>
+			</my:Author>
+			<my:Editor>
+				<pc:Person>
+					<pc:DisplayName/>
+					<pc:AccountId/>
+					<pc:AccountType/>
+				</pc:Person>
+			</my:Editor>
+			<my:Modified/>
+			<my:Created/>
+			<my:Attachments>
+				<attachmentURL/>
+			</my:Attachments>
+			<my:tillsynAnmalt>
+				<Value/>
+			</my:tillsynAnmalt>
+			<my:tillsynUppfoljande/>
+			<my:tillsynFotodok/>
+			<my:aktivitetDatum/>
+			<my:aktivitetButik/>
+			<my:tillsynNaringAnmalt/>
+			<my:tillsynNaringIngett/>
+			<my:tillsynNaringPlan/>
+			<my:tillsynNaringPlanVarforInte/>
+			<my:tillsynAktivInformation/>
+			<my:tillsynAktivInformationNar/>
+			<my:tillsynPersonalUtbildning/>
+			<my:tillsynPersonalUtbildningHur/>
+			<my:tillsynLegitimation/>
+			<my:tillsynLegitimationAlder/>
+			<my:tillsynSkyltat>
+				<Value/>
+			</my:tillsynSkyltat>
+			<my:tillsynAutomat/>
+			<my:tillsynAutomatKontroll/>
+			<my:tillsynAutomatKontrollAnledning/>
+			<my:tillsynForekommerStyckevis/>
+			<my:tillsynForekommerUnder19/>
+			<my:tillsynVarningstext>
+				<Value/>
+			</my:tillsynVarningstext>
+			<my:tillsynReklamPatrangande/>
+			<my:tillsynReklamPatrangandeBeskrivning/>
+			<my:tillsynReklamUtanfor/>
+			<my:tillsynReklamUtanforBeskrivning/>
+			<my:tillsynReklamByra/>
+			<my:tillsynReklamByraVilken/>
+			<my:tillsynSponsrad/>
+			<my:tillsynSponsradVilken/>
+			<my:tillsynReklamHandskriven/>
+			<my:tillsynReklamHandskrivenBeskrivning/>
+			<my:tillsynBildskarmar/>
+			<my:tillsynBildskarmarBeskrivning/>
+			<my:tillsynForebyggandeAtgarder>
+				<Value/>
+			</my:tillsynForebyggandeAtgarder>
+			<my:tillsynForebyggandeAtgarderAnnat/>
+			<my:tillsynLegitimationKassa/>
+			<my:tillsynSammanfattning>
+				<Value/>
+			</my:tillsynSammanfattning>
+			<my:tillsynHandlaggare>
+				<pc:Person>
+					<pc:DisplayName/>
+					<pc:AccountId/>
+					<pc:AccountType/>
+				</pc:Person>
+			</my:tillsynHandlaggare>
+			<my:tillsynTillKlockan/>
+			<my:aktivitetNotering/>
+		</my:SharePointListItem_RW>
+	</dfs:dataFields>
+	<xd:SchemaInfo LocalName="myFields" NamespaceURI="http://schemas.microsoft.com/office/infopath/2003/dataFormSolution">
+		<xd:Namespaces>
+			<xd:Namespace LocalName="myFields" NamespaceURI="http://schemas.microsoft.com/office/infopath/2003/dataFormSolution"/>
+		</xd:Namespaces>
+		<xd:RequiredAnys/>
+	</xd:SchemaInfo>
+	<xd:DataConnection Name="Kundkort">
+		<dfs:myFields xmlns:my="http://schemas.microsoft.com/office/infopath/2009/WSSList/cmeDataFields" xmlns:pc="http://schemas.microsoft.com/office/infopath/2007/PartnerControls" xmlns:ma="http://schemas.microsoft.com/office/2009/metadata/properties/metaAttributes" xmlns:d="http://schemas.microsoft.com/office/infopath/2009/WSSList/dataFields" xmlns:q="http://schemas.microsoft.com/office/infopath/2009/WSSList/queryFields" xmlns:dfs="http://schemas.microsoft.com/office/infopath/2003/dataFormSolution" xmlns:dms="http://schemas.microsoft.com/office/2009/documentManagement/types" xmlns:xd="http://schemas.microsoft.com/office/infopath/2003">
+			<dfs:queryFields>
+				<q:SharePointListItem_RW>
+					<q:Title/>
+					<q:ID/>
+				</q:SharePointListItem_RW>
+			</dfs:queryFields>
+			<dfs:dataFields>
+				<d:SharePointListItem_RW>
+					<d:Title/>
+					<d:ID/>
+				</d:SharePointListItem_RW>
+			</dfs:dataFields>
+			<xd:SchemaInfo LocalName="myFields" NamespaceURI="http://schemas.microsoft.com/office/infopath/2003/dataFormSolution">
+				<xd:Namespaces>
+					<xd:Namespace LocalName="myFields" NamespaceURI="http://schemas.microsoft.com/office/infopath/2003/dataFormSolution"/>
+				</xd:Namespaces>
+				<xd:RequiredAnys/>
+			</xd:SchemaInfo>
+		</dfs:myFields>
+	</xd:DataConnection>
+	<xd:DataConnection Name="Alternativdataanslutning">
+		<root xmlns:my="http://schemas.microsoft.com/office/infopath/2009/WSSList/cmeDataFields" xmlns:xd="http://schemas.microsoft.com/office/infopath/2003">
+			<tillsynAnmalt>
+				<SharePointListChoice_RW DisplayName=""/>
+			</tillsynAnmalt>
+			<tillsynUppfoljande>
+				<SharePointListChoice_RW DisplayName=""/>
+			</tillsynUppfoljande>
+			<tillsynFotodok>
+				<SharePointListChoice_RW DisplayName=""/>
+			</tillsynFotodok>
+			<tillsynSkyltat>
+				<SharePointListChoice_RW DisplayName=""/>
+			</tillsynSkyltat>
+			<tillsynVarningstext>
+				<SharePointListChoice_RW DisplayName=""/>
+			</tillsynVarningstext>
+			<tillsynForebyggandeAtgarder>
+				<SharePointListChoice_RW DisplayName=""/>
+			</tillsynForebyggandeAtgarder>
+			<tillsynSammanfattning>
+				<SharePointListChoice_RW DisplayName=""/>
+			</tillsynSammanfattning>
+			<xd:SchemaInfo LocalName="root" NamespaceURI="">
+				<xd:Namespaces>
+					<xd:Namespace LocalName="root" NamespaceURI=""/>
+				</xd:Namespaces>
+			</xd:SchemaInfo>
+		</root>
+	</xd:DataConnection>
+</dfs:myFields>

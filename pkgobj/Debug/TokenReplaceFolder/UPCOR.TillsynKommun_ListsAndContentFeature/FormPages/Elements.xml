@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
-  <Module Name="FormPages" Url="Lists/Aktiviteter/Tillsyn" SetupPath="pages" RootWebOnly="FALSE" xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="TestList1Form" Url="Lists/Aktiviteter/Tillsyn" SetupPath="pages" RootWebOnly="FALSE" xmlns="http://schemas.microsoft.com/sharepoint/">
     <File Url="displayifs.aspx" Type="Ghostable" Path="form.aspx">
       <BinarySerializedWebPart>
         <GUIDMap>
           <GUID Id="1b8faa0c_4e13_43e7_981f_57d525170d09" ListUrl="Lists/Aktiviteter" />
         </GUIDMap>
-        <WebPart ID="{6867B2C3-AF13-4F68-98E0-C26F79C06C56}"
+        <WebPart ID="{9ED89805-102B-44A4-AF91-FFD9E0DA4A7A}"
                  List="{$ListId:Lists/Aktiviteter;}"
                  Type="4"
                  Url="Lists/Aktiviteter/Tillsyn/displayifs.aspx"
@@ -26,7 +26,7 @@
         <GUIDMap>
           <GUID Id="1b8faa0c_4e13_43e7_981f_57d525170d09" ListUrl="Lists/Aktiviteter" />
         </GUIDMap>
-        <WebPart ID="{A8AAA851-CAF9-4B22-A097-FB6789097B3D}"
+        <WebPart ID="{06C60259-1D32-417B-84D4-06A4C18EB25B}"
                  List="{$ListId:Lists/Aktiviteter;}"
                  Type="6"
                  Flags="0"
@@ -47,7 +47,7 @@
         <GUIDMap>
           <GUID Id="1b8faa0c_4e13_43e7_981f_57d525170d09" ListUrl="Lists/Aktiviteter" />
         </GUIDMap>
-        <WebPart ID="{CA8E93A4-1874-48DD-854C-7701D2F5ED0F}"
+        <WebPart ID="{BC61BD8C-976B-4921-B318-9F3D7A14D5D8}"
                  List="{$ListId:Lists/Aktiviteter;}"
                  Type="8"
                  Flags="0"

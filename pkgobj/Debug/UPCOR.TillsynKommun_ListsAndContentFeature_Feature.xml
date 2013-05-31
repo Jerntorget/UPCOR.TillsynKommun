@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Id="be01677e-b67e-4987-b683-dfe2f97a344a" ReceiverAssembly="UPCOR.TillsynKommun, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f66bbd75f013e009" ReceiverClass="UPCOR.TillsynKommun.Features.ListsAndContentFeature.ListsAndContentFeatureEventReceiver" Scope="Web" Title="UPCOR - Tillsyn Kommun - Listor och innehåll">
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Id="be01677e-b67e-4987-b683-dfe2f97a344a" ReceiverAssembly="UPCOR.TillsynKommun, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f66bbd75f013e009" ReceiverClass="UPCOR.TillsynKommun.Features.ListsAndContentFeature.ListsAndContentFeatureEventReceiver" Scope="Web" Title="!UPCOR - Tillsyn Kommun - Listor och innehåll">
   <ElementManifests>
     <ElementManifest Location="AgareInstance\Elements.xml" />
     <ElementManifest Location="Agare\Elements.xml" />
@@ -111,7 +111,7 @@
     <ElementManifest Location="kontaktUppslagsnamn\Elements.xml" />
     <ElementManifest Location="aktivitetNotering\Elements.xml" />
     <ElementManifest Location="GivePermissionCT\Elements.xml" />
-    <ElementManifest Location="Form\Elements.xml" />
-    <ElementFile Location="Form\template00.xsn" />
+    <ElementManifest Location="FormPages\Elements.xml" />
+    <ElementManifest Location="PropertyBag\Elements.xml" />
   </ElementManifests>
 </Feature>

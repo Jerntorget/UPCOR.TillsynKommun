@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Den här filen skapas och ändras av Microsoft InfoPath.
+Ändringar av filen som görs utanför InfoPath kan gå förlorade om formulärmallen flyttas i InfoPath.
+-->
+<xsf:xDocumentClass name="urn:schemas-microsoft-com:office:infopath:list:-AutoGen-2013-05-29T11:20:59:852Z" solutionFormatVersion="3.0.0.0" solutionVersion="1.0.0.4" productVersion="15.0.0" xmlns:xsf="http://schemas.microsoft.com/office/infopath/2003/solutionDefinition" xmlns:xsf2="http://schemas.microsoft.com/office/infopath/2006/solutionDefinition/extensions" xmlns:xsf3="http://schemas.microsoft.com/office/infopath/2009/solutionDefinition/extensions" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xdUtil="http://schemas.microsoft.com/office/infopath/2003/xslt/Util" xmlns:xdXDocument="http://schemas.microsoft.com/office/infopath/2003/xslt/xDocument" xmlns:xdMath="http://schemas.microsoft.com/office/infopath/2003/xslt/Math" xmlns:xdDate="http://schemas.microsoft.com/office/infopath/2003/xslt/Date" xmlns:xdExtension="http://schemas.microsoft.com/office/infopath/2003/xslt/extension" xmlns:xdEnvironment="http://schemas.microsoft.com/office/infopath/2006/xslt/environment" xmlns:xdUser="http://schemas.microsoft.com/office/infopath/2006/xslt/User" xmlns:my="http://schemas.microsoft.com/office/infopath/2009/WSSList/cmeDataFields" xmlns:dfs="http://schemas.microsoft.com/office/infopath/2003/dataFormSolution" xmlns:d="http://schemas.microsoft.com/office/infopath/2009/WSSList/dataFields" xmlns:pc="http://schemas.microsoft.com/office/infopath/2007/PartnerControls" xmlns:xdServerInfo="http://schemas.microsoft.com/office/infopath/2009/xslt/ServerInfo" xmlns:ma="http://schemas.microsoft.com/office/2009/metadata/properties/metaAttributes" xmlns:q="http://schemas.microsoft.com/office/infopath/2009/WSSList/queryFields" xmlns:dms="http://schemas.microsoft.com/office/2009/documentManagement/types">
+	<xsf:package>
+		<xsf:files>
+			<xsf:file name="template.xml"></xsf:file>
+			<xsf:file name="sampledata.xml">
+				<xsf:fileProperties>
+					<xsf:property name="fileType" type="string" value="sampleData"></xsf:property>
+				</xsf:fileProperties>
+			</xsf:file>
+			<xsf:file name="choices.xml">
+				<xsf:fileProperties>
+					<xsf:property name="fileType" type="string" value="resource"></xsf:property>
+				</xsf:fileProperties>
+			</xsf:file>
+			<xsf:file name="view1.xsl">
+				<xsf:fileProperties>
+					<xsf:property name="lang" type="string" value="1053"></xsf:property>
+					<xsf:property name="mode" type="string" value="1"></xsf:property>
+				</xsf:fileProperties>
+			</xsf:file>
+			<xsf:file name="upgrade.xsl"></xsf:file>
+			<xsf:file name="schema.xsd">
+				<xsf:fileProperties>
+					<xsf:property name="editability" type="string" value="none"></xsf:property>
+					<xsf:property name="namespace" type="string" value="http://schemas.microsoft.com/office/infopath/2003/dataFormSolution"></xsf:property>
+					<xsf:property name="rootElement" type="string" value="myFields"></xsf:property>
+					<xsf:property name="useOnDemandAlgorithm" type="string" value="yes"></xsf:property>
+				</xsf:fileProperties>
+			</xsf:file>
+			<xsf:file name="schema1.xsd">
+				<xsf:fileProperties>
+					<xsf:property name="namespace" type="string" value="http://schemas.microsoft.com/office/infopath/2009/WSSList/cmeDataFields"></xsf:property>
+					<xsf:property name="editability" type="string" value="full"></xsf:property>
+				</xsf:fileProperties>
+			</xsf:file>
+			<xsf:file name="schema2.xsd">
+				<xsf:fileProperties>
+					<xsf:property name="namespace" type="string" value="http://schemas.microsoft.com/office/2009/documentManagement/types"></xsf:property>
+					<xsf:property name="editability" type="string" value="none"></xsf:property>
+				</xsf:fileProperties>
+			</xsf:file>
+			<xsf:file name="schema3.xsd">
+				<xsf:fileProperties>
+					<xsf:property name="namespace" type="string" value="http://schemas.microsoft.com/office/infopath/2007/PartnerControls"></xsf:property>
+					<xsf:property name="editability" type="string" value="none"></xsf:property>
+				</xsf:fileProperties>
+			</xsf:file>
+			<xsf:file name="schema4.xsd">
+				<xsf:fileProperties>
+					<xsf:property name="namespace" type="string" value="http://schemas.microsoft.com/office/infopath/2009/WSSList/queryFields"></xsf:property>
+					<xsf:property name="editability" type="string" value="none"></xsf:property>
+				</xsf:fileProperties>
+			</xsf:file>
+			<xsf:file name="Alternativdataanslutning.xsd">
+				<xsf:fileProperties>
+					<xsf:property name="dataObject" type="string" value="Alternativdataanslutning"></xsf:property>
+					<xsf:property name="rootElement" type="string" value="root"></xsf:property>
+					<xsf:property name="useOnDemandAlgorithm" type="string" value="yes"></xsf:property>
+				</xsf:fileProperties>
+			</xsf:file>
+			<xsf:file name="Kundkort.xsd">
+				<xsf:fileProperties>
+					<xsf:property name="namespace" type="string" value="http://schemas.microsoft.com/office/infopath/2003/dataFormSolution"></xsf:property>
+					<xsf:property name="dataObject" type="string" value="Kundkort"></xsf:property>
+					<xsf:property name="rootElement" type="string" value="myFields"></xsf:property>
+					<xsf:property name="useOnDemandAlgorithm" type="string" value="yes"></xsf:property>
+				</xsf:fileProperties>
+			</xsf:file>
+			<xsf:file name="Kundkort1.xsd">
+				<xsf:fileProperties>
+					<xsf:property name="namespace" type="string" value="http://schemas.microsoft.com/office/infopath/2007/PartnerControls"></xsf:property>
+					<xsf:property name="dataObject" type="string" value="Kundkort"></xsf:property>
+				</xsf:fileProperties>
+			</xsf:file>
+			<xsf:file name="Kundkort2.xsd">
+				<xsf:fileProperties>
+					<xsf:property name="namespace" type="string" value="http://schemas.microsoft.com/office/2009/documentManagement/types"></xsf:property>
+					<xsf:property name="dataObject" type="string" value="Kundkort"></xsf:property>
+				</xsf:fileProperties>
+			</xsf:file>
+			<xsf:file name="Kundkort3.xsd">
+				<xsf:fileProperties>
+					<xsf:property name="namespace" type="string" value="http://schemas.microsoft.com/office/infopath/2009/WSSList/dataFields"></xsf:property>
+					<xsf:property name="dataObject" type="string" value="Kundkort"></xsf:property>
+				</xsf:fileProperties>
+			</xsf:file>
+			<xsf:file name="Kundkort4.xsd">
+				<xsf:fileProperties>
+					<xsf:property name="namespace" type="string" value="http://schemas.microsoft.com/office/infopath/2009/WSSList/queryFields"></xsf:property>
+					<xsf:property name="dataObject" type="string" value="Kundkort"></xsf:property>
+				</xsf:fileProperties>
+			</xsf:file>
+		</xsf:files>
+	</xsf:package>
+	<xsf:importParameters enabled="yes"></xsf:importParameters>
+	<xsf:documentVersionUpgrade>
+		<xsf:useTransform transform="upgrade.xsl" minVersionToUpgrade="0.0.0.0" maxVersionToUpgrade="1.0.0.3"></xsf:useTransform>
+	</xsf:documentVersionUpgrade>
+	<xsf:extensions>
+		<xsf:extension name="SolutionDefinitionExtensions">
+			<xsf2:solutionDefinition runtimeCompatibility="client server" runtimeCompatibilityURL="../../../_vti_bin/FormsServices.asmx" verifyOnServer="yes" allowClientOnlyCode="no">
+				<xsf2:offline openIfQueryFails="yes" cacheQueries="yes"></xsf2:offline>
+				<xsf2:server isPreSubmitPostBackEnabled="no" isMobileEnabled="no" formLocale="sv-SE"></xsf2:server>
+				<xsf2:solutionPropertiesExtension branch="list">
+					<xsf2:list path="../../../"></xsf2:list>
+				</xsf2:solutionPropertiesExtension>
+				<xsf2:viewsExtension>
+					<xsf2:viewExtension ref="Edit item" designMode="normal" clientOnly="no"></xsf2:viewExtension>
+				</xsf2:viewsExtension>
+			</xsf2:solutionDefinition>
+			<xsf3:solutionPropertiesExtension2009>
+				<xsf3:solutionMode mode="list" originalPublishUrl="../../../" isListEditForm="yes"></xsf3:solutionMode>
+			</xsf3:solutionPropertiesExtension2009>
+			<xsf3:solutionDefinition>
+				<xsf3:viewsExtension>
+					<xsf3:viewExtension ref="Edit item"></xsf3:viewExtension>
+				</xsf3:viewsExtension>
+				<xsf3:baseUrl relativeUrlBase="http://web1.upcor.se/sites/blg47/Lists/Aktiviteter/Tillsyn/"></xsf3:baseUrl>
+			</xsf3:solutionDefinition>
+		</xsf:extension>
+	</xsf:extensions>
+	<xsf:applicationParameters application="InfoPath Design Mode">
+		<xsf:solutionProperties fullyEditableNamespace="http://schemas.microsoft.com/office/infopath/2009/WSSList/cmeDataFields" lastOpenView="view1.xsl" lastVersionNeedingTransform="1.0.0.3"></xsf:solutionProperties>
+	</xsf:applicationParameters>
+	<xsf:documentSchemas>
+		<xsf:documentSchema rootSchema="yes" location="http://schemas.microsoft.com/office/infopath/2003/dataFormSolution schema.xsd"></xsf:documentSchema>
+		<xsf:documentSchema location="http://schemas.microsoft.com/office/infopath/2009/WSSList/cmeDataFields schema1.xsd"></xsf:documentSchema>
+		<xsf:documentSchema location="http://schemas.microsoft.com/office/2009/documentManagement/types schema2.xsd"></xsf:documentSchema>
+		<xsf:documentSchema location="http://schemas.microsoft.com/office/infopath/2007/PartnerControls schema3.xsd"></xsf:documentSchema>
+		<xsf:documentSchema location="http://schemas.microsoft.com/office/infopath/2009/WSSList/queryFields schema4.xsd"></xsf:documentSchema>
+	</xsf:documentSchemas>
+	<xsf:fileNew>
+		<xsf:initialXmlDocument caption="Template" href="template.xml"></xsf:initialXmlDocument>
+	</xsf:fileNew>
+	<xsf:calculations></xsf:calculations>
+	<xsf:dataObjects>
+		<xsf:dataObject name="Alternativdataanslutning" schema="Alternativdataanslutning.xsd" initOnLoad="yes">
+			<xsf:query>
+				<xsf:xmlFileAdapter fileUrl="x-soln:///choices.xml" name="Alternativdataanslutning"></xsf:xmlFileAdapter>
+			</xsf:query>
+		</xsf:dataObject>
+		<xsf:dataObject name="Kundkort" schema="Kundkort.xsd" initOnLoad="yes">
+			<xsf:query>
+				<xsf:sharepointListAdapterRW queryAllowed="yes" submitAllowed="no" siteURL="../../../" sharePointListID="{4BA8CC08-7345-462D-8252-984412355910}" name="Kundkort" contentTypeID="" relativeListUrl="../../Kundkort/" autogen="yes">
+					<xsf:field internalName="Title" required="yes" type="Text"></xsf:field>
+					<xsf:field internalName="ID" required="no" type="Counter"></xsf:field>
+				</xsf:sharepointListAdapterRW>
+			</xsf:query>
+		</xsf:dataObject>
+	</xsf:dataObjects>
+	<xsf:views default="Edit item">
+		<xsf:view name="Edit item" caption="Edit item" designMode="protected">
+			<xsf:mainpane transform="view1.xsl"></xsf:mainpane>
+			<xsf:editing>
+				<xsf:xmlToEdit name="tillsynAnmalt_1" item="/dfs:myFields/dfs:dataFields/my:SharePointListItem_RW/my:tillsynAnmalt/Value">
+					<xsf:editWith autoComplete="no" component="xTextList"></xsf:editWith>
+				</xsf:xmlToEdit>
+				<xsf:xmlToEdit name="tillsynNaringPlanVarforInte_1" item="/dfs:myFields/dfs:dataFields/my:SharePointListItem_RW/my:tillsynNaringPlanVarforInte">
+					<xsf:editWith type="plainMultiline" component="xField"></xsf:editWith>
+				</xsf:xmlToEdit>
+				<xsf:xmlToEdit name="tillsynAktivInformationNar_1" item="/dfs:myFields/dfs:dataFields/my:SharePointListItem_RW/my:tillsynAktivInformationNar">
+					<xsf:editWith type="plainMultiline" component="xField"></xsf:editWith>
+				</xsf:xmlToEdit>
+				<xsf:xmlToEdit name="tillsynPersonalUtbildningHur_1" item="/dfs:myFields/dfs:dataFields/my:SharePointListItem_RW/my:tillsynPersonalUtbildningHur">
+					<xsf:editWith type="plainMultiline" component="xField"></xsf:editWith>
+				</xsf:xmlToEdit>
+				<xsf:xmlToEdit name="tillsynSkyltat_1" item="/dfs:myFields/dfs:dataFields/my:SharePointListItem_RW/my:tillsynSkyltat/Value">
+					<xsf:editWith autoComplete="no" component="xTextList"></xsf:editWith>
+				</xsf:xmlToEdit>
+				<xsf:xmlToEdit name="tillsynAutomatKontrollAnledning_1" item="/dfs:myFields/dfs:dataFields/my:SharePointListItem_RW/my:tillsynAutomatKontrollAnledning">
+					<xsf:editWith type="plainMultiline" component="xField"></xsf:editWith>
+				</xsf:xmlToEdit>
+				<xsf:xmlToEdit name="tillsynVarningstext_1" item="/dfs:myFields/dfs:dataFields/my:SharePointListItem_RW/my:tillsynVarningstext/Value">
+					<xsf:editWith autoComplete="no" component="xTextList"></xsf:editWith>
+				</xsf:xmlToEdit>
+				<xsf:xmlToEdit name="tillsynReklamPatrangandeBeskrivning_1" item="/dfs:myFields/dfs:dataFields/my:SharePointListItem_RW/my:tillsynReklamPatrangandeBeskrivning">
+					<xsf:editWith type="plainMultiline" component="xField"></xsf:editWith>
+				</xsf:xmlToEdit>
+				<xsf:xmlToEdit name="tillsynReklamUtanforBeskrivning_1" item="/dfs:myFields/dfs:dataFields/my:SharePointListItem_RW/my:tillsynReklamUtanforBeskrivning">
+					<xsf:editWith type="plainMultiline" component="xField"></xsf:editWith>
+				</xsf:xmlToEdit>
+				<xsf:xmlToEdit name="tillsynReklamByraVilken_1" item="/dfs:myFields/dfs:dataFields/my:SharePointListItem_RW/my:tillsynReklamByraVilken">
+					<xsf:editWith type="plainMultiline" component="xField"></xsf:editWith>
+				</xsf:xmlToEdit>
+				<xsf:xmlToEdit name="tillsynSponsradVilken_1" item="/dfs:myFields/dfs:dataFields/my:SharePointListItem_RW/my:tillsynSponsradVilken">
+					<xsf:editWith type="plainMultiline" component="xField"></xsf:editWith>
+				</xsf:xmlToEdit>
+				<xsf:xmlToEdit name="tillsynReklamHandskrivenBeskrivning_1" item="/dfs:myFields/dfs:dataFields/my:SharePointListItem_RW/my:tillsynReklamHandskrivenBeskrivning">
+					<xsf:editWith type="plainMultiline" component="xField"></xsf:editWith>
+				</xsf:xmlToEdit>
+				<xsf:xmlToEdit name="tillsynBildskarmarBeskrivning_1" item="/dfs:myFields/dfs:dataFields/my:SharePointListItem_RW/my:tillsynBildskarmarBeskrivning">
+					<xsf:editWith type="plainMultiline" component="xField"></xsf:editWith>
+				</xsf:xmlToEdit>
+				<xsf:xmlToEdit name="tillsynForebyggandeAtgarder_1" item="/dfs:myFields/dfs:dataFields/my:SharePointListItem_RW/my:tillsynForebyggandeAtgarder/Value">
+					<xsf:editWith autoComplete="no" component="xTextList"></xsf:editWith>
+				</xsf:xmlToEdit>
+				<xsf:xmlToEdit name="tillsynForebyggandeAtgarderAnnat_1" item="/dfs:myFields/dfs:dataFields/my:SharePointListItem_RW/my:tillsynForebyggandeAtgarderAnnat">
+					<xsf:editWith type="plainMultiline" component="xField"></xsf:editWith>
+				</xsf:xmlToEdit>
+				<xsf:xmlToEdit name="tillsynSammanfattning_1" item="/dfs:myFields/dfs:dataFields/my:SharePointListItem_RW/my:tillsynSammanfattning/Value">
+					<xsf:editWith autoComplete="no" component="xTextList"></xsf:editWith>
+				</xsf:xmlToEdit>
+				<xsf:xmlToEdit name="aktivitetNotering_1" item="/dfs:myFields/dfs:dataFields/my:SharePointListItem_RW/my:aktivitetNotering">
+					<xsf:editWith type="plainMultiline" component="xField"></xsf:editWith>
+				</xsf:xmlToEdit>
+			</xsf:editing>
+		</xsf:view>
+	</xsf:views>
+	<xsf:submit onAfterSubmit="close" showStatusDialog="no">
+		<xsf:errorMessage>Det går inte att skicka formuläret på grund av ett fel.</xsf:errorMessage>
+		<xsf:useQueryAdapter></xsf:useQueryAdapter>
+	</xsf:submit>
+	<xsf:permissions>
+		<xsf:allowedControl clsid="{61E40D31-993D-4777-8FA0-19CA59B6D0BB}"></xsf:allowedControl>
+	</xsf:permissions>
+	<xsf:query>
+		<xsf:sharepointListAdapterRW queryAllowed="yes" submitAllowed="yes" siteURL="../../../" sharePointListID="{FAA40C19-2A1A-435D-8536-FF6BA9416E5C}" name="Huvuddataanslutning" contentTypeID="0x01005B4D0E77283349FEA58D136970995B9600786DE23BA4058C48B411C160B93A1D7A" relativeListUrl="../" version="3c8eb79292e38e55" queryOneItemOnly="yes" sharePointListChoices="Alternativdataanslutning">
+			<xsf:field internalName="ID" required="no" type="Counter"></xsf:field>
+			<xsf:field internalName="Title" required="yes" type="Text"></xsf:field>
+			<xsf:field internalName="Author" required="no" type="User"></xsf:field>
+			<xsf:field internalName="Editor" required="no" type="User"></xsf:field>
+			<xsf:field internalName="Modified" required="no" type="DateTime"></xsf:field>
+			<xsf:field internalName="Created" required="no" type="DateTime"></xsf:field>
+			<xsf:field internalName="Attachments" required="no" type="Attachments"></xsf:field>
+			<xsf:field internalName="tillsynAnmalt" required="no" type="MultiChoice"></xsf:field>
+			<xsf:field internalName="tillsynUppfoljande" required="no" type="Choice"></xsf:field>
+			<xsf:field internalName="tillsynFotodok" required="no" type="Choice"></xsf:field>
+			<xsf:field internalName="aktivitetDatum" required="no" type="DateTime"></xsf:field>
+			<xsf:field internalName="aktivitetButik" required="yes" type="Lookup" auxDomName="Kundkort" showFieldName="Title"></xsf:field>
+			<xsf:field internalName="tillsynNaringAnmalt" required="no" type="Boolean"></xsf:field>
+			<xsf:field internalName="tillsynNaringIngett" required="no" type="Boolean"></xsf:field>
+			<xsf:field internalName="tillsynNaringPlan" required="no" type="Boolean"></xsf:field>
+			<xsf:field internalName="tillsynNaringPlanVarforInte" required="no" type="Plain"></xsf:field>
+			<xsf:field internalName="tillsynAktivInformation" required="no" type="Boolean"></xsf:field>
+			<xsf:field internalName="tillsynAktivInformationNar" required="no" type="Plain"></xsf:field>
+			<xsf:field internalName="tillsynPersonalUtbildning" required="no" type="Boolean"></xsf:field>
+			<xsf:field internalName="tillsynPersonalUtbildningHur" required="no" type="Plain"></xsf:field>
+			<xsf:field internalName="tillsynLegitimation" required="no" type="Boolean"></xsf:field>
+			<xsf:field internalName="tillsynLegitimationAlder" required="no" type="Text"></xsf:field>
+			<xsf:field internalName="tillsynSkyltat" required="no" type="MultiChoice"></xsf:field>
+			<xsf:field internalName="tillsynAutomat" required="no" type="Boolean"></xsf:field>
+			<xsf:field internalName="tillsynAutomatKontroll" required="no" type="Boolean"></xsf:field>
+			<xsf:field internalName="tillsynAutomatKontrollAnledning" required="no" type="Plain"></xsf:field>
+			<xsf:field internalName="tillsynForekommerStyckevis" required="no" type="Boolean"></xsf:field>
+			<xsf:field internalName="tillsynForekommerUnder19" required="no" type="Boolean"></xsf:field>
+			<xsf:field internalName="tillsynVarningstext" required="no" type="MultiChoice"></xsf:field>
+			<xsf:field internalName="tillsynReklamPatrangande" required="no" type="Boolean"></xsf:field>
+			<xsf:field internalName="tillsynReklamPatrangandeBeskrivning" required="no" type="Plain"></xsf:field>
+			<xsf:field internalName="tillsynReklamUtanfor" required="no" type="Boolean"></xsf:field>
+			<xsf:field internalName="tillsynReklamUtanforBeskrivning" required="no" type="Plain"></xsf:field>
+			<xsf:field internalName="tillsynReklamByra" required="no" type="Boolean"></xsf:field>
+			<xsf:field internalName="tillsynReklamByraVilken" required="no" type="Plain"></xsf:field>
+			<xsf:field internalName="tillsynSponsrad" required="no" type="Boolean"></xsf:field>
+			<xsf:field internalName="tillsynSponsradVilken" required="no" type="Plain"></xsf:field>
+			<xsf:field internalName="tillsynReklamHandskriven" required="no" type="Boolean"></xsf:field>
+			<xsf:field internalName="tillsynReklamHandskrivenBeskrivning" required="no" type="Plain"></xsf:field>
+			<xsf:field internalName="tillsynBildskarmar" required="no" type="Boolean"></xsf:field>
+			<xsf:field internalName="tillsynBildskarmarBeskrivning" required="no" type="Plain"></xsf:field>
+			<xsf:field internalName="tillsynForebyggandeAtgarder" required="no" type="MultiChoice"></xsf:field>
+			<xsf:field internalName="tillsynForebyggandeAtgarderAnnat" required="no" type="Plain"></xsf:field>
+			<xsf:field internalName="tillsynLegitimationKassa" required="no" type="Boolean"></xsf:field>
+			<xsf:field internalName="tillsynSammanfattning" required="no" type="MultiChoice"></xsf:field>
+			<xsf:field internalName="tillsynHandlaggare" required="no" type="UserMulti"></xsf:field>
+			<xsf:field internalName="tillsynTillKlockan" required="no" type="DateTime"></xsf:field>
+			<xsf:field internalName="aktivitetNotering" required="no" type="Plain"></xsf:field>
+		</xsf:sharepointListAdapterRW>
+	</xsf:query>
+</xsf:xDocumentClass>

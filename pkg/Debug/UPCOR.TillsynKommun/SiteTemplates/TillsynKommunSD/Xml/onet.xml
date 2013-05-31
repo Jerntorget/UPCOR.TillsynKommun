@@ -324,8 +324,10 @@
           <!-- Office SharePoint Server Publishing -->
         </Feature>
         <!--UPCOR-->
-        <!--Lists Feature-->
+        <!--Lists and content Feature-->
         <Feature ID="{be01677e-b67e-4987-b683-dfe2f97a344a}" Name="FeatureDefinition/15/be01677e-b67e-4987-b683-dfe2f97a344a" />
+        <!--Property bag Feature-->
+        <Feature ID="{6fb27a95-bb9d-42e8-840d-77f43f3c6c1e}" Name="FeatureDefinition/15/6fb27a95-bb9d-42e8-840d-77f43f3c6c1e" />
       </WebFeatures>
       <Modules>
         <Module Name="DefaultBlank" />

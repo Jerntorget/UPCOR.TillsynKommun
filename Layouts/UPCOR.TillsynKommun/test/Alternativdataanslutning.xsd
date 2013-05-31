@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="root">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element ref="tillsynAnmalt" minOccurs="0" maxOccurs="1"></xsd:element>
+				<xsd:element ref="tillsynUppfoljande" minOccurs="0" maxOccurs="1"></xsd:element>
+				<xsd:element ref="tillsynFotodok" minOccurs="0" maxOccurs="1"></xsd:element>
+				<xsd:element ref="tillsynSkyltat" minOccurs="0" maxOccurs="1"></xsd:element>
+				<xsd:element ref="tillsynVarningstext" minOccurs="0" maxOccurs="1"></xsd:element>
+				<xsd:element ref="tillsynForebyggandeAtgarder" minOccurs="0" maxOccurs="1"></xsd:element>
+				<xsd:element ref="tillsynSammanfattning" minOccurs="0" maxOccurs="1"></xsd:element>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="tillsynVarningstext">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="SharePointListChoice_RW" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="tillsynSammanfattning">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="SharePointListChoice_RW" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="tillsynAnmalt">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="SharePointListChoice_RW" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="tillsynUppfoljande">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="SharePointListChoice_RW" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="tillsynSkyltat">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="SharePointListChoice_RW" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="tillsynFotodok">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="SharePointListChoice_RW" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SharePointListChoice_RW">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="DisplayName"></xsd:attribute>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="tillsynForebyggandeAtgarder">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="SharePointListChoice_RW" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:attribute name="DisplayName" type="xsd:string"></xsd:attribute>
+</xsd:schema>

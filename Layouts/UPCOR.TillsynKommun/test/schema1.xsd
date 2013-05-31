@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema targetNamespace="http://schemas.microsoft.com/office/infopath/2009/WSSList/cmeDataFields" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dfs="http://schemas.microsoft.com/office/infopath/2003/dataFormSolution" xmlns:d="http://schemas.microsoft.com/office/infopath/2009/WSSList/dataFields" xmlns:pc="http://schemas.microsoft.com/office/infopath/2007/PartnerControls" xmlns:ma="http://schemas.microsoft.com/office/2009/metadata/properties/metaAttributes" xmlns:q="http://schemas.microsoft.com/office/infopath/2009/WSSList/queryFields" xmlns:dms="http://schemas.microsoft.com/office/2009/documentManagement/types" xmlns:my="http://schemas.microsoft.com/office/infopath/2009/WSSList/cmeDataFields" xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:import schemaLocation="schema.xsd" namespace="http://schemas.microsoft.com/office/infopath/2003/dataFormSolution"/>
+	<xsd:import schemaLocation="schema2.xsd" namespace="http://schemas.microsoft.com/office/2009/documentManagement/types"/>
+	<xsd:import schemaLocation="schema3.xsd" namespace="http://schemas.microsoft.com/office/infopath/2007/PartnerControls"/>
+	<xsd:import schemaLocation="schema4.xsd" namespace="http://schemas.microsoft.com/office/infopath/2009/WSSList/queryFields"/>
+	<xsd:element name="SharePointListItem_RW">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="my:ID" minOccurs="0"/>
+				<xsd:element ref="my:Title" minOccurs="0"/>
+				<xsd:element ref="my:Author" minOccurs="0"/>
+				<xsd:element ref="my:Editor" minOccurs="0"/>
+				<xsd:element ref="my:Modified" minOccurs="0"/>
+				<xsd:element ref="my:Created" minOccurs="0"/>
+				<xsd:element ref="my:Attachments" minOccurs="0"/>
+				<xsd:element ref="my:tillsynAnmalt" minOccurs="0"/>
+				<xsd:element ref="my:tillsynUppfoljande" minOccurs="0"/>
+				<xsd:element ref="my:tillsynFotodok" minOccurs="0"/>
+				<xsd:element ref="my:aktivitetDatum" minOccurs="0"/>
+				<xsd:element ref="my:aktivitetButik" minOccurs="0"/>
+				<xsd:element ref="my:tillsynNaringAnmalt" minOccurs="0"/>
+				<xsd:element ref="my:tillsynNaringIngett" minOccurs="0"/>
+				<xsd:element ref="my:tillsynNaringPlan" minOccurs="0"/>
+				<xsd:element ref="my:tillsynNaringPlanVarforInte" minOccurs="0"/>
+				<xsd:element ref="my:tillsynAktivInformation" minOccurs="0"/>
+				<xsd:element ref="my:tillsynAktivInformationNar" minOccurs="0"/>
+				<xsd:element ref="my:tillsynPersonalUtbildning" minOccurs="0"/>
+				<xsd:element ref="my:tillsynPersonalUtbildningHur" minOccurs="0"/>
+				<xsd:element ref="my:tillsynLegitimation" minOccurs="0"/>
+				<xsd:element ref="my:tillsynLegitimationAlder" minOccurs="0"/>
+				<xsd:element ref="my:tillsynSkyltat" minOccurs="0"/>
+				<xsd:element ref="my:tillsynAutomat" minOccurs="0"/>
+				<xsd:element ref="my:tillsynAutomatKontroll" minOccurs="0"/>
+				<xsd:element ref="my:tillsynAutomatKontrollAnledning" minOccurs="0"/>
+				<xsd:element ref="my:tillsynForekommerStyckevis" minOccurs="0"/>
+				<xsd:element ref="my:tillsynForekommerUnder19" minOccurs="0"/>
+				<xsd:element ref="my:tillsynVarningstext" minOccurs="0"/>
+				<xsd:element ref="my:tillsynReklamPatrangande" minOccurs="0"/>
+				<xsd:element ref="my:tillsynReklamPatrangandeBeskrivning" minOccurs="0"/>
+				<xsd:element ref="my:tillsynReklamUtanfor" minOccurs="0"/>
+				<xsd:element ref="my:tillsynReklamUtanforBeskrivning" minOccurs="0"/>
+				<xsd:element ref="my:tillsynReklamByra" minOccurs="0"/>
+				<xsd:element ref="my:tillsynReklamByraVilken" minOccurs="0"/>
+				<xsd:element ref="my:tillsynSponsrad" minOccurs="0"/>
+				<xsd:element ref="my:tillsynSponsradVilken" minOccurs="0"/>
+				<xsd:element ref="my:tillsynReklamHandskriven" minOccurs="0"/>
+				<xsd:element ref="my:tillsynReklamHandskrivenBeskrivning" minOccurs="0"/>
+				<xsd:element ref="my:tillsynBildskarmar" minOccurs="0"/>
+				<xsd:element ref="my:tillsynBildskarmarBeskrivning" minOccurs="0"/>
+				<xsd:element ref="my:tillsynForebyggandeAtgarder" minOccurs="0"/>
+				<xsd:element ref="my:tillsynForebyggandeAtgarderAnnat" minOccurs="0"/>
+				<xsd:element ref="my:tillsynLegitimationKassa" minOccurs="0"/>
+				<xsd:element ref="my:tillsynSammanfattning" minOccurs="0"/>
+				<xsd:element ref="my:tillsynHandlaggare" minOccurs="0"/>
+				<xsd:element ref="my:tillsynTillKlockan" minOccurs="0"/>
+				<xsd:element ref="my:aktivitetNotering" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ID" ma:displayName="ID" ma:readOnly="True" ma:allowDeletion="false" nillable="true" type="dms:CounterType"/>
+	<xsd:element name="Title" ma:displayName="Rubrik" ma:allowDeletion="false">
+		<xsd:simpleType>
+			<xsd:restriction base="dms:TextType">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="255"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="Author" ma:displayName="Skapad av" ma:readOnly="True" ma:SharePointGroup="0" ma:SearchPeopleOnly="true" ma:allowDeletion="false" type="dms:UserType"/>
+	<xsd:element name="Editor" ma:displayName="Ändrat av" ma:readOnly="True" ma:SharePointGroup="0" ma:SearchPeopleOnly="true" ma:allowDeletion="false" type="dms:UserType"/>
+	<xsd:element name="Modified" ma:displayName="Ändrat" ma:readOnly="True" ma:formatSpec="dateFormat:Short Date;timeFormat:none;" ma:formatCategory="datetime" ma:allowDeletion="false" nillable="true" type="dms:DateTimeType"/>
+	<xsd:element name="Created" ma:displayName="Skapad" ma:readOnly="True" ma:formatSpec="dateFormat:Short Date;timeFormat:none;" ma:formatCategory="datetime" ma:allowDeletion="false" nillable="true" type="dms:DateTimeType"/>
+	<xsd:element name="Attachments" ma:displayName="Bifogade filer" ma:allowDeletion="false" type="dms:AttachmentsType"/>
+	<xsd:element name="tillsynAnmalt" ma:displayName="Tillsynsbesöket sker" ma:auxDataSourceName="Alternativdataanslutning" ma:auxChoicesXPath="/root/tillsynAnmalt/SharePointListChoice_RW" ma:auxValue="." ma:auxDisplay="@DisplayName" ma:allowDeletion="true" type="dms:MultiChoiceType"/>
+	<xsd:element name="tillsynUppfoljande" ma:displayName="Besöket är ett uppföljande tillsynsbesök" ma:auxDataSourceName="Alternativdataanslutning" ma:auxChoicesXPath="/root/tillsynUppfoljande/SharePointListChoice_RW" ma:auxValue="." ma:auxDisplay="@DisplayName" ma:allowDeletion="true" type="dms:ChoiceType"/>
+	<xsd:element name="tillsynFotodok" ma:displayName="Fotodokumentation sker under tillsynsbesöket" ma:auxDataSourceName="Alternativdataanslutning" ma:auxChoicesXPath="/root/tillsynFotodok/SharePointListChoice_RW" ma:auxValue="." ma:auxDisplay="@DisplayName" ma:allowDeletion="true" type="dms:ChoiceType"/>
+	<xsd:element name="aktivitetDatum" ma:displayName="Datum" ma:formatSpec="dateFormat:Short Date;timeFormat:none;" ma:formatCategory="datetime" ma:allowDeletion="true" nillable="true" type="dms:DateTimeType"/>
+	<xsd:element name="aktivitetButik" ma:displayName="Försäljningsställe" ma:auxDataSourceName="Kundkort" ma:auxChoicesXPath="/dfs:myFields/dfs:dataFields/d:SharePointListItem_RW" ma:auxValue="d:ID" ma:auxDisplay="d:Title" ma:allowDeletion="true" nillable="false" type="dms:LookupType"/>
+	<xsd:element name="tillsynNaringAnmalt" ma:displayName="Försäljning anmäld av näringsidkaren" ma:allowDeletion="true" nillable="true" type="dms:BooleanType"/>
+	<xsd:element name="tillsynNaringIngett" ma:displayName="Egenkontrollprogram har ingetts av näringsidkaren" ma:allowDeletion="true" nillable="true" type="dms:BooleanType"/>
+	<xsd:element name="tillsynNaringPlan" ma:displayName="Plan har utarbetats av näringsidkaren" ma:allowDeletion="true" nillable="true" type="dms:BooleanType"/>
+	<xsd:element name="tillsynNaringPlanVarforInte" ma:displayName="Om nej, ange varför:" ma:formatSpec="plainMultiline" ma:formatCategory="string" ma:allowDeletion="true" type="dms:NotePlainType"/>
+	<xsd:element name="tillsynAktivInformation" ma:displayName="Aktiv information ges" ma:allowDeletion="true" nillable="true" type="dms:BooleanType"/>
+	<xsd:element name="tillsynAktivInformationNar" ma:displayName="Om ja, ange hur och när senaste tillfället var:" ma:formatSpec="plainMultiline" ma:formatCategory="string" ma:allowDeletion="true" type="dms:NotePlainType"/>
+	<xsd:element name="tillsynPersonalUtbildning" ma:displayName="Frågor till kassapersonal" ma:allowDeletion="true" nillable="true" type="dms:BooleanType"/>
+	<xsd:element name="tillsynPersonalUtbildningHur" ma:displayName="Om ja, ange hur:" ma:formatSpec="plainMultiline" ma:formatCategory="string" ma:allowDeletion="true" type="dms:NotePlainType"/>
+	<xsd:element name="tillsynLegitimation" ma:displayName="Legitimation kontrolleras" ma:allowDeletion="true" nillable="true" type="dms:BooleanType"/>
+	<xsd:element name="tillsynLegitimationAlder" ma:displayName="Om ja, under vilken ålder" ma:allowDeletion="true">
+		<xsd:simpleType>
+			<xsd:restriction base="dms:TextType">
+				<xsd:maxLength value="255"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="tillsynSkyltat" ma:displayName="Tydligt skyltat" ma:auxDataSourceName="Alternativdataanslutning" ma:auxChoicesXPath="/root/tillsynSkyltat/SharePointListChoice_RW" ma:auxValue="." ma:auxDisplay="@DisplayName" ma:allowDeletion="true" type="dms:MultiChoiceType"/>
+	<xsd:element name="tillsynAutomat" ma:displayName="Finns tobaksautomat" ma:allowDeletion="true" nillable="true" type="dms:BooleanType"/>
+	<xsd:element name="tillsynAutomatKontroll" ma:displayName="Om ja, har automaten godtagbar kontroll" ma:allowDeletion="true" nillable="true" type="dms:BooleanType"/>
+	<xsd:element name="tillsynAutomatKontrollAnledning" ma:displayName="Om nej, ange på vilket sätt kontrollen inte är godtagbar" ma:formatSpec="plainMultiline" ma:formatCategory="string" ma:allowDeletion="true" type="dms:NotePlainType"/>
+	<xsd:element name="tillsynForekommerStyckevis" ma:displayName="Styckevis försäljning av cigaretter" ma:allowDeletion="true" nillable="true" type="dms:BooleanType"/>
+	<xsd:element name="tillsynForekommerUnder19" ma:displayName="Förpackningar med färre än 19 cigaretter" ma:allowDeletion="true" nillable="true" type="dms:BooleanType"/>
+	<xsd:element name="tillsynVarningstext" ma:displayName="Varningstext" ma:auxDataSourceName="Alternativdataanslutning" ma:auxChoicesXPath="/root/tillsynVarningstext/SharePointListChoice_RW" ma:auxValue="." ma:auxDisplay="@DisplayName" ma:allowDeletion="true" type="dms:MultiChoiceType"/>
+	<xsd:element name="tillsynReklamPatrangande" ma:displayName="Påträngande kommersiella meddelanden" ma:allowDeletion="true" nillable="true" type="dms:BooleanType"/>
+	<xsd:element name="tillsynReklamPatrangandeBeskrivning" ma:displayName="Om ja, beskriv på vilket sätt" ma:formatSpec="plainMultiline" ma:formatCategory="string" ma:allowDeletion="true" type="dms:NotePlainType"/>
+	<xsd:element name="tillsynReklamUtanfor" ma:displayName="Kommersiella meddelanden utanför" ma:allowDeletion="true" nillable="true" type="dms:BooleanType"/>
+	<xsd:element name="tillsynReklamUtanforBeskrivning" ma:displayName="Om ja, beskriv" ma:formatSpec="plainMultiline" ma:formatCategory="string" ma:allowDeletion="true" type="dms:NotePlainType"/>
+	<xsd:element name="tillsynReklamByra" ma:displayName="Kommersiella meddelandena gjorda av reklambyrå" ma:allowDeletion="true" nillable="true" type="dms:BooleanType"/>
+	<xsd:element name="tillsynReklamByraVilken" ma:displayName="Ange om möjligt vilken tillverkare/importör/säljagent/reklambyrå" ma:formatSpec="plainMultiline" ma:formatCategory="string" ma:allowDeletion="true" type="dms:NotePlainType"/>
+	<xsd:element name="tillsynSponsrad" ma:displayName="Butiken sponsrad" ma:allowDeletion="true" nillable="true" type="dms:BooleanType"/>
+	<xsd:element name="tillsynSponsradVilken" ma:displayName="Om ja, vilken tillverkare/importör/säljagent/reklambyrå" ma:formatSpec="plainMultiline" ma:formatCategory="string" ma:allowDeletion="true" type="dms:NotePlainType"/>
+	<xsd:element name="tillsynReklamHandskriven" ma:displayName="Handskrivna kommersiella meddelanden" ma:allowDeletion="true" nillable="true" type="dms:BooleanType"/>
+	<xsd:element name="tillsynReklamHandskrivenBeskrivning" ma:displayName="Om ja, beskriv hur de har uttryckt sig" ma:formatSpec="plainMultiline" ma:formatCategory="string" ma:allowDeletion="true" type="dms:NotePlainType"/>
+	<xsd:element name="tillsynBildskarmar" ma:displayName="Bildskärmar med kommersiella meddelanden" ma:allowDeletion="true" nillable="true" type="dms:BooleanType"/>
+	<xsd:element name="tillsynBildskarmarBeskrivning" ma:displayName="Om ja, beskriv gärna dem" ma:formatSpec="plainMultiline" ma:formatCategory="string" ma:allowDeletion="true" type="dms:NotePlainType"/>
+	<xsd:element name="tillsynForebyggandeAtgarder" ma:displayName="Förebyggande åtgärder" ma:auxDataSourceName="Alternativdataanslutning" ma:auxChoicesXPath="/root/tillsynForebyggandeAtgarder/SharePointListChoice_RW" ma:auxValue="." ma:auxDisplay="@DisplayName" ma:allowDeletion="true" type="dms:MultiChoiceType"/>
+	<xsd:element name="tillsynForebyggandeAtgarderAnnat" ma:displayName="Om annat materiel, ange vad" ma:formatSpec="plainMultiline" ma:formatCategory="string" ma:allowDeletion="true" type="dms:NotePlainType"/>
+	<xsd:element name="tillsynLegitimationKassa" ma:displayName="Legitimationskontroll i kassan" ma:allowDeletion="true" nillable="true" type="dms:BooleanType"/>
+	<xsd:element name="tillsynSammanfattning" ma:displayName="Sammanfattning av besöket" ma:auxDataSourceName="Alternativdataanslutning" ma:auxChoicesXPath="/root/tillsynSammanfattning/SharePointListChoice_RW" ma:auxValue="." ma:auxDisplay="@DisplayName" ma:allowDeletion="true" type="dms:MultiChoiceType"/>
+	<xsd:element name="tillsynHandlaggare" ma:displayName="Tillsynshandläggare" ma:SharePointGroup="0" ma:SearchPeopleOnly="true" ma:allowDeletion="true" nillable="true" type="dms:MultiUserType"/>
+	<xsd:element name="tillsynTillKlockan" ma:displayName="Sluttid besök" ma:formatSpec="dateFormat:Short Date;timeFormat:none;" ma:formatCategory="datetime" ma:allowDeletion="true" nillable="true" type="dms:DateTimeType"/>
+	<xsd:element name="aktivitetNotering" ma:displayName="Övriga anteckningar" ma:formatSpec="plainMultiline" ma:formatCategory="string" ma:allowDeletion="true" type="dms:NotePlainType"/>
+</xsd:schema>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Id="8491fc0e-f220-4873-8e0e-3c5f193f04ab" ReceiverAssembly="UPCOR.TillsynKommun, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f66bbd75f013e009" ReceiverClass="UPCOR.TillsynKommun.Features.WebPartsFeature.WebPartsFeatureEventReceiver" Scope="Site" Title="UPCOR - Tillsyn Kommun - Webbdelar">
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Id="8491fc0e-f220-4873-8e0e-3c5f193f04ab" ReceiverAssembly="UPCOR.TillsynKommun, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f66bbd75f013e009" ReceiverClass="UPCOR.TillsynKommun.Features.WebPartsFeature.WebPartsFeatureEventReceiver" Scope="Site" Title="!UPCOR - Tillsyn Kommun - Webbdelar">
   <ElementManifests>
     <ElementManifest Location="MinButikWP\Elements.xml" />
     <ElementFile Location="MinButikWP\MinButikWP.webpart" />

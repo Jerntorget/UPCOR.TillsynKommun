@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?mso-infoPathSolution name="urn:schemas-microsoft-com:office:infopath:list:-AutoGen-2013-05-29T11:20:59:852Z" solutionVersion="1.0.0.4" productVersion="15.0.0" PIVersion="1.0.0.0" ?>
+<?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.3"?>
+<dfs:myFields xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dfs="http://schemas.microsoft.com/office/infopath/2003/dataFormSolution" xmlns:d="http://schemas.microsoft.com/office/infopath/2009/WSSList/dataFields" xmlns:pc="http://schemas.microsoft.com/office/infopath/2007/PartnerControls" xmlns:ma="http://schemas.microsoft.com/office/2009/metadata/properties/metaAttributes" xmlns:q="http://schemas.microsoft.com/office/infopath/2009/WSSList/queryFields" xmlns:dms="http://schemas.microsoft.com/office/2009/documentManagement/types" xmlns:my="http://schemas.microsoft.com/office/infopath/2009/WSSList/cmeDataFields" xmlns:xd="http://schemas.microsoft.com/office/infopath/2003">
+	<dfs:queryFields>
+		<q:SharePointListItem_RW>
+			<q:ID xsi:nil="true"></q:ID>
+			<q:Title xsi:nil="true"></q:Title>
+			<q:Author xsi:nil="true"></q:Author>
+			<q:Editor xsi:nil="true"></q:Editor>
+			<q:Modified xsi:nil="true"></q:Modified>
+			<q:Created xsi:nil="true"></q:Created>
+			<q:tillsynUppfoljande xsi:nil="true"></q:tillsynUppfoljande>
+			<q:tillsynFotodok xsi:nil="true"></q:tillsynFotodok>
+			<q:aktivitetDatum xsi:nil="true"></q:aktivitetDatum>
+			<q:aktivitetButik xsi:nil="true"></q:aktivitetButik>
+			<q:tillsynNaringAnmalt xsi:nil="true"></q:tillsynNaringAnmalt>
+			<q:tillsynNaringIngett xsi:nil="true"></q:tillsynNaringIngett>
+			<q:tillsynNaringPlan xsi:nil="true"></q:tillsynNaringPlan>
+			<q:tillsynAktivInformation xsi:nil="true"></q:tillsynAktivInformation>
+			<q:tillsynPersonalUtbildning xsi:nil="true"></q:tillsynPersonalUtbildning>
+			<q:tillsynLegitimation xsi:nil="true"></q:tillsynLegitimation>
+			<q:tillsynLegitimationAlder xsi:nil="true"></q:tillsynLegitimationAlder>
+			<q:tillsynAutomat xsi:nil="true"></q:tillsynAutomat>
+			<q:tillsynAutomatKontroll xsi:nil="true"></q:tillsynAutomatKontroll>
+			<q:tillsynForekommerStyckevis xsi:nil="true"></q:tillsynForekommerStyckevis>
+			<q:tillsynForekommerUnder19 xsi:nil="true"></q:tillsynForekommerUnder19>
+			<q:tillsynReklamPatrangande xsi:nil="true"></q:tillsynReklamPatrangande>
+			<q:tillsynReklamUtanfor xsi:nil="true"></q:tillsynReklamUtanfor>
+			<q:tillsynReklamByra xsi:nil="true"></q:tillsynReklamByra>
+			<q:tillsynSponsrad xsi:nil="true"></q:tillsynSponsrad>
+			<q:tillsynReklamHandskriven xsi:nil="true"></q:tillsynReklamHandskriven>
+			<q:tillsynBildskarmar xsi:nil="true"></q:tillsynBildskarmar>
+			<q:tillsynLegitimationKassa xsi:nil="true"></q:tillsynLegitimationKassa>
+			<q:tillsynTillKlockan xsi:nil="true"></q:tillsynTillKlockan>
+		</q:SharePointListItem_RW>
+	</dfs:queryFields>
+	<dfs:dataFields>
+		<my:SharePointListItem_RW>
+			<my:ID xsi:nil="true"></my:ID>
+			<my:Title></my:Title>
+			<my:Author>
+				<pc:Person>
+					<pc:DisplayName></pc:DisplayName>
+					<pc:AccountId></pc:AccountId>
+					<pc:AccountType></pc:AccountType>
+				</pc:Person>
+			</my:Author>
+			<my:Editor>
+				<pc:Person>
+					<pc:DisplayName></pc:DisplayName>
+					<pc:AccountId></pc:AccountId>
+					<pc:AccountType></pc:AccountType>
+				</pc:Person>
+			</my:Editor>
+			<my:Modified xsi:nil="true"></my:Modified>
+			<my:Created xsi:nil="true"></my:Created>
+			<my:Attachments></my:Attachments>
+			<my:tillsynAnmalt>
+				<Value></Value>
+			</my:tillsynAnmalt>
+			<my:tillsynUppfoljande></my:tillsynUppfoljande>
+			<my:tillsynFotodok></my:tillsynFotodok>
+			<my:aktivitetDatum xsi:nil="true"></my:aktivitetDatum>
+			<my:aktivitetButik></my:aktivitetButik>
+			<my:tillsynNaringAnmalt xsi:nil="true"></my:tillsynNaringAnmalt>
+			<my:tillsynNaringIngett xsi:nil="true"></my:tillsynNaringIngett>
+			<my:tillsynNaringPlan xsi:nil="true"></my:tillsynNaringPlan>
+			<my:tillsynNaringPlanVarforInte></my:tillsynNaringPlanVarforInte>
+			<my:tillsynAktivInformation xsi:nil="true"></my:tillsynAktivInformation>
+			<my:tillsynAktivInformationNar></my:tillsynAktivInformationNar>
+			<my:tillsynPersonalUtbildning xsi:nil="true"></my:tillsynPersonalUtbildning>
+			<my:tillsynPersonalUtbildningHur></my:tillsynPersonalUtbildningHur>
+			<my:tillsynLegitimation xsi:nil="true"></my:tillsynLegitimation>
+			<my:tillsynLegitimationAlder></my:tillsynLegitimationAlder>
+			<my:tillsynSkyltat>
+				<Value></Value>
+			</my:tillsynSkyltat>
+			<my:tillsynAutomat xsi:nil="true"></my:tillsynAutomat>
+			<my:tillsynAutomatKontroll xsi:nil="true"></my:tillsynAutomatKontroll>
+			<my:tillsynAutomatKontrollAnledning></my:tillsynAutomatKontrollAnledning>
+			<my:tillsynForekommerStyckevis xsi:nil="true"></my:tillsynForekommerStyckevis>
+			<my:tillsynForekommerUnder19 xsi:nil="true"></my:tillsynForekommerUnder19>
+			<my:tillsynVarningstext>
+				<Value></Value>
+			</my:tillsynVarningstext>
+			<my:tillsynReklamPatrangande xsi:nil="true"></my:tillsynReklamPatrangande>
+			<my:tillsynReklamPatrangandeBeskrivning></my:tillsynReklamPatrangandeBeskrivning>
+			<my:tillsynReklamUtanfor xsi:nil="true"></my:tillsynReklamUtanfor>
+			<my:tillsynReklamUtanforBeskrivning></my:tillsynReklamUtanforBeskrivning>
+			<my:tillsynReklamByra xsi:nil="true"></my:tillsynReklamByra>
+			<my:tillsynReklamByraVilken></my:tillsynReklamByraVilken>
+			<my:tillsynSponsrad xsi:nil="true"></my:tillsynSponsrad>
+			<my:tillsynSponsradVilken></my:tillsynSponsradVilken>
+			<my:tillsynReklamHandskriven xsi:nil="true"></my:tillsynReklamHandskriven>
+			<my:tillsynReklamHandskrivenBeskrivning></my:tillsynReklamHandskrivenBeskrivning>
+			<my:tillsynBildskarmar xsi:nil="true"></my:tillsynBildskarmar>
+			<my:tillsynBildskarmarBeskrivning></my:tillsynBildskarmarBeskrivning>
+			<my:tillsynForebyggandeAtgarder>
+				<Value></Value>
+			</my:tillsynForebyggandeAtgarder>
+			<my:tillsynForebyggandeAtgarderAnnat></my:tillsynForebyggandeAtgarderAnnat>
+			<my:tillsynLegitimationKassa xsi:nil="true"></my:tillsynLegitimationKassa>
+			<my:tillsynSammanfattning>
+				<Value></Value>
+			</my:tillsynSammanfattning>
+			<my:tillsynHandlaggare>
+				<pc:Person>
+					<pc:DisplayName></pc:DisplayName>
+					<pc:AccountId></pc:AccountId>
+					<pc:AccountType></pc:AccountType>
+				</pc:Person>
+			</my:tillsynHandlaggare>
+			<my:tillsynTillKlockan xsi:nil="true"></my:tillsynTillKlockan>
+			<my:aktivitetNotering></my:aktivitetNotering>
+		</my:SharePointListItem_RW>
+	</dfs:dataFields>
+</dfs:myFields>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<feature xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="be01677e-b67e-4987-b683-dfe2f97a344a" featureId="be01677e-b67e-4987-b683-dfe2f97a344a" imageUrl="" receiverAssembly="$SharePoint.Project.AssemblyFullName$" receiverClass="$SharePoint.Type.93372ea4-2351-4f6b-bdc6-dca9fef21f72.FullName$" solutionId="00000000-0000-0000-0000-000000000000" title="UPCOR - Tillsyn Kommun - Listor och innehåll" version="" deploymentPath="$SharePoint.Project.FileNameWithoutExtension$_$SharePoint.Feature.FileNameWithoutExtension$" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/FeatureModel">
+<feature xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="be01677e-b67e-4987-b683-dfe2f97a344a" featureId="be01677e-b67e-4987-b683-dfe2f97a344a" imageUrl="" receiverAssembly="$SharePoint.Project.AssemblyFullName$" receiverClass="$SharePoint.Type.93372ea4-2351-4f6b-bdc6-dca9fef21f72.FullName$" solutionId="00000000-0000-0000-0000-000000000000" title="!UPCOR - Tillsyn Kommun - Listor och innehåll" version="" deploymentPath="$SharePoint.Project.FileNameWithoutExtension$_$SharePoint.Feature.FileNameWithoutExtension$" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/FeatureModel">
   <projectItems>
     <projectItemReference itemId="46af20b9-97c6-41b1-9940-2edfbe290dfa" />
     <projectItemReference itemId="dda21510-d5e1-4462-b212-c6985fb69085" />
@@ -83,6 +83,7 @@
     <projectItemReference itemId="81ffbdf1-1cff-4e55-81a7-8105b37f6ee3" />
     <projectItemReference itemId="ea6c8a83-2e11-4adb-91a6-ae08e873c2af" />
     <projectItemReference itemId="710b9ef0-1c50-4e67-9f86-278c62f1a953" />
-    <projectItemReference itemId="2260540e-71a1-4b28-bf59-3f80427d56a2" />
+    <projectItemReference itemId="3f0a8bcb-e674-48ee-8b41-0ea7302608d6" />
+    <projectItemReference itemId="952f989d-6f57-42d4-b844-fad15d7a8a3c" />
   </projectItems>
 </feature>

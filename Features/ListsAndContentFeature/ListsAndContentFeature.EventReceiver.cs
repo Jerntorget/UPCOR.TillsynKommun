@@ -10,6 +10,10 @@ using System.Web.UI.WebControls.WebParts;
 using System.Text;
 using System.Xml;
 using System.Reflection;
+using System.IO;
+using System.Linq;
+using System.Xml.Linq;
+using System.Threading;
 
 namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
 {
@@ -23,22 +27,26 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
     [Guid("93372ea4-2351-4f6b-bdc6-dca9fef21f72")]
     public class ListsAndContentFeatureEventReceiver : SPFeatureReceiver
     {
+        private const string _tillsynName = "Tillsyn";
         private string _wikiFullContent;
-        
+
         private Dictionary<string, Municipal> municipals = new Dictionary<string, Municipal>();
         // Uncomment the method below to handle the event raised after a feature has been activated.
 
-        public override void FeatureActivated(SPFeatureReceiverProperties properties)
-        {
+        public override void FeatureActivated(SPFeatureReceiverProperties properties) {
             try {
                 Global.Debug = "start";
                 SPWeb web = properties.Feature.Parent as SPWeb;
-                if (web != null) {
-                    if (web.Properties.ContainsKey("activatedOnce")) {
-                        Global.WriteLog("Redan aktiverad", EventLogEntryType.Information, 1000);
-                        return;
-                    }
+                if (web == null) {
+                }
 
+
+                SPList listKundkort = web.Lists.TryGetList("Kundkort");
+                Global.Debug = "Kundkort";
+                SPList listAktiviteter = web.Lists.TryGetList("Aktiviteter");
+                Global.Debug = "Aktiviteter";
+
+                if (!web.Properties.ContainsKey("activatedOnce")) {
                     web.Properties.Add("activatedOnce", "true");
                     web.Properties.Update();
 
@@ -60,19 +68,15 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
                     Global.Debug = "Kontakter";
                     SPList listAdresser = web.Lists.TryGetList("Adresser");
                     Global.Debug = "Adresser";
-                    SPList listKundkort = web.Lists.TryGetList("Kundkort");
-                    Global.Debug = "Kundkort";
                     SPList listSidor = web.Lists.TryGetList("Webbplatssidor");
                     Global.Debug = "Webbplatssidor";
-                    SPList listAktiviteter = web.Lists.TryGetList("Aktiviteter");
-                    Global.Debug = "Aktiviteter";
                     SPList listNyheter = web.Lists.TryGetList("Senaste nytt");
                     Global.Debug = "Senaste nytt";
                     //SPList listBlanketter = web.Lists.TryGetList("Blanketter");
                     SPList listGenvagar = web.Lists.TryGetList("Genvägar");
                     Global.Debug = "Genvägar";
                     //SPList listGruppkopplingar = web.Lists.TryGetList("Gruppkopplingar"); ??
-                    
+
 
                     if (listSidor != null) {
                         #region startsida
@@ -197,20 +201,20 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
                         #endregion
 
                         #region skapa tillsynsrapport
-                        string compoundUrl4 = string.Format("{0}/{1}", listSidor.RootFolder.ServerRelativeUrl, "Skapa tillsynsrapport.aspx");//* Define page payout
-                        _wikiFullContent = FormatSimpleWikiLayout();
-                        Global.Debug = "Skapa tillsynsrapport";
-                        SPFile skapatillsynsida = listSidor.RootFolder.Files.Add(compoundUrl4, SPTemplateFileType.WikiPage);
+                        //string compoundUrl4 = string.Format("{0}/{1}", listSidor.RootFolder.ServerRelativeUrl, "Skapa tillsynsrapport.aspx");//* Define page payout
+                        //_wikiFullContent = FormatSimpleWikiLayout();
+                        //Global.Debug = "Skapa tillsynsrapport";
+                        //SPFile skapatillsynsida = listSidor.RootFolder.Files.Add(compoundUrl4, SPTemplateFileType.WikiPage);
 
-                        Global.Debug = "wpTillsyn";
-                        TillsynWP wpTillsyn = new TillsynWP();
-                        wpTillsyn.ChromeType = PartChromeType.None;
-                        Guid wpTillsynGuid = AddWebPartControlToPage(skapatillsynsida, wpTillsyn);
-                        AddWebPartMarkUpToPage(wpTillsynGuid, "[[COL1]]");
+                        //Global.Debug = "wpTillsyn";
+                        //TillsynWP wpTillsyn = new TillsynWP();
+                        //wpTillsyn.ChromeType = PartChromeType.None;
+                        //Guid wpTillsynGuid = AddWebPartControlToPage(skapatillsynsida, wpTillsyn);
+                        //AddWebPartMarkUpToPage(wpTillsynGuid, "[[COL1]]");
 
-                        skapatillsynsida.Item[SPBuiltInFieldId.WikiField] = _wikiFullContent;
-                        skapatillsynsida.Item.UpdateOverwriteVersion();
-                        Global.Debug = "Skapatillsynsida skapad";
+                        //skapatillsynsida.Item[SPBuiltInFieldId.WikiField] = _wikiFullContent;
+                        //skapatillsynsida.Item.UpdateOverwriteVersion();
+                        //Global.Debug = "Skapatillsynsida skapad";
                         #endregion
                     }
 
@@ -258,7 +262,7 @@ Nu har första stegen till en online plattform för tillsyn av tobak och folköl ta
                     item["URL"] = web.ServerRelativeUrl + "/Blanketter, Blanketter";
                     item.Update();
                     item = listGenvagar.AddItem();
-                    item["Title"] = "Utbildningsmaterial"; 
+                    item["Title"] = "Utbildningsmaterial";
                     item["URL"] = web.ServerRelativeUrl + "/Utbildningsmaterial, Utbildningsmaterial";
                     item.Update();
 
@@ -272,7 +276,118 @@ Nu har första stegen till en online plattform för tillsyn av tobak och folköl ta
                     catch { }
                     Global.Debug = "properties";
                     web.Properties.Update();
+
                 }
+                else {
+                    Global.WriteLog("Redan aktiverad", EventLogEntryType.Information, 1000);
+                }
+
+                #region modify template
+                Global.Debug = "ensure empty working directory";
+                DirectoryInfo diTillsyn = new DirectoryInfo(@"C:\Program Files\Common Files\Microsoft Shared\Web Server Extensions\15\TEMPLATE\LAYOUTS\UPCOR.TillsynKommun");
+                string webid = web.Url.Replace("http://", "").Replace('/','_');
+                string dirname = @"workdir_" + webid;
+                Global.Debug = "dir: " + dirname;
+                DirectoryInfo diWorkDir = diTillsyn.CreateSubdirectory(dirname);
+
+                if (!diWorkDir.Exists)
+                    diWorkDir.Create();
+                foreach (FileInfo fi in diWorkDir.GetFiles()) {
+                    fi.Delete();
+                }
+
+                Global.Debug = "whoami";
+                Global.WriteLog(string.Format("Environment.UserName: {1}, Thread.CurrentPrincipal.Identity.Name: {2}", "", Environment.UserName, Thread.CurrentPrincipal.Identity.Name), EventLogEntryType.Information, 1000);
+
+
+                Global.Debug = "extract";
+                Process p = new Process();
+                p.StartInfo.RedirectStandardOutput = true;
+                p.StartInfo.UseShellExecute = false;
+                p.StartInfo.FileName = @"C:\Program Files\7-Zip\7z.exe";
+                string filename = diTillsyn.FullName + @"\template_unmodified.xsn";
+                p.StartInfo.Arguments = "e \"" + filename + "\" -y -o\"" + diWorkDir.FullName + "\"";
+                bool start = p.Start();
+                p.WaitForExit();
+                if (p.ExitCode != 0) {
+                    Global.WriteLog(string.Format("7z Error:\r\n{0}\r\n\r\nFilename:\r\n{1}", p.StandardOutput.ReadToEnd(), filename), EventLogEntryType.Error, 1000);
+                }
+
+                Global.Debug = "get content type";
+                SPContentType ctTillsyn = listAktiviteter.ContentTypes[_tillsynName];
+
+                XNamespace xsf = "http://schemas.microsoft.com/office/infopath/2003/solutionDefinition";
+                XNamespace xsf3 = "http://schemas.microsoft.com/office/infopath/2009/solutionDefinition/extensions";
+                XNamespace xd = "http://schemas.microsoft.com/office/infopath/2003";
+
+                Global.Debug = "modify manifest";
+                XDocument doc = XDocument.Load(diWorkDir.FullName + @"\manifest.xsf");
+                var xDocumentClass = doc.Element(xsf + "xDocumentClass");
+                var q1 = from extension in xDocumentClass.Element(xsf + "extensions").Elements(xsf + "extension")
+                         where extension.Attribute("name").Value == "SolutionDefinitionExtensions"
+                         select extension;
+                var node1 = q1.First().Element(xsf3 + "solutionDefinition").Element(xsf3 + "baseUrl");
+                node1.Attribute("relativeUrlBase").Value = web.Url + "/Lists/Aktiviteter/Tillsyn/";
+                var q2 = from dataObject in xDocumentClass.Element(xsf + "dataObjects").Elements(xsf + "dataObject")
+                         where dataObject.Attribute("name").Value == "Kundkort"
+                         select dataObject;
+                var node2 = q2.First().Element(xsf + "query").Element(xsf + "sharepointListAdapterRW");
+                node2.Attribute("sharePointListID").Value = "{" + listKundkort.ID.ToString() + "}";
+                var node3 = xDocumentClass.Element(xsf + "query").Element(xsf + "sharepointListAdapterRW");
+                node3.Attribute("sharePointListID").Value = "{" + listAktiviteter.ID.ToString() + "}";
+                node3.Attribute("contentTypeID").Value = ctTillsyn.Id.ToString();
+                doc.Save(diWorkDir.FullName + @"\manifest.xsf");
+
+                Global.Debug = "modify view1";
+                XDocument doc2 = XDocument.Load(diWorkDir.FullName + @"\view1.xsl");
+                foreach (var d in doc2.Descendants("object")) {
+                    d.Attribute(xd + "server").Value = web.Url + "/";
+                }
+                doc2.Save(diWorkDir.FullName + @"\view1.xsl");
+
+                Global.Debug = "repack";
+                string directive = "directives_" + webid + ".txt";
+                string cabinet = "template_" + webid + ".xsn";
+                FileInfo fiDirectives = new FileInfo(diTillsyn.FullName + '\\' + directive );
+                if (fiDirectives.Exists)
+                    fiDirectives.Delete();
+                using (StreamWriter sw = fiDirectives.CreateText()) {
+                    sw.WriteLine(".OPTION EXPLICIT");
+                    sw.WriteLine(".set CabinetNameTemplate=" + cabinet);
+                    sw.WriteLine(".set DiskDirectoryTemplate=\"" + diTillsyn.FullName + "\"");
+                    sw.WriteLine(".set Cabinet=on");
+                    sw.WriteLine(".set Compress=on");
+                    foreach (FileInfo file in diWorkDir.GetFiles()) {
+                        sw.WriteLine('"' + file.FullName + '"');
+                    }
+                }
+                Process p2 = new Process();
+                p2.StartInfo.RedirectStandardOutput = true;
+                p2.StartInfo.UseShellExecute = false;
+                //p2.StartInfo.FileName = diTillsyn.FullName + @"\makecab.exe";
+                p2.StartInfo.FileName = @"c:\windows\system32\makecab.exe";
+                p2.StartInfo.WorkingDirectory = diTillsyn.FullName;
+                p2.StartInfo.Arguments = "/f " + fiDirectives.Name;
+                bool start2 = p2.Start();
+                p2.WaitForExit();
+                if (p.ExitCode != 0) {
+                    Global.WriteLog(string.Format("makecab Error:\r\n{0}", p2.StandardOutput.ReadToEnd()), EventLogEntryType.Error, 1000);
+                }
+
+                Global.Debug = "upload";
+                FileInfo fiTemplate = new FileInfo(diTillsyn.FullName + '\\' + cabinet);
+                if (fiTemplate.Exists) {
+                    using (FileStream fs = fiTemplate.OpenRead()) {
+                        byte[] data = new byte[fs.Length];
+                        fs.Read(data, 0, (int)fs.Length);
+                        listAktiviteter.RootFolder.Files.Add("Lists/Aktiviteter/Tillsyn/template.xsn", data);
+                    }
+                }
+                else {
+                    Global.WriteLog("template.xsn missing", EventLogEntryType.Error, 1000);
+                }
+                #endregion
+
                 Global.WriteLog("Feature Activated", EventLogEntryType.Information, 1001);
             }
             catch (Exception ex) {
@@ -280,8 +395,7 @@ Nu har första stegen till en online plattform för tillsyn av tobak och folköl ta
             }
         } // feature activated
 
-        private Guid AddWebPartControlToPage(SPFile wikiFile, System.Web.UI.WebControls.WebParts.WebPart wp)
-        {
+        private Guid AddWebPartControlToPage(SPFile wikiFile, System.Web.UI.WebControls.WebParts.WebPart wp) {
             SPLimitedWebPartManager limitedWebPartManager = wikiFile.GetLimitedWebPartManager(PersonalizationScope.Shared);
             Guid storageKeyGuid = Guid.NewGuid();
             string storageKeyId = StorageKeyToID(storageKeyGuid);
@@ -292,21 +406,19 @@ Nu har första stegen till en online plattform för tillsyn av tobak och folköl ta
             catch (Exception ex) {
                 Global.WriteLog("limitedWebPartManager.AddWebPart\r\n\r\nMessage:\r\n" + ex.Message + "\r\n\r\nStacktrace:\r\n" + ex.StackTrace, EventLogEntryType.Error, 2005);
             }
- 
+
             return storageKeyGuid;
         }
 
-        private void AddWebPartMarkUpToPage(Guid wpGuid, string replaceToken)
-        {
+        private void AddWebPartMarkUpToPage(Guid wpGuid, string replaceToken) {
             string wpDiv = string.Format(CultureInfo.InvariantCulture, "<div class='ms-rtestate-read ms-rte-wpbox' contentEditable='false'><div class='ms-rtestate-read {0}' id='div_{0}'></div><div style='display:none' id='vid_{0}'></div></div>", new object[] { wpGuid.ToString("D") });
             _wikiFullContent = _wikiFullContent.Replace(replaceToken, wpDiv);
         }
 
         // 2 col & header
-        private string FormatBasicWikiLayout()
-        {
+        private string FormatBasicWikiLayout() {
             StringBuilder sb = new StringBuilder();
- 
+
             sb.Append("<table id=\"layoutsTable\" style=\"width: 100%\">");
             sb.Append("<tbody>");
             sb.Append("<tr style=\"vertical-align: top\">");
@@ -343,7 +455,7 @@ Nu har första stegen till en online plattform för tillsyn av tobak och folköl ta
             sb.Append("</tbody>");
             sb.Append("</table>");
             sb.Append("<span id=\"layoutsData\" style=\"display: none\">true,false,2</span>");
- 
+
             return sb.ToString();
         }
 
@@ -362,10 +474,8 @@ Nu har första stegen till en online plattform för tillsyn av tobak och folköl ta
             return sb.ToString();
         }
 
-        public static string StorageKeyToID(Guid storageKey)
-        {
-            if (!(Guid.Empty == storageKey))
-            {
+        public static string StorageKeyToID(Guid storageKey) {
+            if (!(Guid.Empty == storageKey)) {
                 return ("g_" + storageKey.ToString().Replace('-', '_'));
             }
             return string.Empty;

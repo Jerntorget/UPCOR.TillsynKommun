@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Id="6fb27a95-bb9d-42e8-840d-77f43f3c6c1e" Scope="Web" Title="!UPCOR - Tillsyn Kommun - PropertyBag">
+  <ActivationDependencies>
+    <ActivationDependency FeatureId="be01677e-b67e-4987-b683-dfe2f97a344a" FeatureTitle="!UPCOR - Tillsyn Kommun - Listor och innehåll" />
+  </ActivationDependencies>
+  <ElementManifests>
+    <ElementManifest Location="PropertyBag\Elements.xml" />
+  </ElementManifests>
+</Feature>

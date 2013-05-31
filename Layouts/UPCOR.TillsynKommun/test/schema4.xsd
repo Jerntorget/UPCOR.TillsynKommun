@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema targetNamespace="http://schemas.microsoft.com/office/infopath/2009/WSSList/queryFields" elementFormDefault="unqualified" attributeFormDefault="unqualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:dms="http://schemas.microsoft.com/office/2009/documentManagement/types" xmlns:dfs="http://schemas.microsoft.com/office/infopath/2003/dataFormSolution" xmlns:q="http://schemas.microsoft.com/office/infopath/2009/WSSList/queryFields" xmlns:d="http://schemas.microsoft.com/office/infopath/2009/WSSList/dataFields" xmlns:ma="http://schemas.microsoft.com/office/2009/metadata/properties/metaAttributes" xmlns:pc="http://schemas.microsoft.com/office/infopath/2007/PartnerControls">
+	<xsd:import namespace="http://schemas.microsoft.com/office/2009/documentManagement/types" schemaLocation="schema2.xsd"/>
+	<xsd:element name="SharePointListItem_RW">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="q:ID" minOccurs="0"/>
+				<xsd:element ref="q:Title" minOccurs="0"/>
+				<xsd:element ref="q:Author" minOccurs="0"/>
+				<xsd:element ref="q:Editor" minOccurs="0"/>
+				<xsd:element ref="q:Modified" minOccurs="0"/>
+				<xsd:element ref="q:Created" minOccurs="0"/>
+				<xsd:element ref="q:tillsynUppfoljande" minOccurs="0"/>
+				<xsd:element ref="q:tillsynFotodok" minOccurs="0"/>
+				<xsd:element ref="q:aktivitetDatum" minOccurs="0"/>
+				<xsd:element ref="q:aktivitetButik" minOccurs="0"/>
+				<xsd:element ref="q:tillsynNaringAnmalt" minOccurs="0"/>
+				<xsd:element ref="q:tillsynNaringIngett" minOccurs="0"/>
+				<xsd:element ref="q:tillsynNaringPlan" minOccurs="0"/>
+				<xsd:element ref="q:tillsynAktivInformation" minOccurs="0"/>
+				<xsd:element ref="q:tillsynPersonalUtbildning" minOccurs="0"/>
+				<xsd:element ref="q:tillsynLegitimation" minOccurs="0"/>
+				<xsd:element ref="q:tillsynLegitimationAlder" minOccurs="0"/>
+				<xsd:element ref="q:tillsynAutomat" minOccurs="0"/>
+				<xsd:element ref="q:tillsynAutomatKontroll" minOccurs="0"/>
+				<xsd:element ref="q:tillsynForekommerStyckevis" minOccurs="0"/>
+				<xsd:element ref="q:tillsynForekommerUnder19" minOccurs="0"/>
+				<xsd:element ref="q:tillsynReklamPatrangande" minOccurs="0"/>
+				<xsd:element ref="q:tillsynReklamUtanfor" minOccurs="0"/>
+				<xsd:element ref="q:tillsynReklamByra" minOccurs="0"/>
+				<xsd:element ref="q:tillsynSponsrad" minOccurs="0"/>
+				<xsd:element ref="q:tillsynReklamHandskriven" minOccurs="0"/>
+				<xsd:element ref="q:tillsynBildskarmar" minOccurs="0"/>
+				<xsd:element ref="q:tillsynLegitimationKassa" minOccurs="0"/>
+				<xsd:element ref="q:tillsynTillKlockan" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ID" type="dms:CounterType" ma:displayName="ID" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="Title" type="dms:TextType" ma:displayName="Rubrik" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="Author" type="dms:TextType" ma:displayName="Skapad av" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="Editor" type="dms:TextType" ma:displayName="Ändrat av" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="Modified" type="dms:DateOnlyType" ma:displayName="Ändrat" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="Created" type="dms:DateOnlyType" ma:displayName="Skapad" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="tillsynUppfoljande" type="dms:TextType" ma:displayName="Besöket är ett uppföljande tillsynsbesök" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="tillsynFotodok" type="dms:TextType" ma:displayName="Fotodokumentation sker under tillsynsbesöket" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="aktivitetDatum" type="dms:DateOnlyType" ma:displayName="Datum" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="aktivitetButik" type="dms:CounterType" ma:displayName="Försäljningsställe" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="tillsynNaringAnmalt" type="dms:BooleanType" ma:displayName="Försäljning anmäld av näringsidkaren" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="tillsynNaringIngett" type="dms:BooleanType" ma:displayName="Egenkontrollprogram har ingetts av näringsidkaren" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="tillsynNaringPlan" type="dms:BooleanType" ma:displayName="Plan har utarbetats av näringsidkaren" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="tillsynAktivInformation" type="dms:BooleanType" ma:displayName="Aktiv information ges" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="tillsynPersonalUtbildning" type="dms:BooleanType" ma:displayName="Frågor till kassapersonal" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="tillsynLegitimation" type="dms:BooleanType" ma:displayName="Legitimation kontrolleras" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="tillsynLegitimationAlder" type="dms:TextType" ma:displayName="Om ja, under vilken ålder" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="tillsynAutomat" type="dms:BooleanType" ma:displayName="Finns tobaksautomat" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="tillsynAutomatKontroll" type="dms:BooleanType" ma:displayName="Om ja, har automaten godtagbar kontroll" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="tillsynForekommerStyckevis" type="dms:BooleanType" ma:displayName="Styckevis försäljning av cigaretter" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="tillsynForekommerUnder19" type="dms:BooleanType" ma:displayName="Förpackningar med färre än 19 cigaretter" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="tillsynReklamPatrangande" type="dms:BooleanType" ma:displayName="Påträngande kommersiella meddelanden" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="tillsynReklamUtanfor" type="dms:BooleanType" ma:displayName="Kommersiella meddelanden utanför" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="tillsynReklamByra" type="dms:BooleanType" ma:displayName="Kommersiella meddelandena gjorda av reklambyrå" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="tillsynSponsrad" type="dms:BooleanType" ma:displayName="Butiken sponsrad" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="tillsynReklamHandskriven" type="dms:BooleanType" ma:displayName="Handskrivna kommersiella meddelanden" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="tillsynBildskarmar" type="dms:BooleanType" ma:displayName="Bildskärmar med kommersiella meddelanden" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="tillsynLegitimationKassa" type="dms:BooleanType" ma:displayName="Legitimationskontroll i kassan" ma:readOnly="false" nillable="true"/>
+	<xsd:element name="tillsynTillKlockan" type="dms:DateOnlyType" ma:displayName="Sluttid besök" ma:readOnly="false" nillable="true"/>
+</xsd:schema>

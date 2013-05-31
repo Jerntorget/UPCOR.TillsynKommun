@@ -74,6 +74,9 @@
     <Compile Include="TillsynWP\TillsynWP.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Features\PropertyBagFeature\PropertyBagFeature.Template.xml">
+      <DependentUpon>PropertyBagFeature.feature</DependentUpon>
+    </Content>
     <Content Include="Features\WebPartsFeature\WebPartsFeature.Template.xml">
       <DependentUpon>WebPartsFeature.feature</DependentUpon>
     </Content>
@@ -81,7 +84,7 @@
     <Content Include="Filer\Webbplatstillgangar\heart.gif" />
     <Content Include="Filer\Webbplatstillgangar\profil_ettan_vinter_557x100.jpg" />
     <Content Include="Filer\Blanketter\Elements.xml" />
-    <Content Include="Form\Elements.xml" />
+    <Content Include="FormPages\Elements.xml" />
     <Content Include="Innehallstyper\GivePermissionCT\Elements.xml" />
     <Content Include="Layouts\UPCOR.TillsynKommun\tillsyn.css" />
     <Content Include="Layouts\UPCOR.TillsynKommun\tillsyn.js" />
@@ -149,17 +152,21 @@
     <Content Include="Falt\Tillsyn\tillsynVarningstext\Elements.xml" />
     <Content Include="Listor\Webbplatssidor\Elements.xml" />
     <Content Include="Listor\Webbplatstillgangar\Elements.xml" />
+    <Content Include="PropertyBag\Elements.xml" />
     <Content Include="TillsynWP\Elements.xml" />
-    <None Include="Form\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{2260540e-71a1-4b28-bf59-3f80427d56a2}</SharePointProjectItemId>
+    <None Include="Features\PropertyBagFeature\PropertyBagFeature.feature">
+      <FeatureId>{f915f073-e8a6-457b-9e20-5ce5800734c4}</FeatureId>
     </None>
-    <Content Include="Form\template00.xsn" />
+    <None Include="FormPages\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3f0a8bcb-e674-48ee-8b41-0ea7302608d6}</SharePointProjectItemId>
+    </None>
     <None Include="Innehallstyper\GivePermissionCT\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{710b9ef0-1c50-4e67-9f86-278c62f1a953}</SharePointProjectItemId>
     </None>
     <None Include="Layouts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{488c0f90-3cba-4a4e-9977-9500a7a46fba}</SharePointProjectItemId>
     </None>
+    <Content Include="Layouts\UPCOR.TillsynKommun\template_unmodified.xsn" />
     <None Include="Listor\Agare\AgareInstance\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{46af20b9-97c6-41b1-9940-2edfbe290dfa}</SharePointProjectItemId>
     </None>
@@ -322,6 +329,9 @@
     </None>
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="PropertyBag\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{952f989d-6f57-42d4-b844-fad15d7a8a3c}</SharePointProjectItemId>
     </None>
     <None Include="TillsynKommunSD\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{74728717-0b61-4cd9-baef-740ea5e073c0}</SharePointProjectItemId>

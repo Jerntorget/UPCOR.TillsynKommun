@@ -14,9 +14,11 @@
     <TemplateFile Location="1053\xml\webtemp_TillsynKommunSD.xml" />
     <TemplateFile Location="Layouts\UPCOR.TillsynKommun\tillsyn.css" />
     <TemplateFile Location="Layouts\UPCOR.TillsynKommun\tillsyn.js" />
+    <TemplateFile Location="Layouts\UPCOR.TillsynKommun\template_unmodified.xsn" />
   </TemplateFiles>
   <FeatureManifests>
     <FeatureManifest Location="UPCOR.TillsynKommun_ListsAndContentFeature\Feature.xml" />
     <FeatureManifest Location="UPCOR.TillsynKommun_WebPartsFeature\Feature.xml" />
+    <FeatureManifest Location="UPCOR.TillsynKommun_PropertyBagFeature\Feature.xml" />
   </FeatureManifests>
 </Solution>
