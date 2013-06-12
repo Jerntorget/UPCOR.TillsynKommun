@@ -4,7 +4,7 @@
        ID="{a4ad41af-b580-40a0-83bd-34b2ac2a48f7}"
        Name="tillsynLegitimationKassa"
        DisplayName="Legitimationskontroll i kassan"
-       Description="Finns legitimationskontroll inbyggt i kassasystemet?  Kryssa i rutan för ja. Om Nej, informera gärna näringsidkaren om fördelarna med att ha ett sådant kassasystem."
+       Description="Finns legitimationskontroll inbyggt i kassasystemet? Kryssa i rutan för ja. Om Nej, informera gärna näringsidkaren om fördelarna med att ha ett sådant kassasystem."
        Type="Boolean"
        Required="FALSE"
        Group="Tillsyn">

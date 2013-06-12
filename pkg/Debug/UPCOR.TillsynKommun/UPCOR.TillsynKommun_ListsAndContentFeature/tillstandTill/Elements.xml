@@ -3,7 +3,7 @@
   <Field
        ID="{6244d347-b3fa-447c-9e4e-071d9f35024d}"
        Name="tillstandTill"
-       DisplayName="Gäller Till"
+       DisplayName="Gäller till"
        Type="DateTime"
        Format="DateOnly"
        Required="FALSE"

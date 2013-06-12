@@ -5,4 +5,6 @@
 **.resources
 **.pfx
 obj/*
+pkg/*
+pkgobj/*
 Properties/Resources.Designer.cs
