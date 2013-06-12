@@ -3,6 +3,7 @@
   <!-- Parent ContentType: Item (0x01) -->
   <ContentType ID="0x01005B4D0E77283349FEA58D136970995B96" Name="Tillsyn" Group="Anpassade innehållstyper" Description="" Inherits="TRUE" Version="0">
     <FieldRefs>
+      <RemoveFieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" DisplayName="Rubrik" Name="Title" Required="FALSE" ShowInNewForm="FALSE" />
       <FieldRef ID="{005f4b45-1ba4-41f6-beab-c851b27b1cd0}" DisplayName="Tillsynsbesöket sker" Required="FALSE" Name="tillsynAnmalt" />
       <FieldRef ID="{8f36d72b-6b0c-40c0-b3f7-ffe97069cf34}" DisplayName="Besöket är ett uppföljande tillsynsbesök" Required="FALSE" Name="tillsynUppfoljande" />
       <FieldRef ID="{7abbb518-3744-4f86-ae27-19d49fd91b00}" DisplayName="Fotodokumentation sker under tillsynsbesöket" Required="FALSE" Name="tillsynFotodok" />
@@ -16,10 +17,10 @@
       <FieldRef ID="{f1335e91-6795-4e38-854b-30ebeef1d31e}" DisplayName="Om ja, ange hur och när senaste tillfället var:" Required="FALSE" Name="tillsynAktivInformationNar" />
       <FieldRef ID="{f37bb5f4-b3a9-49e3-bf36-593856740869}" DisplayName="Frågor till kassapersonal" Required="FALSE" Name="tillsynPersonalUtbildning" Description="Har du fått information och utbildning av den försäljningsansvarige om arbetssätt och rutiner för att upprätthålla 18 års åldersgränsen?" />
       <FieldRef ID="{a937d7c5-7a79-418d-a752-59ad96a49065}" DisplayName="Om ja, ange hur:" Required="FALSE" Name="tillsynPersonalUtbildningHur" />
-      <FieldRef ID="{846c5a5c-e20b-46d9-9b0c-ddea27d5e22b}" DisplayName="Legitimation kontrolleras" Required="FALSE" Name="tillsynLegitimation" />
+      <FieldRef ID="{846c5a5c-e20b-46d9-9b0c-ddea27d5e22b}" DisplayName="Legitimation kontrolleras" Required="FALSE" Name="tillsynLegitimation" Description="Kryssa i rutan för ja" />
       <FieldRef ID="{3e33f7b0-d935-4cbd-8746-b8343d8697e9}" DisplayName="Om ja, under vilken ålder" Required="FALSE" Description="Om man bedömer att åldern på den som vill köpa är under ___ år så kontrolleras legitimation" Name="tillsynLegitimationAlder" />
       <FieldRef ID="{6e5947c4-c1e7-48db-9d40-352e70a7efef}" DisplayName="Tydligt skyltat" Required="FALSE" Description="Finns en tydlig och klart synbar skylt med information om förbudet mot att sälja eller lämna ut tobaksvaror till den som inte har fyllt 18 år?" Name="tillsynSkyltat" />
-      <FieldRef ID="{63302a78-de16-4856-92d5-bae528c86a39}" DisplayName="Finns tobaksautomat" Required="FALSE" Name="tillsynAutomat" />
+      <FieldRef ID="{63302a78-de16-4856-92d5-bae528c86a39}" DisplayName="Finns tobaksautomat" Required="FALSE" Name="tillsynAutomat" Description="Kryssa i rutan för ja" />
       <FieldRef ID="{0b674e28-5b11-49fe-a60b-74fb97ffd2eb}" DisplayName="Om ja, har automaten godtagbar kontroll" Required="FALSE" Description="Finns det en godtagbar kontroll över åldern på den som handlar i automaten?" Name="tillsynAutomatKontroll" />
       <FieldRef ID="{a3f6d69e-c500-4c6d-a106-6cb422fc7c76}" DisplayName="Om nej, ange på vilket sätt kontrollen inte är godtagbar" Required="FALSE" Name="tillsynAutomatKontrollAnledning" />
       <FieldRef ID="{02605bbf-e1b6-47cf-8744-894be64db3ec}" DisplayName="Styckevis försäljning av cigaretter" Required="FALSE" Description="Förekommer styckevis försäljning av cigaretter?" Name="tillsynForekommerStyckevis" />

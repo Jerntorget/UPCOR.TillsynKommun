@@ -4,7 +4,7 @@
        ID="{f37bb5f4-b3a9-49e3-bf36-593856740869}"
        Name="tillsynPersonalUtbildning"
        DisplayName="Frågor till kassapersonal"
-       Description="Har du fått information och utbildning av den försäljningsansvarige om arbetssätt och rutiner för att upprätthålla 18 års åldersgränsen?"
+       Description="Har du fått information och utbildning av den försäljningsansvarige om arbetssätt och rutiner för att upprätthålla 18 års åldersgränsen? Kryssa i rutan för ja"
        Type="Boolean"
        Required="FALSE"
        Group="Tillsyn">

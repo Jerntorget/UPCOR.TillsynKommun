@@ -4,7 +4,7 @@
        ID="{62cf6953-475e-40cb-b4e2-bf5852ca872a}"
        Name="tillsynNaringAnmalt"
        DisplayName="Försäljning anmäld av näringsidkaren"
-       Description="Har näringsidkaren anmält försäljning av tobak till kommunen?"
+       Description="Har näringsidkaren anmält försäljning av tobak till kommunen? Kryssa i rutan för ja"
        Type="Boolean"
        Required="FALSE"
        Group="Tillsyn">

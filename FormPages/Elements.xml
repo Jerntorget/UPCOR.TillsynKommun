@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
-  <Module Name="TestList1Form" Url="Lists/Aktiviteter/Tillsyn" SetupPath="pages" RootWebOnly="FALSE" xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="TillsynForms" Url="Lists/Aktiviteter/Tillsyn" SetupPath="pages" RootWebOnly="FALSE" xmlns="http://schemas.microsoft.com/sharepoint/">
     <File Url="displayifs.aspx" Type="Ghostable" Path="form.aspx">
       <BinarySerializedWebPart>
         <GUIDMap>
-          <GUID Id="1b8faa0c_4e13_43e7_981f_57d525170d09" ListUrl="Lists/Aktiviteter" />
+          <GUID Id="611e3ada_f7d5_4594_bba4_d7399d55b232" ListUrl="Lists/Aktiviteter" />
         </GUIDMap>
-        <WebPart ID="{9ED89805-102B-44A4-AF91-FFD9E0DA4A7A}"
+        <WebPart ID="{57EABFCA-E3C8-4D97-B728-589B50EAF731}"
                  List="{$ListId:Lists/Aktiviteter;}"
                  Type="4"
                  Url="Lists/Aktiviteter/Tillsyn/displayifs.aspx"
@@ -24,9 +24,9 @@
     <File Url="editifs.aspx" Type="Ghostable" Path="form.aspx">
       <BinarySerializedWebPart>
         <GUIDMap>
-          <GUID Id="1b8faa0c_4e13_43e7_981f_57d525170d09" ListUrl="Lists/Aktiviteter" />
+          <GUID Id="611e3ada_f7d5_4594_bba4_d7399d55b232" ListUrl="Lists/Aktiviteter" />
         </GUIDMap>
-        <WebPart ID="{06C60259-1D32-417B-84D4-06A4C18EB25B}"
+        <WebPart ID="{CC6DE347-B768-4915-8503-5632DE0B1B00}"
                  List="{$ListId:Lists/Aktiviteter;}"
                  Type="6"
                  Flags="0"
@@ -45,9 +45,9 @@
     <File Url="newifs.aspx" Type="Ghostable" Path="form.aspx">
       <BinarySerializedWebPart>
         <GUIDMap>
-          <GUID Id="1b8faa0c_4e13_43e7_981f_57d525170d09" ListUrl="Lists/Aktiviteter" />
+          <GUID Id="611e3ada_f7d5_4594_bba4_d7399d55b232" ListUrl="Lists/Aktiviteter" />
         </GUIDMap>
-        <WebPart ID="{BC61BD8C-976B-4921-B318-9F3D7A14D5D8}"
+        <WebPart ID="{78574774-FF14-4D04-A467-CFC8A1AE4AF6}"
                  List="{$ListId:Lists/Aktiviteter;}"
                  Type="8"
                  Flags="0"

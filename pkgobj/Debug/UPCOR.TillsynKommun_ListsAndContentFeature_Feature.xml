@@ -112,6 +112,14 @@
     <ElementManifest Location="aktivitetNotering\Elements.xml" />
     <ElementManifest Location="GivePermissionCT\Elements.xml" />
     <ElementManifest Location="FormPages\Elements.xml" />
-    <ElementManifest Location="PropertyBag\Elements.xml" />
+    <ElementManifest Location="AddRightsAction\Elements.xml" />
+    <ElementManifest Location="GruppkopplingarInstance\Elements.xml" />
+    <ElementManifest Location="Gruppkopplingar\Elements.xml" />
+    <ElementFile Location="Gruppkopplingar\Schema.xml" />
+    <ElementManifest Location="butikLopnummer\Elements.xml" />
+    <ElementManifest Location="UppgifterInstance\Elements.xml" />
+    <ElementManifest Location="Uppgifter\Elements.xml" />
+    <ElementFile Location="Uppgifter\Schema.xml" />
+    <ElementManifest Location="FormPagesPermit\Elements.xml" />
   </ElementManifests>
 </Feature>

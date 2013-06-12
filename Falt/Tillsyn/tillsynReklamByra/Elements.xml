@@ -4,7 +4,7 @@
        ID="{89c233ff-b2f1-46d5-afc9-1b06d1c2fd19}"
        Name="tillsynReklamByra"
        DisplayName="Kommersiella meddelandena gjorda av reklambyrå"
-       Description="Är de kommersiella meddelandena gjorda av en tillverkare/importör/säljagent/reklambyrå?"
+       Description="Är de kommersiella meddelandena gjorda av en tillverkare/importör/säljagent/reklambyrå? Kryssa i rutan för ja"
        Type="Boolean"
        Required="FALSE"
        Group="Tillsyn">

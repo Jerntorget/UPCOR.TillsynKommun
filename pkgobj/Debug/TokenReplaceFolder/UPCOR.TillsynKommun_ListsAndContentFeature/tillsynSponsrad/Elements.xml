@@ -4,7 +4,7 @@
        ID="{c97a5680-a25c-4819-8910-a3a2e7b8f79e}"
        Name="tillsynSponsrad"
        DisplayName="Butiken sponsrad"
-       Description="Upplevs butiken som stylad eller sponsrad av en tillverkare/importör/säljagent/reklambyrå?"
+       Description="Upplevs butiken som stylad eller sponsrad av en tillverkare/importör/säljagent/reklambyrå? Kryssa i rutan för ja"
        Type="Boolean"
        Required="FALSE"
        Group="Tillsyn">

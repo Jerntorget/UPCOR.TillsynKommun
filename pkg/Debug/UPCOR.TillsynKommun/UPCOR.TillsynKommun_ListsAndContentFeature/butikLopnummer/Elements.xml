@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{d8c219b9-1908-4398-a2e2-75133114bf61}"
+       Name="butikLopnummer"
+       DisplayName="Löpnummer"
+       Type="Text"
+       Required="FALSE"
+       ShowInNewForm="FALSE"
+       ShowInEditForm="FALSE"
+       ShowInDisplayForm="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

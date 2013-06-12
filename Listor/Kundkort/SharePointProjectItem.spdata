@@ -5,6 +5,6 @@
     <ProjectItemFile Source="Schema.xml" Target="Kundkort" Type="ElementFile" />
   </Files>
   <ExtensionData>
-    <ExtensionDataItem Key="Microsoft.VisualStudio.SharePoint.ListSettings.ListFieldsContentTypeID" Value="0x01002edc9b58c1e14ce49de3c796429a2027" />
+    <ExtensionDataItem Key="Microsoft.VisualStudio.SharePoint.ListSettings.ListFieldsContentTypeID" Value="0x0100b43687041d6b47eab02e0aa202657085" />
   </ExtensionData>
 </ProjectItem>

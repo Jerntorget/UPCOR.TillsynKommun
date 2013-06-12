@@ -4,7 +4,7 @@
        ID="{0b674e28-5b11-49fe-a60b-74fb97ffd2eb}"
        Name="tillsynAutomatKontroll"
        DisplayName="Om ja, har automaten godtagbar kontroll"
-       Description="Finns det en godtagbar kontroll över åldern på den som handlar i automaten?"
+       Description="Finns det en godtagbar kontroll över åldern på den som handlar i automaten? Kryssa i rutan för ja"
        Type="Boolean"
        Required="FALSE"
        Group="Tillsyn">

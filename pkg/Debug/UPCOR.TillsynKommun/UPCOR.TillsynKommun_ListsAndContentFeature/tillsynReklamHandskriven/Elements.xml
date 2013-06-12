@@ -4,7 +4,7 @@
        ID="{04f504d1-5eaa-4036-b921-55bf39038085}"
        Name="tillsynReklamHandskriven"
        DisplayName="Handskrivna kommersiella meddelanden"
-       Description="Är de kommersiella meddelandena handskrivna av butiksägaren själv?"
+       Description="Är de kommersiella meddelandena handskrivna av butiksägaren själv? Kryssa i rutan för ja"
        Type="Boolean"
        Required="FALSE"
        Group="Tillsyn">

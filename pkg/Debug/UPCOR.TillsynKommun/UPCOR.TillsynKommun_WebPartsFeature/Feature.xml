@@ -5,5 +5,7 @@
     <ElementFile Location="MinButikWP\MinButikWP.webpart" />
     <ElementManifest Location="TillsynWP\Elements.xml" />
     <ElementFile Location="TillsynWP\TillsynWP.webpart" />
+    <ElementManifest Location="SettingsWP\Elements.xml" />
+    <ElementFile Location="SettingsWP\SettingsWP.webpart" />
   </ElementManifests>
 </Feature>

@@ -14,6 +14,7 @@ using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 using System.Threading;
+using Microsoft.Office.InfoPath.Server.Controls.WebUI;
 
 namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
 {
@@ -28,6 +29,7 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
     public class ListsAndContentFeatureEventReceiver : SPFeatureReceiver
     {
         private const string _tillsynName = "Tillsyn";
+        private const string _permitName = "Ge försäljningstillstånd";
         private string _wikiFullContent;
 
         private Dictionary<string, Municipal> municipals = new Dictionary<string, Municipal>();
@@ -49,9 +51,9 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
                 if (!web.Properties.ContainsKey("activatedOnce")) {
                     web.Properties.Add("activatedOnce", "true");
                     web.Properties.Update();
-
                     Global.Debug = "set activatedOnce flag";
 
+                    #region sätt default-kommun-värden
                     if (municipals.Count > 0) {
                         Global.WriteLog("Kommuner existerar redan", EventLogEntryType.Information, 1000);
                     }
@@ -59,9 +61,10 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
                         municipals.Add("uppsala", new Municipal { AreaCode = "018", Name = "Uppsala", RegionLetter = "C" });
                         municipals.Add("borlänge", new Municipal { AreaCode = "0243", Name = "Borlänge", RegionLetter = "W" });
                     }
-
                     Global.Debug = "added municipals";
+                    #endregion
 
+                    #region hämta listor
                     SPList listAgare = web.Lists.TryGetList("Ägare");
                     Global.Debug = "Ägare";
                     SPList listKontakter = web.Lists.TryGetList("Kontakter");
@@ -75,8 +78,18 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
                     //SPList listBlanketter = web.Lists.TryGetList("Blanketter");
                     SPList listGenvagar = web.Lists.TryGetList("Genvägar");
                     Global.Debug = "Genvägar";
-                    //SPList listGruppkopplingar = web.Lists.TryGetList("Gruppkopplingar"); ??
+                    SPList listGruppkopplingar = web.Lists.TryGetList("Gruppkopplingar");
+                    Global.Debug = "Gruppkopplingar";
 
+                    SPList[] lists = new SPList[] { listAgare, listKontakter, listAdresser, listSidor, listNyheter, listGenvagar, listGruppkopplingar };
+                    int i = 0;
+                    foreach (SPList list in lists) {
+                        i++;
+                        if (list == null) {
+                            Global.WriteLog("Lista " + i.ToString() + " är null", EventLogEntryType.Error, 2000);
+                        }
+                    }
+                    #endregion
 
                     if (listSidor != null) {
                         #region startsida
@@ -100,6 +113,7 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
                         Guid wpAnnouncementsGuid = AddWebPartControlToPage(startsida, wpAnnouncements);
                         AddWebPartMarkUpToPage(wpAnnouncementsGuid, "[[COL1]]");
                         #endregion
+
                         #region Genvägar
                         ListViewWebPart wpLinks = new ListViewWebPart();
                         wpLinks.ListName = listGenvagar.ID.ToString("B").ToUpper();
@@ -109,8 +123,6 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
                         Guid wpLinksGuid = AddWebPartControlToPage(startsida, wpLinks);
                         AddWebPartMarkUpToPage(wpLinksGuid, "[[COL2]]");
                         #endregion
-
-                        Global.WriteLog("_wikiFullContent: " + _wikiFullContent, EventLogEntryType.Information, 1008);
 
                         startsida.Item[SPBuiltInFieldId.WikiField] = _wikiFullContent;
                         startsida.Item.UpdateOverwriteVersion();
@@ -216,7 +228,26 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
                         //skapatillsynsida.Item.UpdateOverwriteVersion();
                         //Global.Debug = "Skapatillsynsida skapad";
                         #endregion
+
+                        #region inställningar
+                        string compoundUrl5 = string.Format("{0}/{1}", listSidor.RootFolder.ServerRelativeUrl, "Inställningar.aspx");//* Define page payout
+                        _wikiFullContent = FormatSimpleWikiLayout();
+                        Global.Debug = "Inställningar";
+                        SPFile installningarsida = listSidor.RootFolder.Files.Add(compoundUrl5, SPTemplateFileType.WikiPage);
+
+                        Global.Debug = "wpSettings";
+                        SettingsWP wpSettings = new SettingsWP();
+                        wpSettings.ChromeType = PartChromeType.None;
+                        Guid wpSettingsGuid = AddWebPartControlToPage(installningarsida, wpSettings);
+                        AddWebPartMarkUpToPage(wpSettingsGuid, "[[COL1]]");
+
+                        installningarsida.Item[SPBuiltInFieldId.WikiField] = _wikiFullContent;
+                        installningarsida.Item.UpdateOverwriteVersion();
+                        Global.Debug = "Installningarsida skapad";
+                        #endregion
                     }
+
+                    #region debugdata
 
                     Global.Debug = "ägare";
                     SPListItem item = listAgare.AddItem();
@@ -246,6 +277,9 @@ namespace UPCOR.TillsynKommun.Features.ListsAndContentFeature
                     item["Title"] = "Testgatan 13b";
                     item.Update();
 
+                    #endregion
+
+                    #region nyhet
                     Global.Debug = "nyhet";
                     item = listNyheter.AddItem();
                     item["Title"] = "Vår online plattform för tillsyn av tobak och folköl håller på att starta upp här";
@@ -255,19 +289,33 @@ Nu har första stegen till en online plattform för tillsyn av tobak och folköl ta
 
 " + web.Title + " kommun";
                     item.Update();
+                    #endregion
 
+                    #region länkar
                     Global.Debug = "länkar";
                     item = listGenvagar.AddItem();
+                    Global.Debug = "Blanketter";
                     item["Title"] = "Blanketter";
                     item["URL"] = web.ServerRelativeUrl + "/Blanketter, Blanketter";
                     item.Update();
                     item = listGenvagar.AddItem();
+                    Global.Debug = "Utbildningsmaterial";
                     item["Title"] = "Utbildningsmaterial";
                     item["URL"] = web.ServerRelativeUrl + "/Utbildningsmaterial, Utbildningsmaterial";
                     item.Update();
+                    #endregion
 
-
+                    #region sätt kundnummeregenskaper
+                    Global.Debug = "löpnummer";
                     web.Properties.Add("lopnummer", "1000");
+                    Global.Debug = "prefixformel";
+                    web.Properties.Add("prefixFormula", "%B%R-%N");
+                    Global.Debug = "listAdresserGUID";
+                    web.Properties.Add("listAdresserGUID", listAdresser.ID.ToString());
+                    Global.Debug = "listAgareGUID";
+                    web.Properties.Add("listAgareGUID", listAgare.ID.ToString());
+                    Global.Debug = "gruppkopplingar";
+                    web.Properties.Add("listGruppkopplingarGUID", listGruppkopplingar.ID.ToString());
                     try {
                         Municipal m = municipals[web.Title.ToLower()];
                         web.Properties.Add("municipalAreaCode", m.AreaCode);
@@ -276,115 +324,379 @@ Nu har första stegen till en online plattform för tillsyn av tobak och folköl ta
                     catch { }
                     Global.Debug = "properties";
                     web.Properties.Update();
-
+                    #endregion
                 }
                 else {
                     Global.WriteLog("Redan aktiverad", EventLogEntryType.Information, 1000);
                 }
 
-                #region modify template
+                #region modify template global
                 Global.Debug = "ensure empty working directory";
-                DirectoryInfo diTillsyn = new DirectoryInfo(@"C:\Program Files\Common Files\Microsoft Shared\Web Server Extensions\15\TEMPLATE\LAYOUTS\UPCOR.TillsynKommun");
-                string webid = web.Url.Replace("http://", "").Replace('/','_');
+                DirectoryInfo diFeature = new DirectoryInfo(@"C:\Program Files\Common Files\Microsoft Shared\Web Server Extensions\15\TEMPLATE\LAYOUTS\UPCOR.TillsynKommun");
+                string webid = web.Url.Replace("http://", "").Replace('/', '_');
                 string dirname = @"workdir_" + webid;
                 Global.Debug = "dir: " + dirname;
-                DirectoryInfo diWorkDir = diTillsyn.CreateSubdirectory(dirname);
+                DirectoryInfo diWorkDir = diFeature.CreateSubdirectory(dirname);
 
                 if (!diWorkDir.Exists)
                     diWorkDir.Create();
-                foreach (FileInfo fi in diWorkDir.GetFiles()) {
-                    fi.Delete();
-                }
-
-                Global.Debug = "whoami";
-                Global.WriteLog(string.Format("Environment.UserName: {1}, Thread.CurrentPrincipal.Identity.Name: {2}", "", Environment.UserName, Thread.CurrentPrincipal.Identity.Name), EventLogEntryType.Information, 1000);
-
-
-                Global.Debug = "extract";
-                Process p = new Process();
-                p.StartInfo.RedirectStandardOutput = true;
-                p.StartInfo.UseShellExecute = false;
-                p.StartInfo.FileName = @"C:\Program Files\7-Zip\7z.exe";
-                string filename = diTillsyn.FullName + @"\template_unmodified.xsn";
-                p.StartInfo.Arguments = "e \"" + filename + "\" -y -o\"" + diWorkDir.FullName + "\"";
-                bool start = p.Start();
-                p.WaitForExit();
-                if (p.ExitCode != 0) {
-                    Global.WriteLog(string.Format("7z Error:\r\n{0}\r\n\r\nFilename:\r\n{1}", p.StandardOutput.ReadToEnd(), filename), EventLogEntryType.Error, 1000);
-                }
-
-                Global.Debug = "get content type";
-                SPContentType ctTillsyn = listAktiviteter.ContentTypes[_tillsynName];
 
                 XNamespace xsf = "http://schemas.microsoft.com/office/infopath/2003/solutionDefinition";
                 XNamespace xsf3 = "http://schemas.microsoft.com/office/infopath/2009/solutionDefinition/extensions";
                 XNamespace xd = "http://schemas.microsoft.com/office/infopath/2003";
 
-                Global.Debug = "modify manifest";
-                XDocument doc = XDocument.Load(diWorkDir.FullName + @"\manifest.xsf");
-                var xDocumentClass = doc.Element(xsf + "xDocumentClass");
-                var q1 = from extension in xDocumentClass.Element(xsf + "extensions").Elements(xsf + "extension")
-                         where extension.Attribute("name").Value == "SolutionDefinitionExtensions"
-                         select extension;
-                var node1 = q1.First().Element(xsf3 + "solutionDefinition").Element(xsf3 + "baseUrl");
-                node1.Attribute("relativeUrlBase").Value = web.Url + "/Lists/Aktiviteter/Tillsyn/";
-                var q2 = from dataObject in xDocumentClass.Element(xsf + "dataObjects").Elements(xsf + "dataObject")
-                         where dataObject.Attribute("name").Value == "Kundkort"
-                         select dataObject;
-                var node2 = q2.First().Element(xsf + "query").Element(xsf + "sharepointListAdapterRW");
-                node2.Attribute("sharePointListID").Value = "{" + listKundkort.ID.ToString() + "}";
-                var node3 = xDocumentClass.Element(xsf + "query").Element(xsf + "sharepointListAdapterRW");
-                node3.Attribute("sharePointListID").Value = "{" + listAktiviteter.ID.ToString() + "}";
-                node3.Attribute("contentTypeID").Value = ctTillsyn.Id.ToString();
-                doc.Save(diWorkDir.FullName + @"\manifest.xsf");
+                #endregion
 
-                Global.Debug = "modify view1";
-                XDocument doc2 = XDocument.Load(diWorkDir.FullName + @"\view1.xsl");
-                foreach (var d in doc2.Descendants("object")) {
-                    d.Attribute(xd + "server").Value = web.Url + "/";
+                #region modify template tillsyn
+                {
+                    Global.Debug = "deleting files";
+                    foreach (FileInfo fi in diWorkDir.GetFiles()) {
+                        fi.Delete();
+                    }
+
+                    Global.Debug = "extract";
+                    Process p = new Process();
+                    p.StartInfo.RedirectStandardOutput = true;
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.FileName = @"C:\Program Files\7-Zip\7z.exe";
+                    //string filename = diTillsyn.FullName + @"\75841904-0c67-4118-826f-b1319db35c6a.xsn";
+                    string filename = diFeature.FullName + @"\4BEB6318-1CE0-47BE-92C2-E9815D312C1A.xsn";
+
+                    p.StartInfo.Arguments = "e \"" + filename + "\" -y -o\"" + diWorkDir.FullName + "\"";
+                    bool start = p.Start();
+                    p.WaitForExit();
+                    if (p.ExitCode != 0) {
+                        Global.WriteLog(string.Format("7z Error:\r\n{0}\r\n\r\nFilename:\r\n{1}", p.StandardOutput.ReadToEnd(), filename), EventLogEntryType.Error, 1000);
+                    }
+
+                    Global.Debug = "get content type";
+                    SPContentType ctTillsyn = listAktiviteter.ContentTypes[_tillsynName];
+
+                    Global.Debug = "modify manifest";
+                    XDocument doc = XDocument.Load(diWorkDir.FullName + @"\manifest.xsf");
+                    var xDocumentClass = doc.Element(xsf + "xDocumentClass");
+                    var q1 = from extension in xDocumentClass.Element(xsf + "extensions").Elements(xsf + "extension")
+                             where extension.Attribute("name").Value == "SolutionDefinitionExtensions"
+                             select extension;
+                    var node1 = q1.First().Element(xsf3 + "solutionDefinition").Element(xsf3 + "baseUrl");
+                    node1.Attribute("relativeUrlBase").Value = web.Url + "/Lists/Aktiviteter/Tillsyn/";
+                    var q2 = from dataObject in xDocumentClass.Element(xsf + "dataObjects").Elements(xsf + "dataObject")
+                             where dataObject.Attribute("name").Value == "Kundkort"
+                             select dataObject;
+                    var node2 = q2.First().Element(xsf + "query").Element(xsf + "sharepointListAdapterRW");
+                    node2.Attribute("sharePointListID").Value = "{" + listKundkort.ID.ToString() + "}";
+                    var node3 = xDocumentClass.Element(xsf + "query").Element(xsf + "sharepointListAdapterRW");
+                    node3.Attribute("sharePointListID").Value = "{" + listAktiviteter.ID.ToString() + "}";
+                    node3.Attribute("contentTypeID").Value = ctTillsyn.Id.ToString();
+                    doc.Save(diWorkDir.FullName + @"\manifest.xsf");
+
+                    Global.Debug = "modify view1";
+                    XDocument doc2 = XDocument.Load(diWorkDir.FullName + @"\view1.xsl");
+                    foreach (var d in doc2.Descendants("object")) {
+                        d.Attribute(xd + "server").Value = web.Url + "/";
+                    }
+                    doc2.Save(diWorkDir.FullName + @"\view1.xsl");
+
+                    Global.Debug = "repack";
+                    string directive = "directives_inspection_" + webid + ".txt";
+                    string cabinet = "template_inspection_" + webid + ".xsn";
+                    FileInfo fiDirectives = new FileInfo(diFeature.FullName + '\\' + directive);
+                    if (fiDirectives.Exists)
+                        fiDirectives.Delete();
+                    using (StreamWriter sw = fiDirectives.CreateText()) {
+                        sw.WriteLine(".OPTION EXPLICIT");
+                        sw.WriteLine(".set CabinetNameTemplate=" + cabinet);
+                        sw.WriteLine(".set DiskDirectoryTemplate=\"" + diFeature.FullName + "\"");
+                        sw.WriteLine(".set Cabinet=on");
+                        sw.WriteLine(".set Compress=on");
+                        foreach (FileInfo file in diWorkDir.GetFiles()) {
+                            sw.WriteLine('"' + file.FullName + '"');
+                        }
+                    }
+                    Process p2 = new Process();
+                    p2.StartInfo.RedirectStandardOutput = true;
+                    p2.StartInfo.UseShellExecute = false;
+                    //p2.StartInfo.FileName = diTillsyn.FullName + @"\makecab.exe";
+                    p2.StartInfo.FileName = @"c:\windows\system32\makecab.exe";
+                    p2.StartInfo.WorkingDirectory = diFeature.FullName;
+                    p2.StartInfo.Arguments = "/f " + fiDirectives.Name;
+                    bool start2 = p2.Start();
+                    p2.WaitForExit();
+                    if (p.ExitCode != 0) {
+                        Global.WriteLog(string.Format("makecab Error:\r\n{0}", p2.StandardOutput.ReadToEnd()), EventLogEntryType.Error, 1000);
+                    }
+
+                    Global.Debug = "upload";
+                    FileInfo fiTemplate = new FileInfo(diFeature.FullName + '\\' + cabinet);
+                    if (fiTemplate.Exists) {
+                        using (FileStream fs = fiTemplate.OpenRead()) {
+                            byte[] data = new byte[fs.Length];
+                            fs.Read(data, 0, (int)fs.Length);
+                            SPFile file = listAktiviteter.RootFolder.Files.Add("Lists/Aktiviteter/Tillsyn/template.xsn", data);
+                            Global.Debug = "set file properties";
+                            //file.Properties["vti_contenttag"] = "{6908F1AD-3962-4293-98BB-0AA4FB54B9C9},3,1";
+                            file.Properties["ipfs_streamhash"] = "0NJ+LASyxjJGhaIwPftKfwraa3YBBfJoNUPNA+oNYu4=";
+                            file.Properties["ipfs_listform"] = "true";
+                            file.Update();
+                        }
+                        Global.Debug = "set folder properties";
+                        SPFolder folder = listAktiviteter.RootFolder.SubFolders["Tillsyn"];
+                        folder.Properties["_ipfs_solutionName"] = "template.xsn";
+                        folder.Properties["_ipfs_infopathenabled"] = "True";
+                        folder.Update();
+                    }
+                    else {
+                        Global.WriteLog("template.xsn missing", EventLogEntryType.Error, 1000);
+                    }
+
+                    //Global.Debug = "set default forms";
+                    //// create our own array since it will be modified (which would throw an exception)
+                    //var forms = new SPForm[listAktiviteter.Forms.Count];
+                    //int j = 0;
+                    //foreach (SPForm form in listAktiviteter.Forms) {
+                    //    forms[j] = form;
+                    //    j++;
+                    //}
+                    //foreach (var form in forms) {
+                    //    SPFile page = web.GetFile(form.Url);
+                    //    SPLimitedWebPartManager limitedWebPartManager = page.GetLimitedWebPartManager(System.Web.UI.WebControls.WebParts.PersonalizationScope.Shared);
+                    //    foreach (System.Web.UI.WebControls.WebParts.WebPart wp in limitedWebPartManager.WebParts) {
+                    //        if (wp is BrowserFormWebPart) {
+                    //            BrowserFormWebPart bfwp = (BrowserFormWebPart)wp.WebBrowsableObject;
+                    //            bfwp.FormLocation = bfwp.FormLocation.Replace("/Item/", "/Tillsyn/");
+                    //            limitedWebPartManager.SaveChanges(bfwp);
+
+                    //            switch (form.Type) {
+                    //                case PAGETYPE.PAGE_NEWFORM:
+                    //                    listAktiviteter.DefaultNewFormUrl = form.ServerRelativeUrl;
+                    //                    break;
+                    //                case PAGETYPE.PAGE_EDITFORM:
+                    //                    listAktiviteter.DefaultEditFormUrl = form.ServerRelativeUrl;
+                    //                    break;
+                    //                case PAGETYPE.PAGE_DISPLAYFORM:
+                    //                    listAktiviteter.DefaultDisplayFormUrl = form.ServerRelativeUrl;
+                    //                    break;
+                    //            }
+                    //        }
+                    //    }
+                    //}
                 }
-                doc2.Save(diWorkDir.FullName + @"\view1.xsl");
+                #endregion
 
-                Global.Debug = "repack";
-                string directive = "directives_" + webid + ".txt";
-                string cabinet = "template_" + webid + ".xsn";
-                FileInfo fiDirectives = new FileInfo(diTillsyn.FullName + '\\' + directive );
-                if (fiDirectives.Exists)
-                    fiDirectives.Delete();
-                using (StreamWriter sw = fiDirectives.CreateText()) {
-                    sw.WriteLine(".OPTION EXPLICIT");
-                    sw.WriteLine(".set CabinetNameTemplate=" + cabinet);
-                    sw.WriteLine(".set DiskDirectoryTemplate=\"" + diTillsyn.FullName + "\"");
-                    sw.WriteLine(".set Cabinet=on");
-                    sw.WriteLine(".set Compress=on");
-                    foreach (FileInfo file in diWorkDir.GetFiles()) {
-                        sw.WriteLine('"' + file.FullName + '"');
+                #region modify template permit
+                {
+                    Global.Debug = "delete";
+                    foreach (FileInfo fi in diWorkDir.GetFiles()) {
+                        fi.Delete();
+                    }
+
+                    Global.Debug = "extract";
+                    Process p = new Process();
+                    p.StartInfo.RedirectStandardOutput = true;
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.FileName = @"C:\Program Files\7-Zip\7z.exe";
+                    string filename = diFeature.FullName + @"\givepermit.xsn";
+
+                    p.StartInfo.Arguments = "e \"" + filename + "\" -y -o\"" + diWorkDir.FullName + "\"";
+                    bool start = p.Start();
+                    p.WaitForExit();
+                    if (p.ExitCode != 0) {
+                        Global.WriteLog(string.Format("7z Error:\r\n{0}\r\n\r\nFilename:\r\n{1}", p.StandardOutput.ReadToEnd(), filename), EventLogEntryType.Error, 1000);
+                    }
+
+                    Global.Debug = "get content type";
+                    SPContentType ctPermit = listAktiviteter.ContentTypes[_permitName];
+
+                    Global.Debug = "modify manifest";
+                    XDocument doc = XDocument.Load(diWorkDir.FullName + @"\manifest.xsf");
+                    var xDocumentClass = doc.Element(xsf + "xDocumentClass");
+                    var q1 = from extension in xDocumentClass.Element(xsf + "extensions").Elements(xsf + "extension")
+                              where extension.Attribute("name").Value == "SolutionDefinitionExtensions"
+                              select extension;
+                    var node1 = q1.First().Element(xsf3 + "solutionDefinition").Element(xsf3 + "baseUrl");
+                    node1.Attribute("relativeUrlBase").Value = web.Url + "/Lists/Aktiviteter/Ge%20försäljningstillstånd/";
+                    var q2 = from dataObject in xDocumentClass.Element(xsf + "dataObjects").Elements(xsf + "dataObject")
+                              where dataObject.Attribute("name").Value == "Kundkort"
+                              select dataObject;
+                    var node2 = q2.First().Element(xsf + "query").Element(xsf + "sharepointListAdapterRW");
+                    node2.Attribute("sharePointListID").Value = "{" + listKundkort.ID.ToString() + "}";
+                    var node3 = xDocumentClass.Element(xsf + "query").Element(xsf + "sharepointListAdapterRW");
+                    node3.Attribute("sharePointListID").Value = "{" + listAktiviteter.ID.ToString() + "}";
+                    node3.Attribute("contentTypeID").Value = ctPermit.Id.ToString();
+                    doc.Save(diWorkDir.FullName + @"\manifest.xsf");
+
+                    //Global.Debug = "modify view1";
+                    //XDocument doc2 = XDocument.Load(diWorkDir.FullName + @"\view1.xsl");
+                    //foreach (var d in doc2.Descendants("object")) {
+                    //    d.Attribute(xd + "server").Value = web.Url + "/";
+                    //}
+                    //doc2.Save(diWorkDir.FullName + @"\view1.xsl");
+
+                    Global.Debug = "repack";
+                    string directive = "directives_permit_" + webid + ".txt";
+                    string cabinet = "template_permit_" + webid + ".xsn";
+                    FileInfo fiDirectives = new FileInfo(diFeature.FullName + '\\' + directive);
+                    if (fiDirectives.Exists)
+                        fiDirectives.Delete();
+                    using (StreamWriter sw = fiDirectives.CreateText()) {
+                        sw.WriteLine(".OPTION EXPLICIT");
+                        sw.WriteLine(".set CabinetNameTemplate=" + cabinet);
+                        sw.WriteLine(".set DiskDirectoryTemplate=\"" + diFeature.FullName + "\"");
+                        sw.WriteLine(".set Cabinet=on");
+                        sw.WriteLine(".set Compress=on");
+                        foreach (FileInfo file in diWorkDir.GetFiles()) {
+                            sw.WriteLine('"' + file.FullName + '"');
+                        }
+                    }
+                    Process p2 = new Process();
+                    p2.StartInfo.RedirectStandardOutput = true;
+                    p2.StartInfo.UseShellExecute = false;
+                    //p2.StartInfo.FileName = diTillsyn.FullName + @"\makecab.exe";
+                    p2.StartInfo.FileName = @"c:\windows\system32\makecab.exe";
+                    p2.StartInfo.WorkingDirectory = diFeature.FullName;
+                    p2.StartInfo.Arguments = "/f " + fiDirectives.Name;
+                    bool start2 = p2.Start();
+                    p2.WaitForExit();
+                    if (p.ExitCode != 0) {
+                        Global.WriteLog(string.Format("makecab Error:\r\n{0}", p2.StandardOutput.ReadToEnd()), EventLogEntryType.Error, 1000);
+                    }
+
+                    Global.Debug = "upload";
+                    FileInfo fiTemplate = new FileInfo(diFeature.FullName + '\\' + cabinet);
+                    if (fiTemplate.Exists) {
+                        using (FileStream fs = fiTemplate.OpenRead()) {
+                            byte[] data = new byte[fs.Length];
+                            fs.Read(data, 0, (int)fs.Length);
+                            SPFile file = listAktiviteter.RootFolder.Files.Add("Lists/Aktiviteter/Ge försäljningstillstånd/template.xsn", data);
+                            Global.Debug = "set file properties";
+                            //file.Properties["vti_contenttag"] = "{6908F1AD-3962-4293-98BB-0AA4FB54B9C9},3,1";
+                            file.Properties["ipfs_streamhash"] = "0NJ+LASyxjJGhaIwPftKfwraa3YBBfJoNUPNA+oNYu4=";
+                            file.Properties["ipfs_listform"] = "true";
+                            file.Update();
+                        }
+                        Global.Debug = "set folder properties";
+                        SPFolder folder = listAktiviteter.RootFolder.SubFolders["Ge försäljningstillstånd"];
+                        folder.Properties["_ipfs_solutionName"] = "template.xsn";
+                        folder.Properties["_ipfs_infopathenabled"] = "True";
+                        folder.Update();
+                    }
+                    else {
+                        Global.WriteLog("template.xsn missing", EventLogEntryType.Error, 1000);
+                    }
+
+                }
+                #endregion
+
+                #region set default forms
+                Global.Debug = "set default forms";
+                foreach (SPContentType ct in listAktiviteter.ContentTypes) {
+                    switch (ct.Name) {
+                        case "Tillsyn":
+                        case "Ge försäljningstillstånd":
+                            ct.DisplayFormUrl = "~list/" + ct.Name + "/displayifs.aspx";
+                            ct.EditFormUrl = "~list/" + ct.Name + "/editifs.aspx";
+                            ct.NewFormUrl = "~list/" + ct.Name + "/newifs.aspx";
+                            ct.Update();
+                            break;
+                        default:
+                            ct.DisplayFormUrl = ct.EditFormUrl = ct.NewFormUrl = string.Empty;
+                            ct.Update();
+                            break;
+                    }
+
+                }
+                
+                // create our own array since it will be modified (which would throw an exception)
+                var forms = new SPForm[listAktiviteter.Forms.Count];
+                int j = 0;
+                foreach (SPForm form in listAktiviteter.Forms) {
+                    forms[j] = form;
+                    j++;
+                }
+                foreach (var form in forms) {
+                    SPFile page = web.GetFile(form.Url);
+                    SPLimitedWebPartManager limitedWebPartManager = page.GetLimitedWebPartManager(System.Web.UI.WebControls.WebParts.PersonalizationScope.Shared);
+                    foreach (System.Web.UI.WebControls.WebParts.WebPart wp in limitedWebPartManager.WebParts) {
+                        if (wp is BrowserFormWebPart) {
+                            BrowserFormWebPart bfwp = (BrowserFormWebPart)wp.WebBrowsableObject;
+                            //bfwp.FormLocation = bfwp.FormLocation.Replace("/Item/", "/Ge försäljningstillstånd/");
+                            //limitedWebPartManager.SaveChanges(bfwp);
+                            string[] aLocation = form.Url.Split('/');
+                            string contenttype = aLocation[aLocation.Length - 2];
+                            bfwp.FormLocation = "~list/" + contenttype + "/template.xsn";
+                            limitedWebPartManager.SaveChanges(bfwp);
+
+                            StringBuilder sb = new StringBuilder();
+                            sb.AppendLine();
+                            sb.Append("BrowserFormWebPart FormLocation: ");
+                            sb.AppendLine(bfwp.FormLocation);
+                            sb.Append("BrowserFormWebPart Title: ");
+                            sb.AppendLine(bfwp.Title);
+                            sb.Append("BrowserFormWebPart ID: ");
+                            sb.AppendLine(bfwp.ID);
+                            sb.Append("Form URL: ");
+                            sb.AppendLine(form.Url);
+                            sb.Append("Form TemplateName: ");
+                            sb.AppendLine(form.TemplateName);
+                            sb.Append("Form ID: ");
+                            sb.AppendLine(form.ID.ToString());
+                            sb.Append("Form ServerRelativeUrl: ");
+                            sb.AppendLine(form.ServerRelativeUrl);
+                            sb.AppendLine("BrowserFormWebPart Schema: ");
+                            sb.AppendLine();
+                            sb.AppendLine(form.SchemaXml);
+
+
+                            Global.WriteLog(sb.ToString(), EventLogEntryType.Information, 1000);
+
+                            //switch (form.Type) {
+                            //    case PAGETYPE.PAGE_NEWFORM:
+                            //        listAktiviteter.DefaultNewFormUrl = form.ServerRelativeUrl;
+                            //        break;
+                            //    case PAGETYPE.PAGE_EDITFORM:
+                            //        listAktiviteter.DefaultEditFormUrl = form.ServerRelativeUrl;
+                            //        break;
+                            //    case PAGETYPE.PAGE_DISPLAYFORM:
+                            //        listAktiviteter.DefaultDisplayFormUrl = form.ServerRelativeUrl;
+                            //        break;
+                            //}
+                        }
                     }
                 }
-                Process p2 = new Process();
-                p2.StartInfo.RedirectStandardOutput = true;
-                p2.StartInfo.UseShellExecute = false;
-                //p2.StartInfo.FileName = diTillsyn.FullName + @"\makecab.exe";
-                p2.StartInfo.FileName = @"c:\windows\system32\makecab.exe";
-                p2.StartInfo.WorkingDirectory = diTillsyn.FullName;
-                p2.StartInfo.Arguments = "/f " + fiDirectives.Name;
-                bool start2 = p2.Start();
-                p2.WaitForExit();
-                if (p.ExitCode != 0) {
-                    Global.WriteLog(string.Format("makecab Error:\r\n{0}", p2.StandardOutput.ReadToEnd()), EventLogEntryType.Error, 1000);
-                }
 
-                Global.Debug = "upload";
-                FileInfo fiTemplate = new FileInfo(diTillsyn.FullName + '\\' + cabinet);
-                if (fiTemplate.Exists) {
-                    using (FileStream fs = fiTemplate.OpenRead()) {
-                        byte[] data = new byte[fs.Length];
-                        fs.Read(data, 0, (int)fs.Length);
-                        listAktiviteter.RootFolder.Files.Add("Lists/Aktiviteter/Tillsyn/template.xsn", data);
-                    }
-                }
-                else {
-                    Global.WriteLog("template.xsn missing", EventLogEntryType.Error, 1000);
+                #endregion
+
+                #region cleanup
+
+                Global.Debug = "cleanup";
+                diWorkDir.Delete(true);
+                foreach (FileInfo fi in diFeature.GetFiles("template*.xsn"))
+                    fi.Delete();
+                foreach (FileInfo fi in diFeature.GetFiles("directives*.xsn"))
+                    fi.Delete();
+
+                #endregion
+
+                #region stäng av required på rubrik
+                SPField title = listKundkort.Fields[new Guid("fa564e0f-0c70-4ab9-b863-0177e6ddd247")];
+                Global.WriteLog("listKundkort Title - Required: " + title.Required.ToString() + ", ShowInNew: " + title.ShowInNewForm.ToString() + ", ShowInEdit: " + title.ShowInEditForm.ToString(), EventLogEntryType.Information, 1000);
+                title.Required = false;
+                title.ShowInNewForm = false;
+                title.ShowInEditForm = false;
+                title.Update();
+
+                //title = listAktiviteter.Fields[new Guid("fa564e0f-0c70-4ab9-b863-0177e6ddd247")];
+                //Global.WriteLog("listAktiviteter Title - Required: " + title.Required.ToString() + ", ShowInNew: " + title.ShowInNewForm.ToString() + ", ShowInEdit: " + title.ShowInEditForm.ToString(), EventLogEntryType.Information, 1000);
+                //title.Required = false;
+                //title.ShowInNewForm = false;
+                //title.ShowInEditForm = false;
+                //title.Update();
+
+                foreach (SPContentType ct in listAktiviteter.ContentTypes) {
+                    SPFieldLink flTitle = ct.FieldLinks[new Guid("fa564e0f-0c70-4ab9-b863-0177e6ddd247")];
+                    flTitle.Required = false;
+                    flTitle.Hidden = true;
+                    ct.Update();
                 }
                 #endregion
 

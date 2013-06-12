@@ -4,7 +4,7 @@
        ID="{62bfe53f-ee2d-46e9-8d68-04104548b10e}"
        Name="tillsynReklamPatrangande"
        DisplayName="Påträngande kommersiella meddelanden"
-       Description="Finns det kommersiella meddelanden som är påträngande, uppsökande eller uppmanar till bruk av tobak inne på försäljningsstället?"
+       Description="Finns det kommersiella meddelanden som är påträngande, uppsökande eller uppmanar till bruk av tobak inne på försäljningsstället? Kryssa i rutan för ja"
        Type="Boolean"
        Required="FALSE"
        Group="Tillsyn">

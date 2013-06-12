@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SharePoint;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace UPCOR.TillsynKommun
         static private EventLog _log = null;
 
         private const string _source = "UPCOR.KundkortEventReceiver";
-        private const string _version = "v0.015 ";
+        private const string _version = "v0.016 ";
         static private string _debug = "";
 
         static private EventLog Log {
@@ -28,7 +29,12 @@ namespace UPCOR.TillsynKommun
         }
 
         static public void WriteLog(string msg, EventLogEntryType t, int id) {
-            Log.WriteEntry(DateTime.Now.ToString() + " " + Global.Debug + " " + _version + msg, t, id);
+            string web = "";
+            try {
+                web = SPContext.Current.Web.Url;
+            }
+            catch { }
+            Log.WriteEntry(web + " " + DateTime.Now.ToString() + " " + Global.Debug + " " + _version + msg, t, id);
         }
 
         static public string Debug {

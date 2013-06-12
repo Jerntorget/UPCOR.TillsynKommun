@@ -4,7 +4,7 @@
        ID="{a095a083-cfd4-4dbd-b163-60794a6dc267}"
        Name="tillsynAktivInformation"
        DisplayName="Aktiv information ges"      
-       Description="Ges aktiv information och stöd till personalen för att de ska kunna följa tobakslagen och anslutande föreskrifter?"
+       Description="Ges aktiv information och stöd till personalen för att de ska kunna följa tobakslagen och anslutande föreskrifter? Kryssa i rutan för ja"
        Type="Boolean"
        Required="FALSE"
        Group="Tillsyn">

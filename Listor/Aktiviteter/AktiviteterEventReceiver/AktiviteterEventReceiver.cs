@@ -32,7 +32,49 @@ namespace UPCOR.TillsynKommun.Aktiviteter.AktiviteterEventReceiver
                     int id = properties.ListItemId;
                     Global.Debug = "set";
                     properties.ListItem["Title"] = contenttype + " #" + id.ToString() + " - " + butik.LookupValue;
-                    Global.Debug = "klar";
+                    #region Sätt rättigheter
+                    Global.Debug = "Sätt rättigheter";
+                    Guid guidGruppkopplingar = new Guid(properties.Web.Properties["listGruppkopplingarGUID"]);
+                    SPList listGruppkopplingar = properties.Web.Lists[guidGruppkopplingar];
+                    SPQuery q = new SPQuery();
+                    q.ViewXml = string.Concat("<View><Query><Where><Eq>",
+                "<FieldRef Name='KundID' />",
+                "<Value Type='Number'>",
+                    butik.LookupId.ToString(),
+                "</Value>",
+                "</Eq></Where></Query></View>");
+                    SPListItemCollection items = listGruppkopplingar.GetItems(q);
+                    if (items.Count == 0) {
+                        Global.Debug = "Hittar inte grupp för kund";
+                    }
+                    else if (items.Count == 1) {
+                        SPListItem item = items[0];
+                        double gruppid = (double)item["GruppID"];
+                        SPGroup group = properties.Web.SiteGroups.GetByID((int)gruppid);
+                        var roleRead = properties.Web.RoleDefinitions.GetByType(SPRoleType.Reader);
+                        var roleEdit = properties.Web.RoleDefinitions.GetByType(SPRoleType.Editor);
+                        var roleAdmin = properties.Web.RoleDefinitions.GetByType(SPRoleType.Administrator);
+                        SPRoleAssignment assignmentRead = new SPRoleAssignment(group);
+                        assignmentRead.RoleDefinitionBindings.Add(roleRead);
+                        SPRoleAssignment assignmentEdit = new SPRoleAssignment(properties.Web.AssociatedMemberGroup);
+                        assignmentEdit.RoleDefinitionBindings.Add(roleEdit);
+                        SPRoleAssignment assignmentAdmin = new SPRoleAssignment(properties.Web.AssociatedOwnerGroup);
+                        assignmentAdmin.RoleDefinitionBindings.Add(roleAdmin);
+
+                        #region Ge visa-rättigheter till försäljningsstället, redigera till medlemmar, fullständiga till ägare
+                        Global.Debug = "Ge visa-rättigheter till försäljningsstället, redigera till medlemmar, fullständiga till ägare";
+                        properties.ListItem.ResetRoleInheritance();
+                        properties.ListItem.BreakRoleInheritance(false);
+
+                        properties.ListItem.RoleAssignments.Add(assignmentRead);
+                        properties.ListItem.RoleAssignments.Add(assignmentEdit);
+                        properties.ListItem.RoleAssignments.Add(assignmentAdmin);
+                        #endregion
+                    }
+                    else {
+                        Global.Debug = "Hittar flera grupper för kund";
+                    }
+                    #endregion
                     properties.ListItem.Update();
                     Global.Debug = "upd";
                     Global.WriteLog("ItemAdded", EventLogEntryType.Information, 1002);

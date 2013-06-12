@@ -41,6 +41,10 @@
     <AssemblyOriginatorKeyFile>jtkey2010.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.InfoPath.Server, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Program Files\Microsoft Office Servers\15.0\Bin\Microsoft.Office.InfoPath.Server.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\Temp\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -59,6 +63,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientField.cs" />
+    <Compile Include="Layouts\UPCOR.TillsynKommun\AddRights.aspx.cs">
+      <DependentUpon>AddRights.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\UPCOR.TillsynKommun\AddRights.aspx.designer.cs">
+      <DependentUpon>AddRights.aspx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Listor\Aktiviteter\AktiviteterEventReceiver\AktiviteterEventReceiver.cs" />
     <Compile Include="Features\ListsAndContentFeature\ListsAndContentFeature.EventReceiver.cs">
       <DependentUpon>ListsAndContentFeature.feature</DependentUpon>
@@ -71,12 +82,12 @@
     <Compile Include="MinButikWP\MinButikWP.cs" />
     <Compile Include="Municipal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingsWP\SettingsWP.cs" />
     <Compile Include="TillsynWP\TillsynWP.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Features\PropertyBagFeature\PropertyBagFeature.Template.xml">
-      <DependentUpon>PropertyBagFeature.feature</DependentUpon>
-    </Content>
+    <Content Include="AddRightsAction\Elements.xml" />
+    <Content Include="Falt\Kund\butikLopnummer\Elements.xml" />
     <Content Include="Features\WebPartsFeature\WebPartsFeature.Template.xml">
       <DependentUpon>WebPartsFeature.feature</DependentUpon>
     </Content>
@@ -84,8 +95,10 @@
     <Content Include="Filer\Webbplatstillgangar\heart.gif" />
     <Content Include="Filer\Webbplatstillgangar\profil_ettan_vinter_557x100.jpg" />
     <Content Include="Filer\Blanketter\Elements.xml" />
+    <Content Include="FormPagesPermit\Elements.xml" />
     <Content Include="FormPages\Elements.xml" />
     <Content Include="Innehallstyper\GivePermissionCT\Elements.xml" />
+    <Content Include="Layouts\UPCOR.TillsynKommun\AddRights.aspx" />
     <Content Include="Layouts\UPCOR.TillsynKommun\tillsyn.css" />
     <Content Include="Layouts\UPCOR.TillsynKommun\tillsyn.js" />
     <Content Include="Listor\Forsaljningstillstand\Elements.xml" />
@@ -104,6 +117,12 @@
     <Content Include="Dokumentbibliotek\Utbildningsmaterial\Schema.xml" />
     <Content Include="Dokumentbibliotek\Utbildningsmaterial\Upload.aspx" />
     <Content Include="Dokumentbibliotek\Utbildningsmaterial\UtbildningsmaterialInstance\Elements.xml" />
+    <Content Include="Listor\Gruppkopplingar\Elements.xml" />
+    <Content Include="Listor\Gruppkopplingar\GruppkopplingarInstance\Elements.xml" />
+    <Content Include="Listor\Gruppkopplingar\Schema.xml" />
+    <Content Include="Listor\Uppgifter\Elements.xml" />
+    <Content Include="Listor\Uppgifter\Schema.xml" />
+    <Content Include="Listor\Uppgifter\UppgifterInstance\Elements.xml" />
     <Content Include="MinButikWP\Elements.xml" />
     <Content Include="Listor\Nyheter\Elements.xml" />
     <Content Include="Innehallstyper\PermissionCT\Elements.xml" />
@@ -152,10 +171,16 @@
     <Content Include="Falt\Tillsyn\tillsynVarningstext\Elements.xml" />
     <Content Include="Listor\Webbplatssidor\Elements.xml" />
     <Content Include="Listor\Webbplatstillgangar\Elements.xml" />
-    <Content Include="PropertyBag\Elements.xml" />
+    <Content Include="SettingsWP\Elements.xml" />
     <Content Include="TillsynWP\Elements.xml" />
-    <None Include="Features\PropertyBagFeature\PropertyBagFeature.feature">
-      <FeatureId>{f915f073-e8a6-457b-9e20-5ce5800734c4}</FeatureId>
+    <None Include="AddRightsAction\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6eab2016-b3cd-40d7-9861-a605d731918c}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikLopnummer\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{67978490-84f0-45fd-b188-ea52921e1ace}</SharePointProjectItemId>
+    </None>
+    <None Include="FormPagesPermit\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0e52e066-a029-4a9d-bc72-7d46d17035c7}</SharePointProjectItemId>
     </None>
     <None Include="FormPages\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{3f0a8bcb-e674-48ee-8b41-0ea7302608d6}</SharePointProjectItemId>
@@ -166,7 +191,9 @@
     <None Include="Layouts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{488c0f90-3cba-4a4e-9977-9500a7a46fba}</SharePointProjectItemId>
     </None>
-    <Content Include="Layouts\UPCOR.TillsynKommun\template_unmodified.xsn" />
+    <None Include="Layouts\UPCOR.TillsynKommun\75841904-0c67-4118-826f-b1319db35c6a.xsn" />
+    <None Include="Layouts\UPCOR.TillsynKommun\4BEB6318-1CE0-47BE-92C2-E9815D312C1A.xsn" />
+    <None Include="Layouts\UPCOR.TillsynKommun\givepermit.xsn" />
     <None Include="Listor\Agare\AgareInstance\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{46af20b9-97c6-41b1-9940-2edfbe290dfa}</SharePointProjectItemId>
     </None>
@@ -243,6 +270,18 @@
     </None>
     <None Include="Innehallstyper\CustomerCT\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{93ec1c5b-3f4e-468b-aa26-6afe3e04f51c}</SharePointProjectItemId>
+    </None>
+    <None Include="Listor\Gruppkopplingar\GruppkopplingarInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{568ad48a-8e61-4c03-9182-f665f9b625ca}</SharePointProjectItemId>
+    </None>
+    <None Include="Listor\Gruppkopplingar\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{64d96a0e-74fd-44fc-aa37-3ed665c4c616}</SharePointProjectItemId>
+    </None>
+    <None Include="Listor\Uppgifter\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{74cf3263-d394-435d-bbc5-6ce50b09b979}</SharePointProjectItemId>
+    </None>
+    <None Include="Listor\Uppgifter\UppgifterInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0a2811eb-8cf2-40ea-b29e-c7bfe8e582d3}</SharePointProjectItemId>
     </None>
     <None Include="MinButikWP\MinButikWP.webpart" />
     <None Include="MinButikWP\SharePointProjectItem.spdata">
@@ -330,8 +369,9 @@
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
     </None>
-    <None Include="PropertyBag\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{952f989d-6f57-42d4-b844-fad15d7a8a3c}</SharePointProjectItemId>
+    <None Include="SettingsWP\SettingsWP.webpart" />
+    <None Include="SettingsWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1e509671-63b2-4d81-a9a4-d71c8342a87a}</SharePointProjectItemId>
     </None>
     <None Include="TillsynKommunSD\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{74728717-0b61-4cd9-baef-740ea5e073c0}</SharePointProjectItemId>

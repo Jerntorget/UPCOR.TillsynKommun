@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <CustomAction
+    Id=" ECBItemCustomization"
+    RegistrationType="List"
+    RegistrationId="12003"
+    Location="EditControlBlock"
+    Sequence="106"
+    Title="Ge rättigheter">
+    <UrlAction Url="~site/_layouts/UPCOR.TillsynKommun/AddRights.aspx?Id={ItemId}&amp;List={ListId}&amp;Source={SiteUrl}"/>
+  </CustomAction>
+</Elements>

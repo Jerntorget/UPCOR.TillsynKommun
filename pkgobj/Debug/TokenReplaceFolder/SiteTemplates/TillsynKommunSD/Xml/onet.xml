@@ -3,15 +3,20 @@
   <NavBars>
     <NavBar Name="Övre navigeringsfält för SharePoint" Url="" ID="1002" />
     <NavBar Name="Startsida" Url="/ort" ID="1031" />
-    <NavBar Name="Arbetsmaterial för försäljningsställen" Url="">
-      <NavBarLink Name="Blanketter" Url="Blanketter" />
-      <NavBarLink Name="Utbildningsmaterial" Url="Utbildningsmaterial" />
-      <NavBarLink Name="Dokument" Url="Dokument" />
-    </NavBar>
+    <NavBar Name="Blanketter" Url="Blanketter" />
+    <NavBar Name="Utbildningsmaterial" Url="Utbildningsmaterial" />
+    <NavBar Name="Dokument" Url="Dokument" />
+    <NavBar Name="Mitt försäljningsställe" Url="SitePages/Mitt%20försäljningsställe.aspx" />
     <NavBar Name="Tillsynsverktyg" Url="">
+      <NavBarLink Name="Att göra" Url="Lists/Uppgifter" />
       <NavBarLink Name="Aktiviteter" Url="Lists/Aktiviteter" />
+      <NavBarLink Name="Försäljningsställen" Url="Lists/Adresser" />
+      <NavBarLink Name="Kontakter" Url="Lists/Kontakter" />
+      <NavBarLink Name="Ägare av försäljningsställen" Url="Lists/Agare" />
+      <NavBarLink Name="Kundkort" Url="Lists/Kundkort" />
+      <NavBarLink Name="Försäljningstillstånd" Url="Lists/Forsaljningstillstand" />
       <NavBarLink Name="Lägg till försäljningsställe" Url="SitePages/Lägg%20till%20försäljningsställe.aspx" />
-      <NavBarLink Name="Mitt försäljningsställe" Url="SitePages/Mitt%20försäljningsställe.aspx" />
+      <NavBarLink Name="Inställningar" Url="SitePages/Inställningar.aspx" />
     </NavBar>
   </NavBars>
   <DocumentTemplates>
@@ -326,8 +331,6 @@
         <!--UPCOR-->
         <!--Lists and content Feature-->
         <Feature ID="{be01677e-b67e-4987-b683-dfe2f97a344a}" Name="FeatureDefinition/15/be01677e-b67e-4987-b683-dfe2f97a344a" />
-        <!--Property bag Feature-->
-        <Feature ID="{6fb27a95-bb9d-42e8-840d-77f43f3c6c1e}" Name="FeatureDefinition/15/6fb27a95-bb9d-42e8-840d-77f43f3c6c1e" />
       </WebFeatures>
       <Modules>
         <Module Name="DefaultBlank" />

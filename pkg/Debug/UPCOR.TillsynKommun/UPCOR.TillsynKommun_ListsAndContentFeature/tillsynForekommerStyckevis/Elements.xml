@@ -4,7 +4,7 @@
        ID="{02605bbf-e1b6-47cf-8744-894be64db3ec}"
        Name="tillsynForekommerStyckevis"
        DisplayName="Styckevis försäljning av cigaretter"
-       Description="Förekommer styckevis försäljning av cigaretter?"
+       Description="Förekommer styckevis försäljning av cigaretter? Kryssa i rutan för ja"
        Type="Boolean"
        Required="FALSE"
        Group="Tillsyn">
