@@ -3,21 +3,6 @@
   <NavBars>
     <NavBar Name="Övre navigeringsfält för SharePoint" Url="" ID="1002" />
     <NavBar Name="Startsida" Url="/ort" ID="1031" />
-    <NavBar Name="Blanketter" Url="Blanketter" />
-    <NavBar Name="Utbildningsmaterial" Url="Utbildningsmaterial" />
-    <NavBar Name="Dokument" Url="Dokument" />
-    <NavBar Name="Mitt försäljningsställe" Url="SitePages/Mitt%20försäljningsställe.aspx" />
-    <NavBar Name="Tillsynsverktyg" Url="">
-      <NavBarLink Name="Att göra" Url="Lists/Uppgifter" />
-      <NavBarLink Name="Aktiviteter" Url="Lists/Aktiviteter" />
-      <NavBarLink Name="Försäljningsställen" Url="Lists/Adresser" />
-      <NavBarLink Name="Kontakter" Url="Lists/Kontakter" />
-      <NavBarLink Name="Ägare av försäljningsställen" Url="Lists/Agare" />
-      <NavBarLink Name="Kundkort" Url="Lists/Kundkort" />
-      <NavBarLink Name="Försäljningstillstånd" Url="Lists/Forsaljningstillstand" />
-      <NavBarLink Name="Lägg till försäljningsställe" Url="SitePages/Lägg%20till%20försäljningsställe.aspx" />
-      <NavBarLink Name="Inställningar" Url="SitePages/Inställningar.aspx" />
-    </NavBar>
   </NavBars>
   <DocumentTemplates>
     <DocumentTemplate Path="STS" Name="" DisplayName="$Resources:core,doctemp_None;" Type="100" Default="FALSE" Description="$Resources:core,doctemp_None_Desc;" />
@@ -78,7 +63,7 @@
     </DocumentTemplate>
   </DocumentTemplates>
   <Configurations>
-    <Configuration ID="0" Name="TillsynKommunSD" MasterUrl="_catalogs/masterpage/seattle.master">
+    <Configuration ID="0" Name="TillsynKommunSD" MasterUrl="_catalogs/masterpage/custom.master">
       <Lists/>
       <SiteFeatures>
         <!--PublishingPrerequisites Feature-->
@@ -227,7 +212,7 @@
           </Properties>
         </Feature>
         <!--UPCOR Webbdelar-->
-        <Feature ID="{8491fc0e-f220-4873-8e0e-3c5f193f04ab}" Name="FeatureDefinition/15/8491fc0e-f220-4873-8e0e-3c5f193f04ab" ></Feature>
+        <Feature ID="{7dcdb123-8275-4106-aa68-99555dd12266}" Name="FeatureDefinition/15/7dcdb123-8275-4106-aa68-99555dd12266" ></Feature>
       </SiteFeatures>
       <WebFeatures>
         <!--WikiPageHomePage Feature-->
@@ -330,7 +315,7 @@
         </Feature>
         <!--UPCOR-->
         <!--Lists and content Feature-->
-        <Feature ID="{be01677e-b67e-4987-b683-dfe2f97a344a}" Name="FeatureDefinition/15/be01677e-b67e-4987-b683-dfe2f97a344a" />
+        <Feature ID="{f4654502-2bae-48fd-bcf2-d7da3ea766be}" Name="FeatureDefinition/15/f4654502-2bae-48fd-bcf2-d7da3ea766be" />
       </WebFeatures>
       <Modules>
         <Module Name="DefaultBlank" />

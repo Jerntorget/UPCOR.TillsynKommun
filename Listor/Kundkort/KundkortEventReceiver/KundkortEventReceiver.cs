@@ -21,22 +21,23 @@ namespace UPCOR.TillsynKommun.Kundkort.KundkortEventReceiver
         /// </summary>
         public override void ItemAdded(SPItemEventProperties properties) {
             base.ItemAdded(properties);
-
             try {
+                Global.URL = "Kundkort ItemAdded: " + properties.WebUrl;
+
                 #region Öka på löpnummer
                 sbDebug.AppendLine("Öka på löpnummer");
-                string lopnummerStr = properties.Web.Properties["lopnummer"];
                 int lopnummer;
                 string nyttLopnummer;
 
                 lock (oLopnummerLock) {
+                    string lopnummerStr = properties.Web.Properties["lopnummer"];
                     if (int.TryParse(lopnummerStr, out lopnummer)) {
                         nyttLopnummer = (lopnummer + 1).ToString();
                         properties.Web.Properties["lopnummer"] = nyttLopnummer;
                         properties.Web.Properties.Update();
                     }
                     else {
-                        Global.WriteLog("Kundkort löpnummer parse failed", EventLogEntryType.Information, 1000);
+                        Global.WriteLog("Kundkort löpnummer parse failed: " + lopnummerStr, EventLogEntryType.Information, 1000);
                         return;
                     }
                 }
@@ -87,7 +88,7 @@ namespace UPCOR.TillsynKommun.Kundkort.KundkortEventReceiver
                 SPQuery q = new SPQuery();
                 q.ViewXml = string.Concat("<View><Query><Where><Eq>",
                 "<FieldRef Name='KundID' />",
-                "<Value Type='Number'>" ,
+                "<Value Type='Number'>",
                     properties.ListItemId.ToString(),
                 "</Value>",
                 "</Eq></Where></Query></View>");
@@ -113,7 +114,5 @@ namespace UPCOR.TillsynKommun.Kundkort.KundkortEventReceiver
                 Global.WriteLog("Message:\r\n" + ex.Message + "\r\n\r\nStacktrace:\r\n" + ex.StackTrace + "\r\n\r\nDebug:\r\n" + sbDebug.ToString(), EventLogEntryType.Error, 2000);
             }
         }
-
-
     }
 }

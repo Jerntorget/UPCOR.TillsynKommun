@@ -9,7 +9,7 @@
         SecurityBits="11"
         Sequence="110"
         DisplayName="Utbildningsmaterial"
-        Description=""
+        Description="My List Definition"
         Image="/_layouts/15/images/itdl.png"
         DocumentTemplate="121"/>
 </Elements>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{d901096f-fc8b-4a39-901e-65291cc906f1}"
+       Name="butikKontakt3Mobil"
+       DisplayName="Kontaktperson 3: Mobil"
+       Type="Lookup"
+       List="Lists/Kontakter"
+       FieldRef="3c56ce65-d09e-4c7b-85f6-7046d1438fd8"
+       ShowField="CellPhone"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

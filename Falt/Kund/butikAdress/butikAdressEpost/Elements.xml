@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{1f472005-7e3e-4893-8b6a-ee71d46fba02}"
+       Name="butikAdressEpost"
+       DisplayName="E-post"
+       Type="Lookup"
+       List="Lists/Adresser"
+       FieldRef="b5c833ef-df4e-44f3-9ed5-316ed61a59c9"
+       ShowField="EMail"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

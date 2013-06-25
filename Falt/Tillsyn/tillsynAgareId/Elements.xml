@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{8642679c-e873-4f72-aa9b-f6ca09d43406}"
+       Name="tillsynAgareId"
+       DisplayName="Ägare Id"
+       Type="Number"
+       Required="FALSE"
+       ShowInNewForm="FALSE"
+       ShowInEditForm="FALSE"
+       ShowInDisplayForm="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

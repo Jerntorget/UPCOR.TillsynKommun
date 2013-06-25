@@ -3,7 +3,8 @@
   <Field
        ID="{b5c833ef-df4e-44f3-9ed5-316ed61a59c9}"
        Name="butikAdress"
-       DisplayName="Adress"
+       DisplayName="Adressuppgifter"
+       Description="Hämtar in adressuppgifter för försäljningsstället från listan Adresser"
        Type="Lookup"
        List="Lists/Adresser"
        ShowField="Title"

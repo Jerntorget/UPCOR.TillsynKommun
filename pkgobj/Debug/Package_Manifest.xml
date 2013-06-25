@@ -13,15 +13,14 @@
     <TemplateFile Location="SiteTemplates\TillsynKommunSD\default.aspx" />
     <TemplateFile Location="SiteTemplates\TillsynKommunSD\Xml\onet.xml" />
     <TemplateFile Location="1053\xml\webtemp_TillsynKommunSD.xml" />
-    <TemplateFile Location="Layouts\UPCOR.TillsynKommun\75841904-0c67-4118-826f-b1319db35c6a.xsn" />
-    <TemplateFile Location="Layouts\UPCOR.TillsynKommun\4BEB6318-1CE0-47BE-92C2-E9815D312C1A.xsn" />
     <TemplateFile Location="Layouts\UPCOR.TillsynKommun\givepermit.xsn" />
+    <TemplateFile Location="Layouts\UPCOR.TillsynKommun\inspection4.xsn" />
     <TemplateFile Location="Layouts\UPCOR.TillsynKommun\AddRights.aspx" />
     <TemplateFile Location="Layouts\UPCOR.TillsynKommun\tillsyn.css" />
     <TemplateFile Location="Layouts\UPCOR.TillsynKommun\tillsyn.js" />
   </TemplateFiles>
   <FeatureManifests>
-    <FeatureManifest Location="UPCOR.TillsynKommun_ListsAndContentFeature\Feature.xml" />
-    <FeatureManifest Location="UPCOR.TillsynKommun_WebPartsFeature\Feature.xml" />
+    <FeatureManifest Location="UPCOR.TillsynKommun_TillsynFeature\Feature.xml" />
+    <FeatureManifest Location="UPCOR.TillsynKommun_TillsynWebbdelarFeature\Feature.xml" />
   </FeatureManifests>
 </Solution>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{0102ec05-f9b3-4523-9ac9-75f2e9dacfef}"
+       Name="tillsynAdressId"
+       DisplayName="Adress Id"
+       Type="Number"
+       Required="FALSE"
+       ShowInNewForm="FALSE"
+       ShowInEditForm="FALSE"
+       ShowInDisplayForm="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

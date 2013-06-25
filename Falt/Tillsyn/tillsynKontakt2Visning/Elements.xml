@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{8817a027-e5c2-4966-b014-f1a38b5406b7}"
+       Name="tillsynKontakt2Visning"
+       DisplayName="Kontakt"
+       Type="Text"
+       Required="FALSE"
+       ShowInNewForm="FALSE"
+       ShowInEditForm="FALSE"
+       ShowInDisplayForm="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

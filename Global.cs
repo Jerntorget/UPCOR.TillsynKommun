@@ -13,7 +13,7 @@ namespace UPCOR.TillsynKommun
         static private EventLog _log = null;
 
         private const string _source = "UPCOR.KundkortEventReceiver";
-        private const string _version = "v0.016 ";
+        private const string _version = "v0.025 ";
         static private string _debug = "";
 
         static private EventLog Log {
@@ -30,10 +30,14 @@ namespace UPCOR.TillsynKommun
 
         static public void WriteLog(string msg, EventLogEntryType t, int id) {
             string web = "";
-            try {
-                web = SPContext.Current.Web.Url;
+            if (string.IsNullOrEmpty(URL)) {
+                try {
+                    web = SPContext.Current.Web.Url;
+                }
+                catch { }
             }
-            catch { }
+            else
+                web = URL;
             Log.WriteEntry(web + " " + DateTime.Now.ToString() + " " + Global.Debug + " " + _version + msg, t, id);
         }
 
@@ -51,5 +55,7 @@ namespace UPCOR.TillsynKommun
                 return _version;
             }
         }
+
+        static public string URL { get; set; }
     }
 }

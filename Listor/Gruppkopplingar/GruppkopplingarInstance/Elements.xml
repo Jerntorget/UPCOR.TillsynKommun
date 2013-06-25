@@ -1,4 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
-  <ListInstance Title="Gruppkopplingar" OnQuickLaunch="FALSE" TemplateType="10000" Url="Lists/Gruppkopplingar" Description="" Hidden="TRUE"></ListInstance>
+  <ListInstance Title="Gruppkopplingar" OnQuickLaunch="FALSE" TemplateType="12011" Url="Lists/Gruppkopplingar" Description="" Hidden="TRUE"></ListInstance>
 </Elements>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{dc99b56d-9b8e-4dcb-b22e-9db4dd74abeb}"
+       Name="butikKontakt1"
+       DisplayName="Kontaktperson nr 1"
+       Description="Kontaktperson 1 för försäljningsstället."
+       Type="Lookup"
+       List="Lists/Kontakter"
+       ShowField="kontaktUppslagsnamn"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

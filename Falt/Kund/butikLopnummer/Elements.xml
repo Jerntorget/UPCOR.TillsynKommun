@@ -9,6 +9,7 @@
        ShowInNewForm="FALSE"
        ShowInEditForm="FALSE"
        ShowInDisplayForm="FALSE"
+       Hidden="TRUE"
        Group="Tillsyn">
   </Field>
 </Elements>

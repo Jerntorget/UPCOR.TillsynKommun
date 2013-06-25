@@ -1,4 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
-  <ListInstance Title="Adresser" OnQuickLaunch="FALSE" TemplateType="12002" Url="Lists/Adresser" Description="Adresser för försäljningsställen"></ListInstance>
+  <ListInstance Title="Adresser" OnQuickLaunch="FALSE" TemplateType="12002" Url="Lists/Adresser" Description=""></ListInstance>
 </Elements>

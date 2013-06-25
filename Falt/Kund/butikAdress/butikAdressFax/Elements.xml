@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{7f4812f9-7f4c-4202-a820-d7fcc4bc3552}"
+       Name="butikAdressFax"
+       DisplayName="Fax"
+       Type="Lookup"
+       List="Lists/Adresser"
+       FieldRef="b5c833ef-df4e-44f3-9ed5-316ed61a59c9"
+       ShowField="WorkFax"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

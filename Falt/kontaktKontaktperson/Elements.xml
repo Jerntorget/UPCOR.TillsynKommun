@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{ffcbe7a0-5bbe-49f9-98a6-85eb2643cb8c}"
+       Name="kontaktKontaktperson"
+       DisplayName="Kontaktperson"
+       Type="Calculated"
+       Required="FALSE"
+       ResultType="Text"
+       Group="Kontakt">
+    <Formula>=CONCATENATE(FirstName," ",Title)</Formula>
+    <FormulaDisplayNames>=SAMMANFOGA(Förnamn;" ";Efternamn)</FormulaDisplayNames>
+    <FieldRefs>
+      <FieldRef Name="Title" />
+      <FieldRef Name="FirstName" />
+    </FieldRefs>
+  </Field>
+</Elements>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{8ab07b40-6fd0-47c5-8f18-3848bd0f356a}"
+       Name="butikAdressOrt"
+       DisplayName="Ort"
+       Type="Lookup"
+       List="Lists/Adresser"
+       FieldRef="b5c833ef-df4e-44f3-9ed5-316ed61a59c9"
+       ShowField="WorkCity"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

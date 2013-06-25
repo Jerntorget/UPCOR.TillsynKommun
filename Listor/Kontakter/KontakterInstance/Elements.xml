@@ -1,4 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
-  <ListInstance Title="Kontakter" OnQuickLaunch="FALSE" TemplateType="12001" FeatureId="be01677e-b67e-4987-b683-dfe2f97a344a" Url="Lists/Kontakter" Description=""></ListInstance>
+  <ListInstance Title="Kontakter" OnQuickLaunch="FALSE" TemplateType="12001" Url="Lists/Kontakter" Description=""></ListInstance>
 </Elements>

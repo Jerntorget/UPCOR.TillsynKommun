@@ -3,7 +3,7 @@
     <!-- Do not change the value of the Name attribute below. If it does not match the folder name of the List project item, an error will occur when the project is run. -->
     <ListTemplate
         Name="Aktiviteter"
-        Type="12005"
+        Type="12012"
         BaseType="0"
         OnQuickLaunch="TRUE"
         SecurityBits="11"

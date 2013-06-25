@@ -3,11 +3,39 @@
   <!-- Parent ContentType: Item (0x01) -->
   <ContentType ID="0x0100728DBFA897FC442C8558C9904CCF53B3" Name="Kund" Group="Anpassade innehållstyper" Description="" Inherits="FALSE" Version="0">
     <FieldRefs>
+      <FieldRef ID="{82642ec8-ef9b-478f-acf9-31f7d45fbc31}" DisplayName="Försäljningsställe" Description="" Sealed="TRUE" Name="LinkTitle" />
+      <FieldRef ID="{bc91a437-52e7-49e1-8c4e-4698904b2b6d}" DisplayName="Försäljningsställe" Description="" Sealed="TRUE" Name="LinkTitleNoMenu" />
+      <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" DisplayName="Försäljningsställe" Description="" Required="FALSE" Name="Title" />
       <FieldRef ID="{353eabaa-f0d3-40cc-acc3-4c6b23d3a64f}" DisplayName="Kundnummer" Required="FALSE" ShowInNewForm="FALSE" ShowInEditForm="FALSE" Name="butikKundnummer" />
-      <FieldRef ID="{b5c833ef-df4e-44f3-9ed5-316ed61a59c9}" DisplayName="Adress" Required="FALSE" Name="butikAdress" />
+      <FieldRef ID="{b5c833ef-df4e-44f3-9ed5-316ed61a59c9}" DisplayName="Adressuppgifter" Description="Hämtar in adressuppgifter för försäljningsstället från listan Adresser" Required="FALSE" Name="butikAdress" />
+      <FieldRef ID="{bd9cc8a9-231a-49ce-a78f-c06fe377197e}" DisplayName="Besöksadress" Required="FALSE" Name="butikAdressBesoksadress" />
+      <FieldRef ID="{9e61dff7-17d3-4a92-a49a-7ed41dce6dd5}" DisplayName="Postnummer" Required="FALSE" Name="butikAdressPostnummer" />
+      <FieldRef ID="{8ab07b40-6fd0-47c5-8f18-3848bd0f356a}" DisplayName="Ort" Required="FALSE" Name="butikAdressOrt" />
+      <FieldRef ID="{f2ac3e52-0271-4215-8f92-f9a0bc47137f}" DisplayName="Telefon" Required="FALSE" Name="butikAdressTelefon" />
+      <FieldRef ID="{7f4812f9-7f4c-4202-a820-d7fcc4bc3552}" DisplayName="Fax" Required="FALSE" Name="butikAdressFax" />
+      <FieldRef ID="{1f472005-7e3e-4893-8b6a-ee71d46fba02}" DisplayName="E-post" Required="FALSE" Name="butikAdressEpost" />
       <FieldRef ID="{50076a6a-424f-4b32-9992-9ce9ab02b1c8}" DisplayName="Ägare" Required="FALSE" Name="butikAgare" />
-      <FieldRef ID="{574795f5-e29a-45b3-a51b-0d2cb0352f63}" DisplayName="Kontaktperson" Required="FALSE" Name="butikKontakt" />
-      <FieldRef ID="{d8c219b9-1908-4398-a2e2-75133114bf61}" DisplayName="Löpnummer" Required="FALSE" Name="butikLopnummer" ShowInDisplayForm="FALSE" ShowInEditForm="FALSE" ShowInNewForm="FALSE" />
+      <FieldRef ID="{16642d78-1cf0-4e0a-af42-7cb01af4fda9}" DisplayName="Organisationsnummer" Required="FALSE" Name="butikAgareOrgnr" />
+      <FieldRef ID="{d8c219b9-1908-4398-a2e2-75133114bf61}" DisplayName="Löpnummer" Required="FALSE" Hidden="TRUE" Name="butikLopnummer" ShowInDisplayForm="FALSE" ShowInEditForm="FALSE" ShowInNewForm="FALSE" />
+      <FieldRef ID="{6410ef43-d519-409e-b992-d203ad04266e}" DisplayName="Kontaktperson 1" Required="FALSE" Description="Förnamn Efternamn på kontaktperson 1" Name="butikKontakt1Kontakt" />
+      <FieldRef ID="{5dc88afa-4237-4096-9e3e-fa429515e86d}" DisplayName="Kontaktperson 1: E-post" Required="FALSE" Name="butikKontakt1Epost" />
+      <FieldRef ID="{88053ae1-73c1-41ee-a87e-46b888242d08}" DisplayName="Kontaktperson 1: Befattning" Required="FALSE" Name="butikKontakt1Befattning" />
+      <FieldRef ID="{9ea34221-f9a4-40d2-9a03-5537a63e3993}" DisplayName="Kontaktperson 1: Telefon" Required="FALSE" Name="butikKontakt1Telefon" />
+      <FieldRef ID="{592f6bce-fb4a-409d-941e-4afbbe4f8755}" DisplayName="Kontaktperson 1: Mobil" Required="FALSE" Name="butikKontakt1Mobil" />
+      <FieldRef ID="{0a74872d-3388-4e38-9559-38e79188c803}" DisplayName="Kontaktperson 2" Required="FALSE" Description="Förnamn Efternamn på kontaktperson 2" Name="butikKontakt2Kontakt" />
+      <FieldRef ID="{c7ac8df7-82d7-4d92-9a40-3f84f93005f2}" DisplayName="Kontaktperson 2: E-post" Required="FALSE" Name="butikKontakt2Epost" />
+      <FieldRef ID="{347f50ed-8406-42d2-b4ea-27d5ae17ed85}" DisplayName="Kontaktperson 2: Befattning" Required="FALSE" Name="butikKontakt2Befattning" />
+      <FieldRef ID="{650190b7-cb1f-4dd8-9241-195be52e2dad}" DisplayName="Kontaktperson 2: Telefon" Required="FALSE" Name="butikKontakt2Telefon" />
+      <FieldRef ID="{9639a572-678f-4e77-bbac-c0d61ea9817d}" DisplayName="Kontaktperson 2: Mobil" Required="FALSE" Name="butikKontakt2Mobil" />
+      <FieldRef ID="{72567028-5739-4234-9a1f-fd684656116a}" DisplayName="Kontaktperson 3" Required="FALSE" Description="Förnamn Efternamn på kontaktperson 3" Name="butikKontakt3Kontakt" />
+      <FieldRef ID="{9b7f308e-11f1-44d0-b1a6-272cdaf22e60}" DisplayName="Kontaktperson 3: E-post" Required="FALSE" Name="butikKontakt3Epost" />
+      <FieldRef ID="{d63e7d18-ac98-4092-bb33-d7263b805e14}" DisplayName="Kontaktperson 3: Befattning" Required="FALSE" Name="butikKontakt3Befattning" />
+      <FieldRef ID="{cb455277-871b-4e1e-ac9d-bd08777b2964}" DisplayName="Kontaktperson 3: Telefon" Required="FALSE" Name="butikKontakt3Telefon" />
+      <FieldRef ID="{d901096f-fc8b-4a39-901e-65291cc906f1}" DisplayName="Kontaktperson 3: Mobil" Required="FALSE" Name="butikKontakt3Mobil" />
+      <FieldRef ID="{dc99b56d-9b8e-4dcb-b22e-9db4dd74abeb}" DisplayName="Kontaktperson nr 1" Required="FALSE" Description="Kontaktperson 1 för försäljningsstället." Name="butikKontakt1" />
+      <FieldRef ID="{fb69a780-58bb-48b1-a070-57c7e7df3a24}" DisplayName="Kontaktperson nr 2" Required="FALSE" Description="Kontaktperson 2 för försäljningsstället." Name="butikKontakt2" />
+      <FieldRef ID="{3c56ce65-d09e-4c7b-85f6-7046d1438fd8}" DisplayName="Kontaktperson nr 3" Required="FALSE" Description="Kontaktperson 3 för försäljningsstället." Name="butikKontakt3" />
+      <FieldRef ID="{388ac965-dd63-4f98-ba2d-b42f88bdc959}" DisplayName="Rättigheter givna" Required="FALSE" Name="butikRattigheter" ShowInEditForm="FALSE" ShowInNewForm="FALSE" />
     </FieldRefs>
   </ContentType>
 </Elements>

@@ -38,10 +38,12 @@ namespace UPCOR.TillsynKommun
             get {
                 if (_itemAgare == null) {
                     string agare = (string)_item[new Guid("50076a6a-424f-4b32-9992-9ce9ab02b1c8")];
-                    agare = agare.Substring(0, agare.IndexOf(';'));
-                    Guid agareGUID = new Guid(SPContext.Current.Web.Properties["listAgareGUID"]);
-                    SPList listAgare = SPContext.Current.Web.Lists[agareGUID];
-                    _itemAgare = listAgare.GetItemById(int.Parse(agare));
+                    if (!string.IsNullOrEmpty(agare)) {
+                        agare = agare.Substring(0, agare.IndexOf(';'));
+                        Guid agareGUID = new Guid(SPContext.Current.Web.Properties["listAgareGUID"]);
+                        SPList listAgare = SPContext.Current.Web.Lists[agareGUID];
+                        _itemAgare = listAgare.GetItemById(int.Parse(agare));
+                    }
                 }
                 return _itemAgare;
             }
@@ -51,10 +53,12 @@ namespace UPCOR.TillsynKommun
             get {
                 if (_itemAdresser == null) {
                     string adress = (string)_item[new Guid("b5c833ef-df4e-44f3-9ed5-316ed61a59c9")];
-                    adress = adress.Substring(0, adress.IndexOf(';'));
-                    Guid adresserGUID = new Guid(SPContext.Current.Web.Properties["listAdresserGUID"]);
-                    SPList listAdresser = SPContext.Current.Web.Lists[adresserGUID];
-                    _itemAdresser = listAdresser.GetItemById(int.Parse(adress));
+                    if (!string.IsNullOrEmpty(adress)) {
+                        adress = adress.Substring(0, adress.IndexOf(';'));
+                        Guid adresserGUID = new Guid(SPContext.Current.Web.Properties["listAdresserGUID"]);
+                        SPList listAdresser = SPContext.Current.Web.Lists[adresserGUID];
+                        _itemAdresser = listAdresser.GetItemById(int.Parse(adress));
+                    }
                 }
                 return _itemAdresser;
             }
@@ -120,38 +124,59 @@ namespace UPCOR.TillsynKommun
         }
 
         protected void Page_PreRender(object sender, EventArgs e) {
-            if(_kundnummer != null) {
+            StringBuilder sb = new StringBuilder();
+
+            if(_kundnummer == null) {
+                sb.Append("Kundnummer är inte satt");
+            }
+            else {
                 if (_group == null) {
                     GetGroup(SPContext.Current.Web, _kundnummer);
                 }
 
-                StringBuilder sb = new StringBuilder();
-                sb.Append("Kund: ");
-                sb.Append(_item.Title);
-                sb.Append("<br />");
-                sb.Append("Grupp: ");
-                sb.Append(_group.Name);
-                sb.Append("<br />");
-                sb.Append("<br />");
-                sb.Append("Rättigheter på kundkort:");
-                sb.Append("<br />");
+                if (_group == null) {
+                    sb.Append("Hittar ingen grupp med samma namn som kundnumret");
+                }
+                else {
+                    sb.Append("Kund: ");
+                    sb.Append(_item.Title);
+                    sb.Append("<br />");
+                    sb.Append("Grupp: ");
+                    sb.Append(_group.Name);
+                    sb.Append("<br />");
+                    sb.Append("<br />");
+                    sb.Append("Rättigheter på kundkort:");
+                    sb.Append("<br />");
 
-                ListRights(_item, sb);
+                    ListRights(_item, sb);
 
-                sb.Append("<br />");
-                sb.Append("Rättigheter på adress:");
-                sb.Append("<br />");
+                    sb.Append("<br />");
+                    if (Adress == null) {
+                        sb.Append("Ingen adress satt");
+                        sb.Append("<br />");
+                    }
+                    else {
+                        sb.Append("Rättigheter på adress:");
+                        sb.Append("<br />");
 
-                ListRights(Adress, sb);
+                        ListRights(Adress, sb);
+                    }
 
-                sb.Append("<br />");
-                sb.Append("Rättigheter på ägare:");
-                sb.Append("<br />");
+                    sb.Append("<br />");
 
-                ListRights(Agare, sb);
+                    if (Agare == null) {
+                        sb.Append("Ingen adress satt");
+                        sb.Append("<br />");
+                    }
+                    else {
+                        sb.Append("Rättigheter på ägare:");
+                        sb.Append("<br />");
 
-                pnlCurrentRights.Controls.Add(new LiteralControl(sb.ToString()));
+                        ListRights(Agare, sb);
+                    }
+                }
             }
+            pnlCurrentRights.Controls.Add(new LiteralControl(sb.ToString()));
         }
 
         void btnGive_Click(object sender, EventArgs e) {
@@ -167,7 +192,9 @@ namespace UPCOR.TillsynKommun
         private void GetGroup(SPWeb web, string title) {
             var groups = web.SiteGroups.GetCollection(new string[] { title });
             if (groups.Count == 0) {
+                web.AllowUnsafeUpdates = true;
                 web.SiteGroups.Add(title, web.CurrentUser, null, string.Empty);
+                web.AllowUnsafeUpdates = false;
                 _group = web.SiteGroups.GetByName(title);
             }
             else {
@@ -216,6 +243,7 @@ namespace UPCOR.TillsynKommun
                         _item.BreakRoleInheritance(true);
                         _sbDebug.AppendLine("   sätter assignment");
                         _item.RoleAssignments.Add(assignmentRead);
+                        _item[new Guid("388ac965-dd63-4f98-ba2d-b42f88bdc959")] = true;
                         _item.Update();
                         #endregion
 
@@ -223,12 +251,13 @@ namespace UPCOR.TillsynKommun
 
                         #region Ge redigera-rättigheter för kundnummer-gruppen till adress
                         try {
-                            _sbDebug.AppendLine("   bryter arv");
-                            Adress.BreakRoleInheritance(true);
-                            _sbDebug.AppendLine("   sätter assignment");
-                            Adress.RoleAssignments.Add(assignmentEdit);
-                            Adress.Update();
-
+                            if (Adress != null) {
+                                _sbDebug.AppendLine("   bryter arv");
+                                Adress.BreakRoleInheritance(true);
+                                _sbDebug.AppendLine("   sätter assignment");
+                                Adress.RoleAssignments.Add(assignmentEdit);
+                                Adress.Update();
+                            }
                         }
                         catch (Exception aex) {
                             _error = true;
@@ -240,13 +269,14 @@ namespace UPCOR.TillsynKommun
                         elevatedWeb.AllowUnsafeUpdates = true;
 
                         #region Ge redigera-rättigheter för kundnummer-gruppen till ägare
-                        string agare = null;
                         try {
-                            _sbDebug.AppendLine("   bryter arv");
-                            Agare.BreakRoleInheritance(true);
-                            _sbDebug.AppendLine("   sätter assignment");
-                            Agare.RoleAssignments.Add(assignmentEdit);
-                            Agare.Update();
+                            if (Agare != null) {
+                                _sbDebug.AppendLine("   bryter arv");
+                                Agare.BreakRoleInheritance(true);
+                                _sbDebug.AppendLine("   sätter assignment");
+                                Agare.RoleAssignments.Add(assignmentEdit);
+                                Agare.Update();
+                            }
                         }
                         catch (Exception aaex) {
                             _error = true;

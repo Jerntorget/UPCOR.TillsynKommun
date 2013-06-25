@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Webbplatstillgangar Filer" Url="SiteAssets">
+    <File Path="Filer Webbplatstillgangar\heart.gif" Url="heart.gif" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" />
+    <File Path="Filer Webbplatstillgangar\profil_ettan_vinter_557x100.jpg" Url="profil_ettan_vinter_557x100.jpg" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" />
+  </Module>
+</Elements>

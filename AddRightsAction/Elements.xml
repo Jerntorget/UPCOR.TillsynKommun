@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
   <CustomAction
-    Id=" ECBItemCustomization"
+    Id="ECBItemCustomization"
     RegistrationType="List"
     RegistrationId="12003"
     Location="EditControlBlock"

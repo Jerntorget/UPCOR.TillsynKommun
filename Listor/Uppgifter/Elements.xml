@@ -3,12 +3,12 @@
     <!-- Do not change the value of the Name attribute below. If it does not match the folder name of the List project item, an error will occur when the project is run. -->
     <ListTemplate
         Name="Uppgifter"
-        Type="10001"
+        Type="12010"
         BaseType="0"
         OnQuickLaunch="TRUE"
         SecurityBits="11"
         Sequence="360"
         DisplayName="Uppgifter"
-        Description="My List Definition"
+        Description=""
         Image="/_layouts/15/images/ittask.png"/>
 </Elements>

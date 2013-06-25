@@ -14,6 +14,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <SandboxedSolution>False</SandboxedSolution>
+    <ActiveDeploymentConfiguration>No Activation</ActiveDeploymentConfiguration>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,6 +46,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Program Files\Microsoft Office Servers\15.0\Bin\Microsoft.Office.InfoPath.Server.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.SharePoint.Publishing, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Program Files\Microsoft Office Servers\15.0\Bin\Microsoft.SharePoint.Publishing.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\Temp\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -63,6 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientField.cs" />
+    <Compile Include="Features\TillsynFeature\TillsynFeature.EventReceiver.cs">
+      <DependentUpon>TillsynFeature.feature</DependentUpon>
+    </Compile>
     <Compile Include="Layouts\UPCOR.TillsynKommun\AddRights.aspx.cs">
       <DependentUpon>AddRights.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -70,14 +78,8 @@
     <Compile Include="Layouts\UPCOR.TillsynKommun\AddRights.aspx.designer.cs">
       <DependentUpon>AddRights.aspx.cs</DependentUpon>
     </Compile>
-    <Compile Include="Listor\Aktiviteter\AktiviteterEventReceiver\AktiviteterEventReceiver.cs" />
-    <Compile Include="Features\ListsAndContentFeature\ListsAndContentFeature.EventReceiver.cs">
-      <DependentUpon>ListsAndContentFeature.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\WebPartsFeature\WebPartsFeature.EventReceiver.cs">
-      <DependentUpon>WebPartsFeature.feature</DependentUpon>
-    </Compile>
     <Compile Include="Global.cs" />
+    <Compile Include="Listor\Aktiviteter\AktiviteterEventReceiver\AktiviteterEventReceiver.cs" />
     <Compile Include="Listor\Kundkort\KundkortEventReceiver\KundkortEventReceiver.cs" />
     <Compile Include="MinButikWP\MinButikWP.cs" />
     <Compile Include="Municipal.cs" />
@@ -87,29 +89,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddRightsAction\Elements.xml" />
-    <Content Include="Falt\Kund\butikLopnummer\Elements.xml" />
-    <Content Include="Features\WebPartsFeature\WebPartsFeature.Template.xml">
-      <DependentUpon>WebPartsFeature.feature</DependentUpon>
-    </Content>
-    <Content Include="Filer\Webbplatstillgangar\Elements.xml" />
-    <Content Include="Filer\Webbplatstillgangar\heart.gif" />
-    <Content Include="Filer\Webbplatstillgangar\profil_ettan_vinter_557x100.jpg" />
-    <Content Include="Filer\Blanketter\Elements.xml" />
-    <Content Include="FormPagesPermit\Elements.xml" />
-    <Content Include="FormPages\Elements.xml" />
-    <Content Include="Innehallstyper\GivePermissionCT\Elements.xml" />
-    <Content Include="Layouts\UPCOR.TillsynKommun\AddRights.aspx" />
-    <Content Include="Layouts\UPCOR.TillsynKommun\tillsyn.css" />
-    <Content Include="Layouts\UPCOR.TillsynKommun\tillsyn.js" />
-    <Content Include="Listor\Forsaljningstillstand\Elements.xml" />
-    <Content Include="Listor\Forsaljningstillstand\ForsaljningstillstandInstance\Elements.xml" />
-    <Content Include="Listor\Forsaljningstillstand\Schema.xml" />
-    <Content Include="Listor\Genvagar\Elements.xml" />
-    <Content Include="Falt\kontaktUppslagsnamn\Elements.xml" />
-    <Content Include="Falt\Kund\butikAdress\Elements.xml" />
-    <Content Include="Falt\Kund\butikAgare\Elements.xml" />
-    <Content Include="Falt\Kund\butikKontakt\Elements.xml" />
-    <Content Include="Falt\Kund\butikKundnummer\Elements.xml" />
+    <Content Include="Dokumentbibliotek\Blanketter\BlanketterInstance\Elements.xml" />
+    <Content Include="Dokumentbibliotek\Blanketter\EditDlg.htm" />
+    <Content Include="Dokumentbibliotek\Blanketter\Elements.xml" />
+    <Content Include="Dokumentbibliotek\Blanketter\FileDlg.htm" />
+    <Content Include="Dokumentbibliotek\Blanketter\Repair.aspx" />
+    <Content Include="Dokumentbibliotek\Blanketter\Schema.xml" />
+    <Content Include="Dokumentbibliotek\Blanketter\Upload.aspx" />
     <Content Include="Dokumentbibliotek\Utbildningsmaterial\EditDlg.htm" />
     <Content Include="Dokumentbibliotek\Utbildningsmaterial\Elements.xml" />
     <Content Include="Dokumentbibliotek\Utbildningsmaterial\FileDlg.htm" />
@@ -117,8 +103,87 @@
     <Content Include="Dokumentbibliotek\Utbildningsmaterial\Schema.xml" />
     <Content Include="Dokumentbibliotek\Utbildningsmaterial\Upload.aspx" />
     <Content Include="Dokumentbibliotek\Utbildningsmaterial\UtbildningsmaterialInstance\Elements.xml" />
+    <Content Include="Falt\kontaktKontaktperson\Elements.xml" />
+    <Content Include="Falt\Kund\butikAdress\butikAdressBesoksadress\Elements.xml" />
+    <Content Include="Falt\Kund\butikAdress\butikAdressFax\Elements.xml" />
+    <Content Include="Falt\Kund\butikAdress\butikAdressOrt\Elements.xml" />
+    <Content Include="Falt\Kund\butikAdress\butikAdressPostnummer\Elements.xml" />
+    <Content Include="Falt\Kund\butikAdress\butikAdressTelefon\Elements.xml" />
+    <Content Include="Falt\Kund\butikAdress\butikAdressEpost\Elements.xml" />
+    <Content Include="Falt\Kund\butikAgare\butikAgareOrgnr\Elements.xml" />
+    <Content Include="Falt\Kund\butikKontakt1\butikKontakt1Befattning\Elements.xml" />
+    <Content Include="Falt\Kund\butikKontakt1\butikKontakt1Epost\Elements.xml" />
+    <Content Include="Falt\Kund\butikKontakt1\butikKontakt1Kontakt\Elements.xml" />
+    <Content Include="Falt\Kund\butikKontakt1\butikKontakt1Mobil\Elements.xml" />
+    <Content Include="Falt\Kund\butikKontakt1\butikKontakt1Telefon\Elements.xml" />
+    <Content Include="Falt\Kund\butikKontakt1\Elements.xml" />
+    <Content Include="Falt\Kund\butikKontakt2\butikKontakt2Befattning\Elements.xml" />
+    <Content Include="Falt\Kund\butikKontakt2\butikKontakt2Epost\Elements.xml" />
+    <Content Include="Falt\Kund\butikKontakt2\butikKontakt2Kontakt\Elements.xml" />
+    <Content Include="Falt\Kund\butikKontakt2\butikKontakt2Mobil\Elements.xml" />
+    <Content Include="Falt\Kund\butikKontakt2\butikKontakt2Telefon\Elements.xml" />
+    <Content Include="Falt\Kund\butikKontakt2\Elements.xml" />
+    <Content Include="Falt\Kund\butikKontakt3\butikKontakt3Kontakt\Elements.xml" />
+    <Content Include="Falt\Kund\butikKontakt3\butikKontakt3Telefon\Elements.xml" />
+    <Content Include="Falt\Kund\butikKontakt3\butikKontakt3Befattning\Elements.xml" />
+    <Content Include="Falt\Kund\butikKontakt3\butikKontakt3Epost\Elements.xml" />
+    <Content Include="Falt\Kund\butikKontakt3\butikKontakt3Mobil\Elements.xml" />
+    <Content Include="Falt\Kund\butikKontakt3\Elements.xml" />
+    <Content Include="Falt\Kund\butikLopnummer\Elements.xml" />
+    <Content Include="Falt\Kund\butikRattigheter\Elements.xml" />
+    <Content Include="Falt\Tillsyn\tillsynAdressId\Elements.xml" />
+    <Content Include="Falt\Tillsyn\tillsynAdressVisning\Elements.xml" />
+    <Content Include="Falt\Tillsyn\tillsynAgareId\Elements.xml" />
+    <Content Include="Falt\Tillsyn\tillsynAgareVisning\Elements.xml" />
+    <Content Include="Falt\Tillsyn\tillsynKontakt1Id\Elements.xml" />
+    <Content Include="Falt\Tillsyn\tillsynKontakt1Visning\Elements.xml" />
+    <Content Include="Falt\Tillsyn\tillsynKontakt2Id\Elements.xml" />
+    <Content Include="Falt\Tillsyn\tillsynKontakt2Visning\Elements.xml" />
+    <Content Include="Falt\Tillsyn\tillsynKontakt3Id\Elements.xml" />
+    <Content Include="Falt\Tillsyn\tillsynKontakt3Visning\Elements.xml" />
+    <Content Include="Falt\Tillsyn\tillsynKontaktId\Elements.xml" />
+    <Content Include="Falt\Tillsyn\tillsynKontaktVisning\Elements.xml" />
+    <Content Include="Features\TillsynWebbdelarFeature\TillsynWebbdelarFeature.Template.xml">
+      <DependentUpon>TillsynWebbdelarFeature.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\TillsynFeature\TillsynFeature.Template.xml">
+      <DependentUpon>TillsynFeature.feature</DependentUpon>
+    </Content>
+    <Content Include="Filer\Masterpage\Elements.xml" />
+    <Content Include="Filer\Webbplatstillgangar Filer\Elements.xml" />
+    <Content Include="Filer\Webbplatstillgangar Filer\heart.gif" />
+    <Content Include="Filer\Webbplatstillgangar Filer\profil_ettan_vinter_557x100.jpg" />
+    <Content Include="Filer\Blanketter Filer\Elements.xml" />
+    <Content Include="FormPagesPermit\Elements.xml" />
+    <Content Include="FormPages\Elements.xml" />
+    <Content Include="Innehallstyper\GivePermissionCT\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Layouts\UPCOR.TillsynKommun\AddRights.aspx" />
+    <Content Include="Layouts\UPCOR.TillsynKommun\tillsyn.css" />
+    <Content Include="Layouts\UPCOR.TillsynKommun\tillsyn.js" />
+    <Content Include="Listor\Adresser\AdresserInstance\Elements.xml" />
+    <Content Include="Listor\Adresser\Elements.xml" />
+    <Content Include="Listor\Adresser\Schema.xml" />
+    <Content Include="Listor\Aktiviteter\AktiviteterEventReceiver\Elements.xml" />
+    <Content Include="Listor\Aktiviteter\AktiviteterInstance\Elements.xml" />
+    <Content Include="Listor\Aktiviteter\Elements.xml" />
+    <Content Include="Listor\Aktiviteter\Schema.xml" />
+    <Content Include="Listor\Forsaljningstillstand\Elements.xml" />
+    <Content Include="Listor\Forsaljningstillstand\ForsaljningstillstandInstance\Elements.xml" />
+    <Content Include="Listor\Forsaljningstillstand\Schema.xml" />
+    <Content Include="Listor\GenvagarTillsynsverktyg\Elements.xml" />
+    <Content Include="Listor\GenvagarTillsynsverktyg\GenvagarTillsynsverktygInstance\Elements.xml" />
+    <Content Include="Listor\GenvagarTillsynsverktyg\Schema.xml" />
+    <Content Include="Listor\Genvagar\Elements.xml" />
+    <Content Include="Falt\kontaktUppslagsnamn\Elements.xml" />
+    <Content Include="Falt\Kund\butikAdress\Elements.xml" />
+    <Content Include="Falt\Kund\butikAgare\Elements.xml" />
+    <Content Include="Falt\Kund\butikKundnummer\Elements.xml" />
     <Content Include="Listor\Gruppkopplingar\Elements.xml" />
-    <Content Include="Listor\Gruppkopplingar\GruppkopplingarInstance\Elements.xml" />
+    <Content Include="Listor\Gruppkopplingar\GruppkopplingarInstance\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Listor\Gruppkopplingar\Schema.xml" />
     <Content Include="Listor\Uppgifter\Elements.xml" />
     <Content Include="Listor\Uppgifter\Schema.xml" />
@@ -176,8 +241,147 @@
     <None Include="AddRightsAction\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{6eab2016-b3cd-40d7-9861-a605d731918c}</SharePointProjectItemId>
     </None>
+    <None Include="Dokumentbibliotek\Blanketter\BlanketterInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fcb56c51-82b9-4cf0-bfba-f6ffb9d6f506}</SharePointProjectItemId>
+    </None>
+    <None Include="Dokumentbibliotek\Blanketter\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7b210f62-2cf1-4b12-be0f-b2304d894aa4}</SharePointProjectItemId>
+    </None>
+    <None Include="Dokumentbibliotek\Utbildningsmaterial\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{88e2bb30-8fac-4181-a09a-7ac938117a56}</SharePointProjectItemId>
+    </None>
+    <None Include="Dokumentbibliotek\Utbildningsmaterial\UtbildningsmaterialInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8d75bcbf-3e04-4cc3-ac9e-563923bd8ce7}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\kontaktKontaktperson\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{43e47cde-9baf-4656-ab09-1aa1246bcb38}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikAdress\butikAdressBesoksadress\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a09c614e-05cb-411b-bb6f-5c27608ddc69}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikAdress\butikAdressFax\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ce55d8f6-c3f9-4a3f-90aa-52c1ceca8596}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikAdress\butikAdressOrt\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b621939d-0bc8-482c-af7c-d87954317e69}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikAdress\butikAdressPostnummer\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2541411d-48b3-4ef7-a32f-f6be54585b75}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikAdress\butikAdressTelefon\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fe5c099c-e8ff-41ee-b9e9-abcd2870d445}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikAdress\butikAdressEpost\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{af954590-98c2-4071-b71a-60a000fc2237}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikAgare\butikAgareOrgnr\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{104c62fb-d841-4bce-b548-a95d5431c7e6}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikKontakt1\butikKontakt1Befattning\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{de1c5900-3b99-4d87-bed2-4f1b7b447a0a}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikKontakt1\butikKontakt1Epost\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{5df5afc3-8fb8-48ea-95d0-e235dc52e2b0}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikKontakt1\butikKontakt1Kontakt\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{47e862e6-bac2-4367-b025-015a7e59ec6f}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikKontakt1\butikKontakt1Mobil\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{354ac905-ee8a-4954-b06b-65051c94d907}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikKontakt1\butikKontakt1Telefon\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{249d5c63-b4aa-4b23-abce-b58d5d83d6c7}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikKontakt1\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7ff4ea3c-866d-433e-baef-318fabe63b6e}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikKontakt2\butikKontakt2Befattning\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1bad6fe4-2e87-4897-bfd9-95ebb94d0b31}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikKontakt2\butikKontakt2Epost\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fea8ca1d-3379-4181-b9b5-a0d4fc68110d}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikKontakt2\butikKontakt2Kontakt\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4e32bef8-9b3a-4547-a0c3-7220804a0866}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikKontakt2\butikKontakt2Mobil\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d60f91e9-b852-45f6-bf63-89af30ead508}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikKontakt2\butikKontakt2Telefon\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4cc01ec7-898b-4c75-adab-77aa57875a5f}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikKontakt2\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f6143b6a-4e8f-4b70-a9af-be2b714b32bf}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikKontakt3\butikKontakt3Kontakt\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{700c0b0e-334c-41be-b3e5-85cf6b6f7569}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikKontakt3\butikKontakt3Telefon\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d7adf032-4e43-4037-a4ad-30abd88e1720}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikKontakt3\butikKontakt3Befattning\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{23510a14-ee13-4173-84c6-583dbb41e32a}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikKontakt3\butikKontakt3Epost\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{28fb5a03-385f-4b4e-8ff4-cb08ddb046ed}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikKontakt3\butikKontakt3Mobil\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{bc748f3a-0669-4b3e-9061-fad831ef23ff}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikKontakt3\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{03479efd-93b8-4053-97e2-35d824b48d95}</SharePointProjectItemId>
+    </None>
     <None Include="Falt\Kund\butikLopnummer\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{67978490-84f0-45fd-b188-ea52921e1ace}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Kund\butikRattigheter\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{63c44009-3aef-4d44-8209-f72ef8c6a3ee}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Tillsyn\tillsynAdressId\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d424f39f-110d-438f-a871-a4d4461128c4}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Tillsyn\tillsynAdressVisning\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2a172080-6b4e-41a8-a55f-5ab04f8d4fef}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Tillsyn\tillsynAgareId\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{07d6629c-71af-4081-aeec-85ac58496cb8}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Tillsyn\tillsynAgareVisning\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4ddc30d6-e976-4444-bcd4-c8cfa9b5903d}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Tillsyn\tillsynKontakt1Id\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3901ae3f-4556-4b7f-a79e-e2c16b4cb31e}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Tillsyn\tillsynKontakt1Visning\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f12d3035-e48d-4197-a289-de1f3089eb44}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Tillsyn\tillsynKontakt2Id\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{26783504-bc62-4533-88b0-94753decc4b6}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Tillsyn\tillsynKontakt2Visning\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9b067e0a-1b92-4d37-92c1-29b7e81a0db4}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Tillsyn\tillsynKontakt3Id\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3dfdd1c7-6097-47d9-9435-13a87e1fc8be}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Tillsyn\tillsynKontakt3Visning\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{cd382aa7-8215-43f1-a13a-361071867434}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Tillsyn\tillsynKontaktId\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{41407102-e9a0-4b68-92e3-d87db3046df7}</SharePointProjectItemId>
+    </None>
+    <None Include="Falt\Tillsyn\tillsynKontaktVisning\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{abe76f53-b334-4b8d-8976-159dd17c1cfc}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\TillsynWebbdelarFeature\TillsynWebbdelarFeature.feature">
+      <FeatureId>{354ac935-6ffb-4f41-bb4d-a561b176f6a5}</FeatureId>
+    </None>
+    <None Include="Features\TillsynFeature\TillsynFeature.feature">
+      <FeatureId>{e71d6582-dcab-49b9-abd8-7f4399329f22}</FeatureId>
+    </None>
+    <Content Include="Filer\Masterpage\seattle.master" />
+    <None Include="Filer\Masterpage\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{327d7fa6-5822-439f-aa0e-28f5efc15f16}</SharePointProjectItemId>
     </None>
     <None Include="FormPagesPermit\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{0e52e066-a029-4a9d-bc72-7d46d17035c7}</SharePointProjectItemId>
@@ -191,55 +395,56 @@
     <None Include="Layouts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{488c0f90-3cba-4a4e-9977-9500a7a46fba}</SharePointProjectItemId>
     </None>
-    <None Include="Layouts\UPCOR.TillsynKommun\75841904-0c67-4118-826f-b1319db35c6a.xsn" />
-    <None Include="Layouts\UPCOR.TillsynKommun\4BEB6318-1CE0-47BE-92C2-E9815D312C1A.xsn" />
     <None Include="Layouts\UPCOR.TillsynKommun\givepermit.xsn" />
+    <None Include="Layouts\UPCOR.TillsynKommun\inspection4.xsn" />
+    <None Include="Listor\Adresser\AdresserInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fb92af67-d2b3-4669-9e89-40aa0732c02f}</SharePointProjectItemId>
+    </None>
+    <None Include="Listor\Adresser\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{738a2268-dfdc-4be6-9273-1a397b89f65f}</SharePointProjectItemId>
+    </None>
     <None Include="Listor\Agare\AgareInstance\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{46af20b9-97c6-41b1-9940-2edfbe290dfa}</SharePointProjectItemId>
     </None>
     <None Include="Listor\Agare\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{dda21510-d5e1-4462-b212-c6985fb69085}</SharePointProjectItemId>
     </None>
-    <None Include="Listor\Aktiviteter\AktiviteterEventReceiver\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{a8313fcc-2553-4038-83b2-976a07c35d92}</SharePointProjectItemId>
-    </None>
-    <None Include="Listor\Aktiviteter\AktiviteterInstance\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{6d6cc417-ccdb-43e5-9600-284f5aaa70a5}</SharePointProjectItemId>
-    </None>
-    <None Include="Listor\Aktiviteter\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{25287f1f-3720-4c8f-a797-97a7137894b8}</SharePointProjectItemId>
-    </None>
-    <Content Include="Dokumentbibliotek\Blanketter\BlanketterInstance\Elements.xml" />
-    <Content Include="Dokumentbibliotek\Blanketter\EditDlg.htm" />
-    <Content Include="Dokumentbibliotek\Blanketter\Elements.xml" />
-    <Content Include="Dokumentbibliotek\Blanketter\FileDlg.htm" />
-    <Content Include="Dokumentbibliotek\Blanketter\Repair.aspx" />
-    <Content Include="Dokumentbibliotek\Blanketter\Schema.xml" />
-    <Content Include="Dokumentbibliotek\Blanketter\Upload.aspx" />
-    <Content Include="Filer\Blanketter\06a_Anmalan_om_forsaljning_tobak.pdf" />
-    <Content Include="Filer\Blanketter\06b_Anmalan_om_forsaljning_folkol.pdf" />
-    <None Include="Features\WebPartsFeature\WebPartsFeature.feature">
-      <FeatureId>{bf286086-31b2-4922-89e6-b086b07481a4}</FeatureId>
-    </None>
-    <None Include="Filer\Webbplatstillgangar\SharePointProjectItem.spdata">
+    <Content Include="Filer\Blanketter Filer\06a_Anmalan_om_forsaljning_tobak.pdf" />
+    <Content Include="Filer\Blanketter Filer\06b_Anmalan_om_forsaljning_folkol.pdf" />
+    <None Include="Filer\Webbplatstillgangar Filer\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{358aca19-e2ce-40e7-b6bf-b7e6f6d784a0}</SharePointProjectItemId>
     </None>
-    <None Include="Filer\Blanketter\SharePointProjectItem.spdata">
+    <None Include="Filer\Blanketter Filer\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{3dfea0aa-caba-4d4e-a9f4-a6261503ebdc}</SharePointProjectItemId>
     </None>
-    <Content Include="Filer\Utbildningsmaterial\03a_Forsaljningsregler.pdf" />
-    <Content Include="Filer\Utbildningsmaterial\03b_Tobaksmarknadsforing.pdf" />
-    <Content Include="Filer\Utbildningsmaterial\03c_tobaksmarkning.pdf" />
-    <Content Include="Filer\Utbildningsmaterial\05a_Case1_Ung_tjej.pdf" />
-    <Content Include="Filer\Utbildningsmaterial\05b_Case2_Mamma_handlar_med_sin_son.pdf" />
-    <Content Include="Filer\Utbildningsmaterial\05c_Case3_ung_kille_kommer_in_och_handlar_till_sin_farfar.pdf" />
-    <Content Include="Filer\Utbildningsmaterial\05d_Case4_Full_granne.pdf" />
-    <Content Include="Filer\Utbildningsmaterial\08a_lagstod_for_tillsyn_av_tobak_och_folkolsforsaljning.pdf" />
+    <Content Include="Filer\Utbildningsmaterial Filer\03a_Forsaljningsregler.pdf" />
+    <Content Include="Filer\Utbildningsmaterial Filer\03b_Tobaksmarknadsforing.pdf" />
+    <Content Include="Filer\Utbildningsmaterial Filer\03c_tobaksmarkning.pdf" />
+    <Content Include="Filer\Utbildningsmaterial Filer\05a_Case1_Ung_tjej.pdf" />
+    <Content Include="Filer\Utbildningsmaterial Filer\05b_Case2_Mamma_handlar_med_sin_son.pdf" />
+    <Content Include="Filer\Utbildningsmaterial Filer\05c_Case3_ung_kille_kommer_in_och_handlar_till_sin_farfar.pdf" />
+    <Content Include="Filer\Utbildningsmaterial Filer\05d_Case4_Full_granne.pdf" />
+    <Content Include="Filer\Utbildningsmaterial Filer\08a_lagstod_for_tillsyn_av_tobak_och_folkolsforsaljning.pdf" />
+    <None Include="Listor\Aktiviteter\AktiviteterEventReceiver\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e3dd6f4a-b67b-4deb-b8b7-64217ca506c3}</SharePointProjectItemId>
+    </None>
+    <None Include="Listor\Aktiviteter\AktiviteterInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9efc9897-91ec-475b-87d4-13232ea37e62}</SharePointProjectItemId>
+    </None>
+    <None Include="Listor\Aktiviteter\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d07b39dc-f3b6-4af1-940f-edb740fbcae8}</SharePointProjectItemId>
+    </None>
     <None Include="Listor\Forsaljningstillstand\ForsaljningstillstandInstance\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{3e2c963e-e050-48a3-a3bd-44bbe2bd0b04}</SharePointProjectItemId>
     </None>
     <None Include="Listor\Forsaljningstillstand\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{785dc663-14ec-4220-a633-b941d08c9f55}</SharePointProjectItemId>
+    </None>
+    <None Include="Listor\GenvagarTillsynsverktyg\GenvagarTillsynsverktygInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{996dc951-52b9-4b15-8468-207ae29f6285}</SharePointProjectItemId>
+    </None>
+    <None Include="Listor\GenvagarTillsynsverktyg\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{24f22efb-2502-4582-9a5c-c9e88f40fe72}</SharePointProjectItemId>
     </None>
     <None Include="Listor\Genvagar\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{05f18d23-65da-4521-91ec-be9e33ba268b}</SharePointProjectItemId>
@@ -253,19 +458,10 @@
     <None Include="Falt\Kund\butikAgare\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{72e7458b-be0a-4fb0-8bf1-9bfafbb3a2f8}</SharePointProjectItemId>
     </None>
-    <None Include="Falt\Kund\butikKontakt\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{2e2cc6db-325e-472d-84a5-a9e5b79592e6}</SharePointProjectItemId>
-    </None>
     <None Include="Falt\Kund\butikKundnummer\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{23bbaa4f-39b6-41b3-9272-0a7502b7bd00}</SharePointProjectItemId>
     </None>
-    <None Include="Dokumentbibliotek\Blanketter\BlanketterInstance\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{049d28b7-eee6-471d-8bc4-504e6689e8da}</SharePointProjectItemId>
-    </None>
-    <None Include="Dokumentbibliotek\Blanketter\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{fe5512e3-4b6f-4d19-8a5c-0da9fa5fe331}</SharePointProjectItemId>
-    </None>
-    <None Include="Filer\Utbildningsmaterial\SharePointProjectItem.spdata">
+    <None Include="Filer\Utbildningsmaterial Filer\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{a79b0758-8542-4d8a-b374-38692ac5e0ed}</SharePointProjectItemId>
     </None>
     <None Include="Innehallstyper\CustomerCT\SharePointProjectItem.spdata">
@@ -278,10 +474,10 @@
       <SharePointProjectItemId>{64d96a0e-74fd-44fc-aa37-3ed665c4c616}</SharePointProjectItemId>
     </None>
     <None Include="Listor\Uppgifter\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{74cf3263-d394-435d-bbc5-6ce50b09b979}</SharePointProjectItemId>
+      <SharePointProjectItemId>{5659aede-770d-4584-956f-2b953a53a830}</SharePointProjectItemId>
     </None>
     <None Include="Listor\Uppgifter\UppgifterInstance\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{0a2811eb-8cf2-40ea-b29e-c7bfe8e582d3}</SharePointProjectItemId>
+      <SharePointProjectItemId>{5cd4bc1f-99db-43cc-9f37-559522a45019}</SharePointProjectItemId>
     </None>
     <None Include="MinButikWP\MinButikWP.webpart" />
     <None Include="MinButikWP\SharePointProjectItem.spdata">
@@ -334,15 +530,6 @@
     </None>
     <None Include="Falt\aktivitetDatum\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{9dae42d4-85ee-4aa9-a13b-31202d11c5fc}</SharePointProjectItemId>
-    </None>
-    <None Include="Features\ListsAndContentFeature\ListsAndContentFeature.feature">
-      <FeatureId>{86d12aed-fe02-4033-bc24-1ea82eba823f}</FeatureId>
-    </None>
-    <None Include="Listor\Adresser\AdresserInstance\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{388439ae-5233-4b70-829e-713674e4b539}</SharePointProjectItemId>
-    </None>
-    <None Include="Listor\Adresser\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{5276086f-862b-4251-914d-b585dcb29e89}</SharePointProjectItemId>
     </None>
     <None Include="Innehallstyper\InspectionCT\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{9ce23172-4eea-42f9-ae7b-e40b917b22c1}</SharePointProjectItemId>
@@ -478,12 +665,6 @@
     <None Include="Falt\Tillsyn\tillsynVerksamheter\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{f13913f3-30c3-4376-ac07-0f6051025a5c}</SharePointProjectItemId>
     </None>
-    <None Include="Dokumentbibliotek\Utbildningsmaterial\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{15a34572-c39e-4801-a80c-85fb6396f411}</SharePointProjectItemId>
-    </None>
-    <None Include="Dokumentbibliotek\Utbildningsmaterial\UtbildningsmaterialInstance\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{bd6462b1-8c5a-453b-9f0f-af696cbcbf60}</SharePointProjectItemId>
-    </None>
     <None Include="Listor\Webbplatssidor\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{2441f526-b48a-4d42-b059-e91e47e30d01}</SharePointProjectItemId>
     </None>
@@ -500,20 +681,10 @@
     <Content Include="Listor\Agare\AgareInstance\Elements.xml" />
     <Content Include="Listor\Agare\Elements.xml" />
     <Content Include="Listor\Agare\Schema.xml" />
-    <Content Include="Listor\Aktiviteter\AktiviteterEventReceiver\Elements.xml" />
-    <Content Include="Listor\Aktiviteter\AktiviteterInstance\Elements.xml" />
-    <Content Include="Listor\Aktiviteter\Elements.xml" />
-    <Content Include="Listor\Aktiviteter\Schema.xml" />
-    <Content Include="Filer\Utbildningsmaterial\Elements.xml" />
+    <Content Include="Filer\Utbildningsmaterial Filer\Elements.xml" />
     <Content Include="Innehallstyper\CustomerCT\Elements.xml" />
     <Content Include="Falt\aktivitetButik\Elements.xml" />
     <Content Include="Falt\aktivitetDatum\Elements.xml" />
-    <Content Include="Features\ListsAndContentFeature\ListsAndContentFeature.Template.xml">
-      <DependentUpon>ListsAndContentFeature.feature</DependentUpon>
-    </Content>
-    <Content Include="Listor\Adresser\Elements.xml" />
-    <Content Include="Listor\Adresser\AdresserInstance\Elements.xml" />
-    <Content Include="Listor\Adresser\Schema.xml" />
     <Content Include="Innehallstyper\InspectionCT\Elements.xml" />
     <Content Include="Listor\Kontakter\KontakterInstance\Elements.xml" />
     <Content Include="Listor\Kundkort\Elements.xml" />

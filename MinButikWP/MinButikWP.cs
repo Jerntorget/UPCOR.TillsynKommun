@@ -69,7 +69,7 @@ namespace UPCOR.TillsynKommun
                 
                 if (bRender) {
                     Global.Debug = "bRender";
-                    SPListItemCollection items = list.GetItems("Title", "butikKundnummer", "butikAgare", "butikAdress", "butikKontakt");
+                    SPListItemCollection items = list.GetItems("Title", "butikKundnummer", "butikAgare", "butikAdress", "butikKontakt1", "butikKontakt2", "butikKontakt3");
                     if (items == null) {
                         sb.Append("Kan inte hämta innehåll i Kundkort");
                     }
@@ -78,6 +78,13 @@ namespace UPCOR.TillsynKommun
                         foreach (SPListItem item in items) {
                             SPListItem liAgare = null;
                             SPListItem liAdress = null;
+                            SPListItem liKontakt1 = null;
+                            SPListItem liKontakt2 = null;
+                            SPListItem liKontakt3 = null;
+                            string kontakt1name = null;
+                            string kontakt2name = null;
+                            string kontakt3name = null;
+
 
                             Global.Debug = "kundnummer";
                             string kundnummer = (string)item[new Guid("353eabaa-f0d3-40cc-acc3-4c6b23d3a64f")];
@@ -85,6 +92,12 @@ namespace UPCOR.TillsynKommun
                             string agare = (string)item[new Guid("50076a6a-424f-4b32-9992-9ce9ab02b1c8")];
                             Global.Debug = "adress";
                             string adress = (string)item[new Guid("b5c833ef-df4e-44f3-9ed5-316ed61a59c9")];
+                            Global.Debug = "kontakt1";
+                            string kontakt1 = (string)item[new Guid("dc99b56d-9b8e-4dcb-b22e-9db4dd74abeb")];
+                            Global.Debug = "kontakt2";
+                            string kontakt2 = (string)item[new Guid("fb69a780-58bb-48b1-a070-57c7e7df3a24")];
+                            Global.Debug = "kontakt3";
+                            string kontakt3 = (string)item[new Guid("3c56ce65-d09e-4c7b-85f6-7046d1438fd8")];
                             Global.Debug = "0001";
 
                             if (!string.IsNullOrWhiteSpace(agare)) {
@@ -98,7 +111,28 @@ namespace UPCOR.TillsynKommun
                                     liAdress = listAdresser.GetItemById(int.Parse(aAdress[0]));
                             }
                             Global.Debug = "kontakter";
-                            SPFieldLookupValueCollection kontakter = (SPFieldLookupValueCollection)item[new Guid("574795f5-e29a-45b3-a51b-0d2cb0352f63")];
+                            if (!string.IsNullOrWhiteSpace(kontakt1)) {
+                                string[] aKontakt1 = kontakt1.Split(new string[] { ";#" }, StringSplitOptions.None);
+                                if (aKontakt1.Length == 2) {
+                                    liKontakt1 = listKontakter.GetItemById(int.Parse(aKontakt1[0]));
+                                    kontakt1name = aKontakt1[1];
+                                }
+                            }
+                            if (!string.IsNullOrWhiteSpace(kontakt2)) {
+                                string[] aKontakt2 = kontakt2.Split(new string[] { ";#" }, StringSplitOptions.None);
+                                if (aKontakt2.Length == 2) {
+                                    liKontakt2 = listKontakter.GetItemById(int.Parse(aKontakt2[0]));
+                                    kontakt2name = aKontakt2[1];
+                                }
+                            }
+                            if (!string.IsNullOrWhiteSpace(kontakt3)) {
+                                string[] aKontakt3 = kontakt3.Split(new string[] { ";#" }, StringSplitOptions.None);
+                                if (aKontakt3.Length == 2) {
+                                    liKontakt3 = listKontakter.GetItemById(int.Parse(aKontakt3[0]));
+                                    kontakt3name = aKontakt3[1];
+                                }
+                            }
+                            //SPFieldLookupValueCollection kontakter = (SPFieldLookupValueCollection)item[new Guid("574795f5-e29a-45b3-a51b-0d2cb0352f63")];
                             Global.Debug = "0002";
 
                             sb.Append("<h2>");
@@ -123,7 +157,7 @@ namespace UPCOR.TillsynKommun
                                 Global.Debug = "0005";
                                 sb.Append(CreateLink(liAdress.Title, listAdresser.ID, liAdress.ID));
                                 Global.Debug = "0006";
-                                string strAdress = (string)liAdress["Adress"];
+                                string strAdress = (string)liAdress["Besöksadress"];
                                 string strPostnr = (string)liAdress["Postnummer"];
                                 string strOrt = (string)liAdress["Ort"];
                                 if (!string.IsNullOrWhiteSpace(strAdress)) {
@@ -138,11 +172,19 @@ namespace UPCOR.TillsynKommun
                                 }
                             }
                             sb.Append("<br /><br />Kontakt");
-                            if (kontakter.Count > 1)
+                            if (liKontakt2 != null)
                                 sb.Append("er");
                             sb.Append(":<br />");
-                            foreach (var kontakt in kontakter) {
-                                sb.Append(CreateLink(kontakt.LookupValue, listKontakter.ID, kontakt.LookupId));
+                            if (liKontakt1 != null) {
+                                sb.Append(CreateLink(kontakt1name, listKontakter.ID, liKontakt1.ID));
+                                sb.Append("<br />");
+                            }
+                            if (liKontakt2 != null) {
+                                sb.Append(CreateLink(kontakt2name, listKontakter.ID, liKontakt2.ID));
+                                sb.Append("<br />");
+                            }
+                            if (liKontakt3 != null) {
+                                sb.Append(CreateLink(kontakt3name, listKontakter.ID, liKontakt3.ID));
                                 sb.Append("<br />");
                             }
                             sb.Append("<br /><hr /><br />");

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{16642d78-1cf0-4e0a-af42-7cb01af4fda9}"
+       Name="butikAgareOrgnr"
+       DisplayName="Organisationsnummer"
+       Type="Lookup"
+       List="Lists/Agare"
+       FieldRef="50076a6a-424f-4b32-9992-9ce9ab02b1c8"
+       ShowField="OrganizationalIDNumber"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

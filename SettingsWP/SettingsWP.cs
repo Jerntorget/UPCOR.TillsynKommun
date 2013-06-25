@@ -78,7 +78,7 @@ namespace UPCOR.TillsynKommun
                 Controls.Add(new LiteralControl("<br />"));
 
                 lblResult = new Label();
-                lblResult.Style.Add(HtmlTextWriterStyle.Color, "#f00");
+                lblResult.Style.Add(HtmlTextWriterStyle.Color, "#0a0");
                 lblResult.Style.Add(HtmlTextWriterStyle.FontStyle, "italic");
                 Controls.Add(lblResult);
 

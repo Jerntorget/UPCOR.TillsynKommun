@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{9e61dff7-17d3-4a92-a49a-7ed41dce6dd5}"
+       Name="butikAdressPostnummer"
+       DisplayName="Postnummer"
+       Type="Lookup"
+       List="Lists/Adresser"
+       FieldRef="b5c833ef-df4e-44f3-9ed5-316ed61a59c9"
+       ShowField="WorkZip"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

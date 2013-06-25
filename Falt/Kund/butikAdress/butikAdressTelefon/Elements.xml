@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{f2ac3e52-0271-4215-8f92-f9a0bc47137f}"
+       Name="butikAdressTelefon"
+       DisplayName="Telefon"
+       Type="Lookup"
+       List="Lists/Adresser"
+       FieldRef="b5c833ef-df4e-44f3-9ed5-316ed61a59c9"
+       ShowField="WorkPhone"
+       Required="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

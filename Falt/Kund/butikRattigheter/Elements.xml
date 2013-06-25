@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{388ac965-dd63-4f98-ba2d-b42f88bdc959}"
+       Name="butikRattigheter"
+       DisplayName="Rättigheter givna"
+       Type="Boolean"
+       Required="FALSE"
+       ShowInEditForm="FALSE"
+       ShowInNewForm="FALSE"
+       Group="Tillsyn">
+  </Field>
+</Elements>

@@ -4,9 +4,8 @@ using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 using Microsoft.SharePoint.Workflow;
 using System.Diagnostics;
-using System.Text;
 
-namespace UPCOR.TillsynKommun.Aktiviteter.AktiviteterEventReceiver
+namespace UPCOR.TillsynKommun.Listor.Aktiviteter
 {
     /// <summary>
     /// List Item Events
@@ -14,13 +13,14 @@ namespace UPCOR.TillsynKommun.Aktiviteter.AktiviteterEventReceiver
     public class AktiviteterEventReceiver : SPItemEventReceiver
     {
         /// <summary>
-        /// An item was added.
+        /// An item is being added.
         /// </summary>
         public override void ItemAdded(SPItemEventProperties properties) {
             base.ItemAdded(properties);
 
             try {
                 Global.Debug = "butik";
+                Global.URL = "Aktiviteter ItemAdded: " + properties.WebUrl;
                 object oButik = properties.ListItem[new Guid("a209aa87-f7e4-46cf-8865-37ea0002294b")];
                 string strButik = oButik as string;
 
@@ -84,7 +84,5 @@ namespace UPCOR.TillsynKommun.Aktiviteter.AktiviteterEventReceiver
                 Global.WriteLog("Message:\r\n" + ex.Message + "\r\n\r\nStacktrace:\r\n" + ex.StackTrace + "\r\n\r\nDebug:\r\n" + Global.Debug, EventLogEntryType.Error, 2002);
             }
         }
-
-
     }
 }
