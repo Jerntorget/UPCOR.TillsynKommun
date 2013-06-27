@@ -10,17 +10,19 @@ namespace UPCOR.TillsynKommun
 {
     public partial class AddRights : LayoutsPageBase
     {
+        private const string _version = "<!--[[VER0.1]]-->";
         private StringBuilder _sbDebug = new StringBuilder();
-        private SPList _list = null;
-        private SPListItem _item = null;
-        private SPGroup _group = null;
+        
         private string _kundnummer = null;
-        private SPListItem _itemAdresser = null;
-        private SPListItem _itemAgare = null;
+        //private string _gruppnamn = null;
+        
         private EventLog _log = null;
         private const string _source = "UPCOR.CreateGroupWhenStore";
         private const string _delim = ": ";
         private bool _error = false;
+
+        Guid _listGuid;
+        int _itemId;
 
         public EventLog Log {
             get {
@@ -34,67 +36,67 @@ namespace UPCOR.TillsynKommun
             }
         }
 
-        private SPListItem Agare {
-            get {
-                if (_itemAgare == null) {
-                    string agare = (string)_item[new Guid("50076a6a-424f-4b32-9992-9ce9ab02b1c8")];
-                    if (!string.IsNullOrEmpty(agare)) {
-                        agare = agare.Substring(0, agare.IndexOf(';'));
-                        Guid agareGUID = new Guid(SPContext.Current.Web.Properties["listAgareGUID"]);
-                        SPList listAgare = SPContext.Current.Web.Lists[agareGUID];
-                        _itemAgare = listAgare.GetItemById(int.Parse(agare));
-                    }
-                }
-                return _itemAgare;
-            }
+        private SPListItem GetItem(SPWeb web) {
+            SPList kund = web.Lists.GetList(_listGuid, false);
+            return kund.GetItemById(_itemId);
         }
 
-         private SPListItem Adress {
-            get {
-                if (_itemAdresser == null) {
-                    string adress = (string)_item[new Guid("b5c833ef-df4e-44f3-9ed5-316ed61a59c9")];
-                    if (!string.IsNullOrEmpty(adress)) {
-                        adress = adress.Substring(0, adress.IndexOf(';'));
-                        Guid adresserGUID = new Guid(SPContext.Current.Web.Properties["listAdresserGUID"]);
-                        SPList listAdresser = SPContext.Current.Web.Lists[adresserGUID];
-                        _itemAdresser = listAdresser.GetItemById(int.Parse(adress));
-                    }
-                }
-                return _itemAdresser;
+        private SPListItem GetAgare(SPListItem item) {
+            string agare = (string)item[new Guid("50076a6a-424f-4b32-9992-9ce9ab02b1c8")];
+            if (!string.IsNullOrEmpty(agare)) {
+                agare = agare.Substring(0, agare.IndexOf(';'));
+                Guid agareGUID = new Guid(item.Web.Properties["listAgareGUID"]);
+                SPList listAgare = item.Web.Lists[agareGUID];
+                return listAgare.GetItemById(int.Parse(agare));
             }
+            return null;
+        }
+
+        private SPListItem GetAdress(SPListItem item) {
+            string adress = (string)item[new Guid("b5c833ef-df4e-44f3-9ed5-316ed61a59c9")];
+            if (!string.IsNullOrEmpty(adress)) {
+                adress = adress.Substring(0, adress.IndexOf(';'));
+                Guid adresserGUID = new Guid(item.Web.Properties["listAdresserGUID"]);
+                SPList listAdresser = item.Web.Lists[adresserGUID];
+                return listAdresser.GetItemById(int.Parse(adress));
+            }
+            return null;
         }
 
         protected void Page_Load(object sender, EventArgs e) {
+            Controls.Add(new LiteralControl(_version));
+
             string strId = Page.Request["Id"];
             string strList = Page.Request["List"];
             string strSource = Page.Request["Source"];
 
-
             btnGive.Click += btnGive_Click;
 
-            Guid listGuid = Guid.Empty;
-            int itemId = 0;
+            _listGuid = Guid.Empty;
+            _itemId = 0;
+
             bool parseSuccess = false;
             try {
-                listGuid = new Guid(strList);
-                itemId = int.Parse(strId);
+                _listGuid = new Guid(strList);
+                _itemId = int.Parse(strId);
                 parseSuccess = true;
             }
-            catch {}
+            catch { }
 
             if (parseSuccess) {
-                _list = SPContext.Current.Web.Lists.GetList(listGuid, false);
-                _item = _list.GetItemById(itemId);
-                if (_item != null) {
-                    _kundnummer = _item[new Guid("353eabaa-f0d3-40cc-acc3-4c6b23d3a64f")] as string;
+                SPListItem item = GetItem(SPContext.Current.Web);
+                if (item != null) {
+                    _kundnummer = item[new Guid("353eabaa-f0d3-40cc-acc3-4c6b23d3a64f")] as string;
+                    //_gruppnamn
                 }
-             }
+            }
         }
 
         private void ListRights(SPListItem item, StringBuilder sb) {
             if (item.HasUniqueRoleAssignments) {
+                item.Web.AllowUnsafeUpdates = true;
                 foreach (SPRoleAssignment ra in item.RoleAssignments) {
-                    string isCustomGroup = SPContext.Current.Web.Properties["group" + ra.Member.ID.ToString()];
+                    string isCustomGroup = item.Web.Properties["group" + ra.Member.ID.ToString()];
                     if (!string.IsNullOrWhiteSpace(isCustomGroup)) {
                         bool hasAccess = false;
                         StringBuilder sb2 = new StringBuilder();
@@ -116,6 +118,7 @@ namespace UPCOR.TillsynKommun
                             sb.Append(sb2);
                     }
                 }
+                item.Web.AllowUnsafeUpdates = false;
             }
             else {
                 sb.Append("Rättigheter ärvs");
@@ -126,87 +129,130 @@ namespace UPCOR.TillsynKommun
         protected void Page_PreRender(object sender, EventArgs e) {
             StringBuilder sb = new StringBuilder();
 
-            if(_kundnummer == null) {
+            if (_kundnummer == null) {
                 sb.Append("Kundnummer är inte satt");
             }
             else {
-                if (_group == null) {
-                    GetGroup(SPContext.Current.Web, _kundnummer);
-                }
 
-                if (_group == null) {
-                    sb.Append("Hittar ingen grupp med samma namn som kundnumret");
-                }
-                else {
-                    sb.Append("Kund: ");
-                    sb.Append(_item.Title);
-                    sb.Append("<br />");
-                    sb.Append("Grupp: ");
-                    sb.Append(_group.Name);
-                    sb.Append("<br />");
-                    sb.Append("<br />");
-                    sb.Append("Rättigheter på kundkort:");
-                    sb.Append("<br />");
+                SPSecurity.RunWithElevatedPrivileges(() => {
+                    using (SPSite elevatedSite = new SPSite(SPContext.Current.Site.ID)) {
+                        SPWeb web = elevatedSite.RootWeb;
+                        SPGroup group = GetGroup(web, _kundnummer);
+                        SPListItem item = GetItem(web);
+                        SPListItem adress = GetAdress(item);
+                        SPListItem agare = GetAgare(item);
 
-                    ListRights(_item, sb);
+                        if (group == null) {
+                            sb.Append("Hittar ingen grupp med samma namn som kundnumret");
+                        }
+                        else {
+                            sb.Append("Kund: ");
+                            sb.Append(item.Title);
+                            sb.Append("<br />");
+                            sb.Append("Grupp: ");
+                            sb.Append(group.Name);
+                            sb.Append("<br />");
+                            sb.Append("<br />");
+                            sb.Append("Rättigheter på kundkort:");
+                            sb.Append("<br />");
 
-                    sb.Append("<br />");
-                    if (Adress == null) {
-                        sb.Append("Ingen adress satt");
-                        sb.Append("<br />");
+                            try {
+                                ListRights(item, sb);
+                            }
+                            catch (Exception ex) {
+                                sb.Append("Error: ");
+                                sb.Append("<br />");
+                                sb.Append("<br />");
+                                sb.Append(ex.Message);
+                                sb.Append("Stacktrace: ");
+                                sb.Append("<br />");
+                                sb.Append("<br />");
+                                sb.Append(ex.StackTrace);
+                            }
+
+                            sb.Append("<br />");
+                            if (adress == null) {
+                                sb.Append("Ingen adress satt");
+                                sb.Append("<br />");
+                            }
+                            else {
+                                sb.Append("Rättigheter på adress:");
+                                sb.Append("<br />");
+
+
+                                try {
+                                    ListRights(adress, sb);
+                                }
+                                catch (Exception ex) {
+                                    sb.Append("Error: ");
+                                    sb.Append("<br />");
+                                    sb.Append("<br />");
+                                    sb.Append(ex.Message);
+                                    sb.Append("Stacktrace: ");
+                                    sb.Append("<br />");
+                                    sb.Append("<br />");
+                                    sb.Append(ex.StackTrace);
+                                    Log.WriteEntry("adress - " + sb.ToString().Replace("<br />", "\r\n"), EventLogEntryType.Error, 1102);
+                                }
+
+                            }
+
+                            sb.Append("<br />");
+
+                            if (agare == null) {
+                                sb.Append("Ingen adress satt");
+                                sb.Append("<br />");
+                            }
+                            else {
+                                sb.Append("Rättigheter på ägare:");
+                                sb.Append("<br />");
+
+
+                                try {
+                                    ListRights(agare, sb);
+                                }
+                                catch (Exception ex) {
+                                    sb.Append("Error: ");
+                                    sb.Append("<br />");
+                                    sb.Append("<br />");
+                                    sb.Append(ex.Message);
+                                    sb.Append("Stacktrace: ");
+                                    sb.Append("<br />");
+                                    sb.Append("<br />");
+                                    sb.Append(ex.StackTrace);
+                                    Log.WriteEntry("agare - " + sb.ToString().Replace("<br />", "\r\n"), EventLogEntryType.Error, 1102);
+                                }
+
+                            }
+                        }
                     }
-                    else {
-                        sb.Append("Rättigheter på adress:");
-                        sb.Append("<br />");
-
-                        ListRights(Adress, sb);
-                    }
-
-                    sb.Append("<br />");
-
-                    if (Agare == null) {
-                        sb.Append("Ingen adress satt");
-                        sb.Append("<br />");
-                    }
-                    else {
-                        sb.Append("Rättigheter på ägare:");
-                        sb.Append("<br />");
-
-                        ListRights(Agare, sb);
-                    }
-                }
+                });
             }
             pnlCurrentRights.Controls.Add(new LiteralControl(sb.ToString()));
         }
 
         void btnGive_Click(object sender, EventArgs e) {
-            if (_item != null) {
-                string kundnummer = _item[new Guid("353eabaa-f0d3-40cc-acc3-4c6b23d3a64f")] as string;
-                if (!string.IsNullOrWhiteSpace(kundnummer)) {
-                    GiveRights(kundnummer);
-                }
+            if (!string.IsNullOrWhiteSpace(_kundnummer)) {
+                GiveRights(_kundnummer);
             }
         }
 
         // Leta upp grupp med kundnummer, skapa om den inte finns
-        private void GetGroup(SPWeb web, string title) {
+        private SPGroup GetGroup(SPWeb web, string title) {
+            SPGroup group = null;
             var groups = web.SiteGroups.GetCollection(new string[] { title });
             if (groups.Count == 0) {
                 web.AllowUnsafeUpdates = true;
                 web.SiteGroups.Add(title, web.CurrentUser, null, string.Empty);
-                web.AllowUnsafeUpdates = false;
-                _group = web.SiteGroups.GetByName(title);
-            }
-            else {
-                _group = groups[0];
-            }
-
-            if (_group != null) {
-                web.AllowUnsafeUpdates = true;
-                web.Properties["group" + _group.ID.ToString()] = "true";
+                group = web.SiteGroups.GetByName(title);
+                web.Properties["group" + group.ID.ToString()] = "true";
                 web.Properties.Update();
                 web.AllowUnsafeUpdates = false;
             }
+            else {
+                group = groups[0];
+            }
+            return group;
         }
 
         private void GiveRights(string kundnummer) {
@@ -215,21 +261,25 @@ namespace UPCOR.TillsynKommun
                     using (SPSite elevatedSite = new SPSite(SPContext.Current.Site.ID)) {
                         SPWeb elevatedWeb = elevatedSite.RootWeb;
 
-                        GetGroup(elevatedWeb, kundnummer);
+                        SPGroup group = GetGroup(elevatedWeb, kundnummer);
 
-                        if (_group == null) {
+                        if (group == null) {
                             Log.WriteEntry("Cannot find group", EventLogEntryType.Error, 1000);
                             _error = true;
                             return;
                         }
 
+                        SPListItem item = GetItem(elevatedWeb);
+                        SPListItem adress = GetAdress(item);
+                        SPListItem agare = GetAgare(item);
+                        
                         #region Leta upp behörigheten för att visa och redigera
                         _sbDebug.AppendLine("Leta upp behörigheten för att visa och redigera");
                         SPRoleDefinition roleRead = elevatedWeb.RoleDefinitions.GetByType(SPRoleType.Reader);
                         SPRoleDefinition roleEdit = elevatedWeb.RoleDefinitions.GetByType(SPRoleType.Editor);
-                        SPRoleAssignment assignmentRead = new SPRoleAssignment(_group);
+                        SPRoleAssignment assignmentRead = new SPRoleAssignment(group);
                         assignmentRead.RoleDefinitionBindings.Add(roleRead);
-                        SPRoleAssignment assignmentEdit = new SPRoleAssignment(_group);
+                        SPRoleAssignment assignmentEdit = new SPRoleAssignment(group);
                         assignmentEdit.RoleDefinitionBindings.Add(roleEdit);
                         #endregion
 
@@ -240,23 +290,24 @@ namespace UPCOR.TillsynKommun
                         #region Ge läs-rättigheter för kundnummer-gruppen till det ändrade objektet
                         _sbDebug.AppendLine("-  Visa till det ändrade objektet");
                         _sbDebug.AppendLine("   bryter arv");
-                        _item.BreakRoleInheritance(true);
-                        _sbDebug.AppendLine("   sätter assignment");
-                        _item.RoleAssignments.Add(assignmentRead);
-                        _item[new Guid("388ac965-dd63-4f98-ba2d-b42f88bdc959")] = true;
-                        _item.Update();
-                        #endregion
-
+                        item.BreakRoleInheritance(true);
                         elevatedWeb.AllowUnsafeUpdates = true;
+                        _sbDebug.AppendLine("   sätter assignment");
+                        item.RoleAssignments.Add(assignmentRead);
+                        item[new Guid("388ac965-dd63-4f98-ba2d-b42f88bdc959")] = true;
+                        item.Update();
+                        #endregion
+                                               
 
                         #region Ge redigera-rättigheter för kundnummer-gruppen till adress
                         try {
-                            if (Adress != null) {
+                            if (adress != null) {
                                 _sbDebug.AppendLine("   bryter arv");
-                                Adress.BreakRoleInheritance(true);
+                                adress.BreakRoleInheritance(true);
+                                elevatedWeb.AllowUnsafeUpdates = true;
                                 _sbDebug.AppendLine("   sätter assignment");
-                                Adress.RoleAssignments.Add(assignmentEdit);
-                                Adress.Update();
+                                adress.RoleAssignments.Add(assignmentEdit);
+                                adress.Update();
                             }
                         }
                         catch (Exception aex) {
@@ -266,16 +317,16 @@ namespace UPCOR.TillsynKommun
                         }
                         #endregion
 
-                        elevatedWeb.AllowUnsafeUpdates = true;
-
+                        
                         #region Ge redigera-rättigheter för kundnummer-gruppen till ägare
                         try {
-                            if (Agare != null) {
+                            if (agare != null) {
                                 _sbDebug.AppendLine("   bryter arv");
-                                Agare.BreakRoleInheritance(true);
+                                agare.BreakRoleInheritance(true);
+                                elevatedWeb.AllowUnsafeUpdates = true;
                                 _sbDebug.AppendLine("   sätter assignment");
-                                Agare.RoleAssignments.Add(assignmentEdit);
-                                Agare.Update();
+                                agare.RoleAssignments.Add(assignmentEdit);
+                                agare.Update();
                             }
                         }
                         catch (Exception aaex) {

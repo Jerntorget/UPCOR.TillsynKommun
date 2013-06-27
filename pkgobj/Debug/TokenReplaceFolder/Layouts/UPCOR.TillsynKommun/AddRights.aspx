@@ -11,7 +11,7 @@
 <style type="text/css">
     .lblResult {
         font-style: italic;
-        color: #0f0;
+        color: #0a0;
     }
 </style>
 </asp:Content>

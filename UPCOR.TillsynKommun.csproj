@@ -79,6 +79,8 @@
       <DependentUpon>AddRights.aspx.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
+    <Compile Include="Listor\Adresser\AdressEventReceiver\AdressEventReceiver.cs" />
+    <Compile Include="Listor\Agare\AgareEventReceiver\AgareEventReceiver.cs" />
     <Compile Include="Listor\Aktiviteter\AktiviteterEventReceiver\AktiviteterEventReceiver.cs" />
     <Compile Include="Listor\Kundkort\KundkortEventReceiver\KundkortEventReceiver.cs" />
     <Compile Include="MinButikWP\MinButikWP.cs" />
@@ -163,8 +165,10 @@
     <Content Include="Layouts\UPCOR.TillsynKommun\tillsyn.css" />
     <Content Include="Layouts\UPCOR.TillsynKommun\tillsyn.js" />
     <Content Include="Listor\Adresser\AdresserInstance\Elements.xml" />
+    <Content Include="Listor\Adresser\AdressEventReceiver\Elements.xml" />
     <Content Include="Listor\Adresser\Elements.xml" />
     <Content Include="Listor\Adresser\Schema.xml" />
+    <Content Include="Listor\Agare\AgareEventReceiver\Elements.xml" />
     <Content Include="Listor\Aktiviteter\AktiviteterEventReceiver\Elements.xml" />
     <Content Include="Listor\Aktiviteter\AktiviteterInstance\Elements.xml" />
     <Content Include="Listor\Aktiviteter\Elements.xml" />
@@ -400,8 +404,14 @@
     <None Include="Listor\Adresser\AdresserInstance\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{fb92af67-d2b3-4669-9e89-40aa0732c02f}</SharePointProjectItemId>
     </None>
+    <None Include="Listor\Adresser\AdressEventReceiver\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{aaf5c90e-d340-4273-9070-700d5acd2d02}</SharePointProjectItemId>
+    </None>
     <None Include="Listor\Adresser\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{738a2268-dfdc-4be6-9273-1a397b89f65f}</SharePointProjectItemId>
+    </None>
+    <None Include="Listor\Agare\AgareEventReceiver\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{70cc5f26-5ba9-4ffe-aeae-d07c49556fb4}</SharePointProjectItemId>
     </None>
     <None Include="Listor\Agare\AgareInstance\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{46af20b9-97c6-41b1-9940-2edfbe290dfa}</SharePointProjectItemId>

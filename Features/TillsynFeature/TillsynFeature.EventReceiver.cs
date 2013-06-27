@@ -110,8 +110,11 @@ namespace UPCOR.TillsynKommun.Features.TillsynFeature
                     }
                     #endregion
 
+                    var roleRead = web.RoleDefinitions.GetByType(SPRoleType.Reader);
                     var roleEdit = web.RoleDefinitions.GetByType(SPRoleType.Editor);
+                    SPRoleAssignment assignmentVisitorRead = new SPRoleAssignment(web.AssociatedVisitorGroup);
                     SPRoleAssignment assignmentMemberEdit = new SPRoleAssignment(web.AssociatedMemberGroup);
+                    assignmentVisitorRead.RoleDefinitionBindings.Add(roleRead);
                     assignmentMemberEdit.RoleDefinitionBindings.Add(roleEdit);
 
                     if (listSidor != null) {
@@ -503,20 +506,20 @@ Nu har första stegen till en online plattform för tillsyn av tobak och folköl ta
                         listDokument.RoleAssignments.Add(assignmentMemberEdit);
                         listDokument.Update();
 
-                        listKundkort.BreakRoleInheritance(true);
-                        var ra = listKundkort.RoleAssignments.GetAssignmentByPrincipal(web.AssociatedVisitorGroup);
-                        ra.RoleDefinitionBindings.RemoveAll();
-                        ra.Update();
+                        //listKundkort.BreakRoleInheritance(true);
+                        //listKundkort.RoleAssignments.Remove(web.AssociatedVisitorGroup);
+                        //listKundkort.RoleAssignments.AddToCurrentScopeOnly(assignmentVisitorRead);
+                        //listKundkort.Update();
 
-                        listAgare.BreakRoleInheritance(true);
-                        var ra2 = listAgare.RoleAssignments.GetAssignmentByPrincipal(web.AssociatedVisitorGroup);
-                        ra2.RoleDefinitionBindings.RemoveAll();
-                        ra2.Update();
+                        //listAgare.BreakRoleInheritance(true);
+                        //listAgare.RoleAssignments.Remove(web.AssociatedVisitorGroup);
+                        //listAgare.RoleAssignments.AddToCurrentScopeOnly(assignmentVisitorRead);
+                        //listAgare.Update();
 
-                        listAdresser.BreakRoleInheritance(true);
-                        var ra3 = listAdresser.RoleAssignments.GetAssignmentByPrincipal(web.AssociatedVisitorGroup);
-                        ra3.RoleDefinitionBindings.RemoveAll();
-                        ra3.Update();
+                        //listAdresser.BreakRoleInheritance(true);
+                        //listAdresser.RoleAssignments.Remove(web.AssociatedVisitorGroup);
+                        //listAdresser.RoleAssignments.AddToCurrentScopeOnly(assignmentVisitorRead);
+                        //listAdresser.Update();
                     }
                     catch (Exception ex) {
                         Global.WriteLog("sätt rättigheter\r\n\r\nMessage:\r\n" + ex.Message + "\r\n\r\nStacktrace:\r\n" + ex.StackTrace + "\r\n\r\nDebug:\r\n" + Global.Debug, EventLogEntryType.Error, 2001);
